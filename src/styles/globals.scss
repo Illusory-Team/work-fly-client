@@ -1,3 +1,100 @@
 body {
-	@apply text-xs;
+	background: var(--bg-base);
+	color: var(--color-primary);
+}
+
+.h1 {
+	font-size: 40px;
+	font-weight: 600;
+	line-height: 52px;
+}
+
+.h2 {
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 40px;
+}
+
+.h3 {
+	font-size: 28px;
+	font-weight: 600;
+	line-height: 40px;
+}
+
+.h4 {
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 28px;
+}
+
+.h5 {
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: 600;
+}
+
+.headline {
+	font-size: 17px;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.subhead {
+	font-size: 15px;
+	line-height: 20px;
+	font-weight: 400;
+}
+
+.p {
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.caption-14-rg {
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 400;
+}
+
+.caption-14-md {
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 500;
+}
+
+.caption-13-rg {
+	font-size: 13px;
+	line-height: 18px;
+	font-weight: 400;
+}
+
+.caption-13-md {
+	font-size: 13px;
+	line-height: 18px;
+	font-weight: 500;
+}
+
+.btn-l {
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 20px;
+}
+
+.btn-m {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.btn-s {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.btn-xs {
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 16px;
 }
