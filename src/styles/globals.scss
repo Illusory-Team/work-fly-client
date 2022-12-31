@@ -1,6 +1,9 @@
 body {
 	background: var(--bg-base);
 	color: var(--color-primary);
+	font-size: var(--text-size-base);
+	font-weight: var(--text-weight-base);
+	font-family: var(--text-font-base);
 }
 
 .h1 {
@@ -79,22 +82,30 @@ body {
 	font-size: 18px;
 	font-weight: 500;
 	line-height: 20px;
+	padding: 16px 24px;
+	border-radius: 10px;
 }
 
 .btn-m {
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 24px;
+	padding: 8px 16px;
+	border-radius: 8px;
 }
 
 .btn-s {
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 24px;
+	padding: 8px 12px;
+	border-radius: 7px;
 }
 
 .btn-xs {
 	font-size: 14px;
 	font-weight: 500;
 	line-height: 16px;
+	padding: 8px;
+	border-radius: 6px;
 }

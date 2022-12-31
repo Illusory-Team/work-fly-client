@@ -1,18 +1,34 @@
 :root {
 	--color-primary: #030235;
 	--color-primary-hover: #272727;
+	--color-primary-active: #000000;
+	--color-secondary: transparent;
+	--color-secondary-hover: transparent;
+	--color-secondary-active: #ebebeb;
 	--color-danger: #d44333;
+	--color-danger-hover: #c04234;
+	--color-danger-active: #ae392c;
 	--color-success: #21a453;
+	--color-success-hover: #1e954b;
+	--color-success-active: #1e8a47;
+
+	--color-divider: rgba(89, 100, 118, 0.16);
+	--color-divider-hover: rgba(73, 82, 97, 0.16);
+	--color-divider-active: rgba(49, 55, 65, 0.16);
+	--color-paragraph: #6b6e85;
+	--color-paragraph-hover: #606377;
+	--color-paragraph-active: #52566e;
+	--color-descriptor: #98a0ad;
+	--color-descriptor-hover: #7e8694;
+	--color-descriptor-active: #737b89;
+
+	--color-light-brown: #555158;
 	--color-black: #000000;
 	--color-white: #ffffff;
 	--color-grey-10: #f8f8f8;
 	--color-grey-40: #ebebeb;
 	--color-light-grey: #d7d7d8;
 	--color-grey-90: #bdbcbe;
-	--color-divider-10: rgba(89, 100, 118, 0.16);
-	--color-light-brown: #555158;
-	--color-paragraph: #6b6e85;
-	--color-descriptor: #98a0ad;
 	--color-pink-40: #f1dade;
 	--color-pink-70: #f1c7c4;
 	--color-pink-80: #ffbbbb;
@@ -27,6 +43,11 @@
 	--color-green-90: #17a468;
 	--color-purple-80: #c9c7ef;
 	--color-purple-90: #837fd1;
+
 	--bg-base: #f2f2f2;
 	--bg-sidebar: #080721;
+
+	--text-size-base: 15px;
+	--text-weight-base: 500;
+	--text-font-base: 'Inter', sans-serif;
 }
