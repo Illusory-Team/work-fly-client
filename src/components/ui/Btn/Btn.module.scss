@@ -1,0 +1,331 @@
+.btn {
+	@apply rounded-lg p-4 relative m-3;
+}
+
+.default {
+	&.primary {
+		background: var(--color-primary);
+		color: white;
+		@apply transition-all;
+
+		&:hover {
+			background: var(--color-primary-hover);
+		}
+
+		&:active {
+			background: var(--color-primary-active);
+		}
+	}
+
+	&.secondary {
+		background: var(--color-secondary);
+		color: white;
+		@apply transition-all;
+
+		&:hover {
+			background: var(--color-secondary-hover);
+		}
+
+		&:active {
+			background: var(--color-secondary-active);
+		}
+	}
+
+	&.danger {
+		background: var(--color-danger);
+		color: white;
+		@apply transition-all;
+
+		&:hover {
+			background: var(--color-danger-hover);
+		}
+
+		&:active {
+			background: var(--color-danger-active);
+		}
+	}
+
+	&.success {
+		background: var(--color-success);
+		color: white;
+		@apply transition-all;
+
+		&:hover {
+			background: var(--color-success-hover);
+		}
+
+		&:active {
+			background: var(--color-success-active);
+		}
+	}
+}
+
+.outlined {
+	&.primary {
+		border: 2px solid var(--color-primary);
+		color: var(--color-primary);
+		@apply transition-all;
+
+		&:hover {
+			color: var(--color-primary-hover);
+			border: 2px solid var(--color-primary-hover);
+		}
+
+		&:active {
+			color: var(--color-primary-active);
+			border: 2px solid var(--color-primary-active);
+		}
+	}
+
+	&.secondary {
+		border: 2px solid var(--color-secondary);
+		color: var(--color-secondary);
+		@apply transition-all;
+
+		&:hover {
+			border: 2px solid var(--color-secondary-hover);
+			color: var(--color-secondary-hover);
+		}
+
+		&:active {
+			border: 2px solid var(--color-secondary-active);
+			color: var(--color-secondary-active);
+		}
+	}
+
+	&.danger {
+		border: 2px solid var(--color-danger);
+		color: var(--color-danger);
+		@apply transition-all;
+
+		&:hover {
+			border: 2px solid var(--color-danger-hover);
+			color: var(--color-danger-hover);
+		}
+
+		&:active {
+			border: 2px solid var(--color-danger-active);
+			color: var(--color-danger-active);
+		}
+	}
+
+	&.success {
+		border: 2px solid var(--color-success);
+		color: var(--color-success);
+		@apply transition-all;
+
+		&:hover {
+			border: 2px solid var(--color-success-hover);
+			color: var(--color-success-hover);
+		}
+
+		&:active {
+			border: 2px solid var(--color-success-active);
+			color: var(--color-success-active);
+		}
+	}
+}
+
+.square {
+	@apply rounded-none;
+
+	&.primary {
+		border: 2px solid var(--color-primary);
+		color: var(--color-primary);
+		@apply transition-all;
+
+		&:hover {
+			color: var(--color-primary-hover);
+			border: 2px solid var(--color-primary-hover);
+		}
+
+		&:active {
+			color: var(--color-primary-active);
+			border: 2px solid var(--color-primary-active);
+		}
+
+		&::after,
+		&::before {
+			content: '';
+			@apply block w-3 h-3 absolute transition-all;
+		}
+
+		&:hover::after,
+		&:hover::before {
+			width: calc(100% + 12px);
+			height: calc(100% + 12px);
+			border-color: var(--color-primary-hover);
+		}
+
+		&:active::after,
+		&:active::before {
+			width: calc(100% + 12px);
+			height: calc(100% + 12px);
+			border-color: var(--color-primary-active);
+		}
+
+		&::after {
+			top: -6px;
+			left: -6px;
+			border-top: 2px solid var(--color-primary);
+			border-left: 2px solid var(--color-primary);
+		}
+
+		&::before {
+			bottom: -6px;
+			right: -6px;
+			border-bottom: 2px solid var(--color-primary);
+			border-right: 2px solid var(--color-primary);
+		}
+	}
+
+	&.secondary {
+		border: 2px solid var(--color-secondary);
+		color: var(--color-secondary);
+		@apply transition-all;
+
+		&:hover {
+			border: 2px solid var(--color-secondary-hover);
+			color: var(--color-secondary-hover);
+		}
+
+		&:active {
+			border: 2px solid var(--color-secondary-active);
+			color: var(--color-secondary-active);
+		}
+
+		&::after,
+		&::before {
+			content: '';
+			@apply block w-3 h-3 absolute transition-all;
+		}
+
+		&:hover::after,
+		&:hover::before {
+			width: calc(100% + 12px);
+			height: calc(100% + 12px);
+			border-color: var(--color-secondary-hover);
+		}
+
+		&:active::after,
+		&:active::before {
+			width: calc(100% + 12px);
+			height: calc(100% + 12px);
+			border-color: var(--color-secondary-active);
+		}
+
+		&::after {
+			top: -6px;
+			left: -6px;
+			border-top: 2px solid var(--color-secondary);
+			border-left: 2px solid var(--color-secondary);
+		}
+
+		&::before {
+			bottom: -6px;
+			right: -6px;
+			border-bottom: 2px solid var(--color-secondary);
+			border-right: 2px solid var(--color-secondary);
+		}
+	}
+
+	&.danger {
+		border: 2px solid var(--color-danger);
+		color: var(--color-danger);
+		@apply transition-all;
+
+		&:hover {
+			border: 2px solid var(--color-danger-hover);
+			color: var(--color-danger-hover);
+		}
+
+		&:active {
+			border: 2px solid var(--color-danger-active);
+			color: var(--color-danger-active);
+		}
+
+		&::after,
+		&::before {
+			content: '';
+			@apply block w-3 h-3 absolute transition-all;
+		}
+
+		&:hover::after,
+		&:hover::before {
+			width: calc(100% + 12px);
+			height: calc(100% + 12px);
+			border-color: var(--color-danger-hover);
+		}
+
+		&:active::after,
+		&:active::before {
+			width: calc(100% + 12px);
+			height: calc(100% + 12px);
+			border-color: var(--color-danger-active);
+		}
+
+		&::after {
+			top: -6px;
+			left: -6px;
+			border-top: 2px solid var(--color-danger);
+			border-left: 2px solid var(--color-danger);
+		}
+
+		&::before {
+			bottom: -6px;
+			right: -6px;
+			border-bottom: 2px solid var(--color-danger);
+			border-right: 2px solid var(--color-danger);
+		}
+	}
+
+	&.success {
+		border: 2px solid var(--color-success);
+		color: var(--color-success);
+		@apply transition-all;
+
+		&:hover {
+			border: 2px solid var(--color-success-hover);
+			color: var(--color-success-hover);
+		}
+
+		&:active {
+			border: 2px solid var(--color-success-active);
+			color: var(--color-success-active);
+		}
+
+		&::after,
+		&::before {
+			content: '';
+			@apply block w-3 h-3 absolute transition-all;
+		}
+
+		&:hover::after,
+		&:hover::before {
+			width: calc(100% + 12px);
+			height: calc(100% + 12px);
+			border-color: var(--color-success-hover);
+		}
+
+		&:active::after,
+		&:active::before {
+			width: calc(100% + 12px);
+			height: calc(100% + 12px);
+			border-color: var(--color-success-active);
+		}
+
+		&::after {
+			top: -6px;
+			left: -6px;
+			border-top: 2px solid var(--color-success);
+			border-left: 2px solid var(--color-success);
+		}
+
+		&::before {
+			bottom: -6px;
+			right: -6px;
+			border-bottom: 2px solid var(--color-success);
+			border-right: 2px solid var(--color-success);
+		}
+	}
+}
