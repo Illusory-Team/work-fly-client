@@ -6,6 +6,20 @@ body {
 	font-family: 'Inter', sans-serif;
 }
 
+.block {
+  position: relative;
+
+  &__item {
+    display: block;
+    display: flex;
+  }
+
+  &::after {
+    content: '';
+    color: red;
+  }
+}
+
 .h1 {
 	font-size: 40px;
 	font-weight: 600;
