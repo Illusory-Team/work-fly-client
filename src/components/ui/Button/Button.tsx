@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { FC, PropsWithChildren } from 'react';
 import styles from './Button.module.scss';
 import { BtnProps } from './Button.types';
@@ -17,8 +18,10 @@ const Btn: FC<PropsWithChildren<BtnProps>> = ({
 	children,
 	...props
 }) => {
+	const cl = classNames('relative', SizeEnum[size], styles[variant], styles[color], className);
+
 	return (
-		<button {...props} className={['relative', styles[variant], styles[color], SizeEnum[size], className].join(' ')}>
+		<button {...props} className={cl}>
 			{children}
 		</button>
 	);
