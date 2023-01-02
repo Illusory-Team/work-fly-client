@@ -1,13 +1,13 @@
 {
-  "extends": ["stylelint-config-standard", "stylelint-config-prettier"],
-  "rules": {
-    "color-hex-case": "lower",
-    "selector-class-pattern": null,
-    "alpha-value-notation": "number",
-    "color-function-notation": "legacy"
-  },
-  "ignoreFiles": [
-    "build/*",
-    "styles/lib/_style.scss"
-  ]
+	"extends": ["stylelint-config-standard", "stylelint-config-prettier", "stylelint-config-recommended-scss"],
+	"rules": {
+		"color-hex-case": "lower",
+		"selector-class-pattern": null,
+		"alpha-value-notation": "number",
+		"color-function-notation": "legacy",
+    "import-notation": "string",
+    "scss/at-import-partial-extension": "always",
+    "color-hex-length": "short"
+	},
+	"ignoreFiles": ["build/*", "./src/styles/lib/*.scss"]
 }

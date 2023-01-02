@@ -1,0 +1,133 @@
+.default {
+	&.primary {
+		background: var(--primary-light);
+		color: var(--default-light);
+		@apply transition-all;
+
+		&:hover {
+			background: var(--primary-main);
+		}
+
+		&:active {
+			background: var(--primary-dark);
+		}
+	}
+
+	&.secondary {
+		background: var(--color-secondary);
+		color: white;
+		@apply transition-all;
+
+		&:hover {
+			background: var(--color-secondary-hover);
+		}
+
+		&:active {
+			background: var(--color-secondary-active);
+		}
+	}
+
+	&.danger {
+		background: var(--color-danger);
+		color: white;
+		@apply transition-all;
+
+		&:hover {
+			background: var(--color-danger-hover);
+		}
+
+		&:active {
+			background: var(--color-danger-active);
+		}
+	}
+
+	&.success {
+		background: var(--color-success);
+		color: white;
+		@apply transition-all;
+
+		&:hover {
+			background: var(--color-success-hover);
+		}
+
+		&:active {
+			background: var(--color-success-active);
+		}
+	}
+}
+
+.outlined {
+	&.primary {
+		border: 2px solid var(--primary-light);
+		color: var(--primary-light);
+		@apply transition-all;
+
+		&:hover {
+			color: var(--primary-main);
+			border: 2px solid var(--primary-main);
+			background: var(--default-light);
+		}
+
+		&:active {
+			color: var(--primary-dark);
+			border: 2px solid var(--primary-dark);
+			transform: scale(1.1);
+		}
+	}
+}
+
+.square {
+	@apply rounded-none;
+
+	&.primary {
+		border: 2px solid var(--primary-light);
+		color: var(--primary-light);
+		@apply transition-all;
+
+		&:hover {
+			color: var(--primary-main);
+			border: 2px solid var(--primary-main);
+			background: var(--default-light);
+		}
+
+		&:active {
+			color: var(--primary-dark);
+			border: 2px solid var(--primary-light);
+		}
+
+		&::after,
+		&::before {
+			content: '';
+			border-color: var(--primary-light);
+			@apply block w-3 h-3 absolute transition-all;
+		}
+
+		&::after {
+			top: -6px;
+			left: -6px;
+			border-top: 2px solid;
+			border-left: 2px solid;
+		}
+
+		&::before {
+			bottom: -6px;
+			right: -6px;
+			border-bottom: 2px solid;
+			border-right: 2px solid;
+		}
+
+		&:hover::after,
+		&:hover::before {
+			width: calc(100% + 12px);
+			height: calc(100% + 12px);
+			border-color: var(--primary-main);
+		}
+
+		&:active::after,
+		&:active::before {
+			width: calc(100% + 12px);
+			height: calc(100% + 12px);
+			border-color: var(--primary-dark);
+		}
+	}
+}
