@@ -22,7 +22,7 @@
     "stylelint:fix": "stylelint src/**/*{.css,.pcss,.ts,.tsx,.js,.jsx} --fix",
     "prettier": "prettier --check src/**/*{.css,.pcss}",
     "prettier:fix": "prettier --write src/**/*{.css,.pcss}",
-    "lint": "eslint ./**/*.ts",
+    "lint": "eslint ./src/**/*.ts",
     "lint:fix": "eslint ./**/*.ts --fix",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
