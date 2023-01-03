@@ -10,7 +10,7 @@ enum SizeEnum {
 	'xs' = 'btn-xs',
 }
 
-const Btn: FC<PropsWithChildren<BtnProps>> = ({
+export const Button: FC<PropsWithChildren<BtnProps>> = ({
 	size = 'l',
 	color = 'primary',
 	variant = 'default',
@@ -26,5 +26,3 @@ const Btn: FC<PropsWithChildren<BtnProps>> = ({
 		</button>
 	);
 };
-
-export default Btn;
