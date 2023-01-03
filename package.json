@@ -25,7 +25,8 @@
     "lint": "eslint ./src/**/*.ts",
     "lint:fix": "eslint ./**/*.ts --fix",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@next/font": "13.0.7",
@@ -62,6 +63,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-react": "7.31.11",
     "eslint-plugin-storybook": "0.6.8",
+    "husky": "^8.0.0",
     "postcss": "8.4.20",
     "postcss-loader": "7.0.2",
     "prettier": "2.8.1",
