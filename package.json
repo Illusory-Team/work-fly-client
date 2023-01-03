@@ -18,7 +18,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "stylelint": "stylelint src/**/*{.css,.pcss}",
+    "stylelint": "stylelint src/**/*{.css,.scss}",
     "stylelint:fix": "stylelint src/**/*{.css,.pcss,.ts,.tsx,.js,.jsx} --fix",
     "prettier": "prettier --check src/**/*{.css,.pcss}",
     "prettier:fix": "prettier --write src/**/*{.css,.pcss}",
