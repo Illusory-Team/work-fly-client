@@ -66,6 +66,10 @@
 				border: 2px solid var(--primary-light);
 				background: transparent;
 			}
+
+			&:hover:disabled {
+				border-color: var(--default-main);
+			}
 		}
 
 		.label {
@@ -86,19 +90,23 @@
 			&::placeholder {
 				color: var(--descriptor-main);
 			}
-
+			/* stylelint-disable-next-line */
 			&:disabled {
 				background: var(--default-main);
 				@apply opacity-50;
 			}
-
+			/* stylelint-disable-next-line */
 			&:hover {
 				border-color: var(--danger-light);
 			}
-
+			/* stylelint-disable-next-line */
 			&:focus {
 				border: 2px solid var(--danger-dark);
 				background: transparent;
+			}
+
+			&:hover:disabled {
+				border-color: var(--danger-main);
 			}
 		}
 
@@ -120,19 +128,23 @@
 			&::placeholder {
 				color: var(--descriptor-main);
 			}
-
+			/* stylelint-disable-next-line */
 			&:disabled {
 				background: var(--success-main);
 				@apply opacity-50;
 			}
-
+			/* stylelint-disable-next-line */
 			&:hover {
 				border-color: var(--success-light);
 			}
-
+			/* stylelint-disable-next-line */
 			&:focus {
 				border: 2px solid var(--success-dark);
 				background: transparent;
+			}
+
+			&:hover:disabled {
+				border-color: var(--danger-main);
 			}
 		}
 

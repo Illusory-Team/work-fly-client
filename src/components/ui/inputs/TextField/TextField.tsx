@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from 'react';
+import { FC, useState } from 'react';
 import { TextFieldProps } from './TextField.types';
 import styles from './TextField.module.scss';
 import classNames from 'classnames';
@@ -10,13 +10,11 @@ const TextField: FC<TextFieldProps> = ({
 	label = null,
 	subText = null,
 	className = '',
-	placeholder = '',
 	inputSize = 'lg',
 	color = 'primary',
 	id,
 	...props
 }) => {
-	const firstType = useRef(type);
 	const [inputType, setInputType] = useState(type);
 
 	const clContainer = classNames(
@@ -28,34 +26,29 @@ const TextField: FC<TextFieldProps> = ({
 		className,
 	);
 
-	const iconHandler = () => {
-		if (firstType.current === 'password') {
-			// eslint-disable-next-line arrow-parens
-			setInputType((prev) => (prev === 'text' ? 'password' : 'text'));
-		}
+	const iconPasswordHandler = () => {
+		// eslint-disable-next-line arrow-parens
+		setInputType((prev) => (prev === 'text' ? 'password' : 'text'));
 	};
 
 	return (
 		<div className={clContainer}>
-			{label ? (
+			{label && (
 				<label className={styles.label} htmlFor={id}>
 					{label}
 				</label>
-			) : (
-				''
 			)}
 			<div className={styles.inputContainer}>
-				<input
-					disabled={false}
-					id={id}
-					type={inputType}
-					className={styles.input}
-					placeholder={placeholder ? placeholder : firstType.current}
-					{...props}
-				/>
-				{Icon ? <Icon onClick={iconHandler} className={styles.icon} /> : ''}
+				<input id={id} type={inputType} className={styles.input} {...props} />
+				{type === 'password' ? (
+					<div onClick={iconPasswordHandler} className={styles.icon}>
+						{Icon ? Icon : 'X'}
+					</div>
+				) : (
+					Icon && <div className={styles.icon}>{Icon}</div>
+				)}
 			</div>
-			{subText ? <p className={styles.subText}>{subText}</p> : ''}
+			{subText && <p className={styles.subText}>{subText}</p>}
 		</div>
 	);
 };

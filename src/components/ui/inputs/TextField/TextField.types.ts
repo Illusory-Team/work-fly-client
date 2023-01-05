@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes, InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes, ReactNode } from 'react';
 
 type InputType = 'text' | 'password' | 'number';
 
@@ -11,11 +11,10 @@ type SizeType = 'lg' | 'xs';
 export interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
 	color?: ColorType;
 	variant?: VariantType;
-	icon?: FC<HTMLAttributes<HTMLElement>> | null;
+	icon?: ReactNode | null;
 	type?: InputType;
 	subText?: string | null;
 	label?: string | null;
 	className?: string;
-	placeholder?: string;
 	inputSize?: SizeType;
 }
