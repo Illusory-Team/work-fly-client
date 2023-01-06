@@ -1,0 +1,110 @@
+.interface {
+	border-radius: inherit;
+	@apply inline-block w-full h-full;
+}
+
+.label {
+	@apply absolute;
+}
+
+.right .label {
+	left: calc(100% + 10px);
+}
+
+.top .label {
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: calc(100% + 10px);
+}
+
+.left .label {
+	right: calc(100% + 10px);
+}
+
+.bottom .label {
+	left: 50%;
+	transform: translateX(-50%);
+	top: calc(100% + 10px);
+}
+
+.defaultIcon {
+	rect {
+		fill: inherit;
+	}
+
+	path {
+		fill: var(--default-light);
+	}
+}
+
+.checked {
+	background: var(--primary-light);
+	@apply hidden;
+}
+
+.notChecked {
+	border: 2px solid var(--primary-light);
+	@apply inline-block;
+}
+
+.checkbox {
+	@apply hidden;
+
+	&:checked ~ .checked {
+		@apply inline-block;
+	}
+
+	&:checked ~ .notChecked {
+		@apply hidden;
+	}
+
+	&:disabled ~ .interface {
+		@apply opacity-50;
+	}
+}
+
+.container.l {
+	@apply w-5 h-5 rounded-md;
+}
+
+.container.m {
+	@apply w-4 h-4 rounded-sm;
+}
+
+.container {
+	@apply inline-block w-auto h-auto cursor-pointer select-none relative;
+
+	.defaultIcon {
+		border-radius: inherit;
+	}
+
+	&.primary {
+		.defaultIcon {
+			background: var(--primary-light);
+		}
+
+		.notChecked {
+			border-color: var(--primary-light);
+		}
+	}
+
+	&.success {
+		.defaultIcon {
+			background: var(--success-light);
+		}
+
+		.notChecked {
+			border-color: var(--success-light);
+		}
+	}
+
+	&.danger {
+		.defaultIcon {
+			background: var(--danger-light);
+		}
+
+		.notChecked {
+			border-color: var(--danger-light);
+		}
+	}
+}
