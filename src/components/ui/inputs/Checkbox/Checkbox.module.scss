@@ -1,6 +1,10 @@
 .interface {
 	border-radius: inherit;
-	@apply inline-block w-full h-full;
+	@apply inline-flex items-center justify-center w-full h-full absolute top-0 left-0 transition-all;
+}
+
+.wrapper {
+	@apply absolute;
 }
 
 .label {
@@ -9,6 +13,8 @@
 
 .right .label {
 	left: calc(100% + 10px);
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .top .label {
@@ -19,6 +25,8 @@
 
 .left .label {
 	right: calc(100% + 10px);
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .bottom .label {
@@ -28,34 +36,41 @@
 }
 
 .defaultIcon {
-	rect {
-		fill: inherit;
-	}
+	@apply transition-all;
 
 	path {
 		fill: var(--default-light);
 	}
 }
 
+.defaultBorder {
+	border-radius: inherit;
+	border: 2px solid var(--primary-light);
+
+	@apply w-full h-full transition-all;
+}
+
 .checked {
-	background: var(--primary-light);
-	@apply hidden;
+	visibility: hidden;
+	opacity: 0;
 }
 
 .notChecked {
-	border: 2px solid var(--primary-light);
-	@apply inline-block;
+	visibility: visible;
+	opacity: 1;
 }
 
 .checkbox {
 	@apply hidden;
 
 	&:checked ~ .checked {
-		@apply inline-block;
+		visibility: visible;
+		opacity: 1;
 	}
 
 	&:checked ~ .notChecked {
-		@apply hidden;
+		visibility: hidden;
+		opacity: 0;
 	}
 
 	&:disabled ~ .interface {
@@ -81,30 +96,92 @@
 	&.primary {
 		.defaultIcon {
 			background: var(--primary-light);
+
+			&:hover {
+				background: var(--primary-main);
+			}
+
+			&:active {
+				background: var(--primary-dark);
+			}
 		}
 
-		.notChecked {
+		.defaultBorder {
 			border-color: var(--primary-light);
+
+			&:hover {
+				border-color: var(--primary-main);
+			}
+
+			&:active {
+				border-color: var(--primary-dark);
+			}
+		}
+
+		.interface {
+			fill: var(--primary-light);
+
+			&:hover {
+				fill: var(--primary-main);
+			}
+
+			&:active {
+				fill: var(--primary-dark);
+			}
 		}
 	}
 
 	&.success {
+		/* stylelint-disable-next-line */
 		.defaultIcon {
 			background: var(--success-light);
-		}
 
-		.notChecked {
+			&:hover {
+				background: var(--success-main);
+			}
+
+			&:active {
+				background: var(--success-dark);
+			}
+		}
+		/* stylelint-disable-next-line */
+		.defaultBorder {
 			border-color: var(--success-light);
+
+			&:hover {
+				background: var(--success-main);
+			}
+
+			&:active {
+				background: var(--success-dark);
+			}
+		}
+		/* stylelint-disable-next-line */
+		.interface {
+			fill: var(--success-light);
+
+			&:hover {
+				fill: var(--success-main);
+			}
+
+			&:active {
+				fill: var(--success-dark);
+			}
 		}
 	}
 
 	&.danger {
+		/* stylelint-disable-next-line */
 		.defaultIcon {
 			background: var(--danger-light);
 		}
-
-		.notChecked {
+		/* stylelint-disable-next-line */
+		.defaultBorder {
 			border-color: var(--danger-light);
+		}
+		/* stylelint-disable-next-line */
+		.interface {
+			fill: var(--danger-light);
 		}
 	}
 }

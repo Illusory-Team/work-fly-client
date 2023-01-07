@@ -3,7 +3,7 @@ import { CheckboxProps } from './Checkbox.types';
 import styles from './Checkbox.module.scss';
 import classNames from 'classnames';
 
-const Checkbox: FC<CheckboxProps> = ({
+export const Checkbox: FC<CheckboxProps> = ({
 	checkboxSize = 'm',
 	color = 'primary',
 	label = '',
@@ -43,10 +43,8 @@ const Checkbox: FC<CheckboxProps> = ({
 				)}
 			</label>
 			<label htmlFor={id} className={clNotChecked}>
-				{notCheckedIcon && notCheckedIcon}
+				{notCheckedIcon ? notCheckedIcon : <div className={styles.defaultBorder}></div>}
 			</label>
 		</div>
 	);
 };
-
-export default Checkbox;
