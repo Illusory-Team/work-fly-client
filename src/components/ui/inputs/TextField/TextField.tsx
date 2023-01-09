@@ -3,7 +3,7 @@ import { TextFieldProps } from './TextField.types';
 import styles from './TextField.module.scss';
 import classNames from 'classnames';
 
-const TextField: FC<TextFieldProps> = ({
+export const TextField: FC<TextFieldProps> = ({
 	variant = 'outlined',
 	type = 'text',
 	icon: Icon = null,
@@ -52,5 +52,3 @@ const TextField: FC<TextFieldProps> = ({
 		</div>
 	);
 };
-
-export default TextField;
