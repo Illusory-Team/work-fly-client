@@ -1,0 +1,40 @@
+.checkbox {
+	visibility: hidden;
+	opacity: 0;
+	@apply absolute;
+}
+
+.circle {
+	left: 10px;
+	@apply rounded-full absolute -translate-x-1/2 -translate-y-1/2 top-1/2 w-4 h-4 transition-all;
+}
+
+.checkbox:checked ~ .circle {
+	left: calc(100% - 10px);
+}
+
+.switchBg {
+	@apply w-full h-full rounded-3xl absolute top-0 left-0 transition-all;
+}
+
+.container {
+	@apply w-10 h-5 relative cursor-pointer;
+
+	&.primary {
+		.switchBg {
+			background: var(--default-main);
+		}
+
+		.circle {
+			background: var(--default-light);
+		}
+
+		.checkbox:checked ~ .switchBg {
+			background: var(--primary-light);
+		}
+
+		.checkbox:disabled ~ .switchBg {
+			@apply opacity-50;
+		}
+	}
+}
