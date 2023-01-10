@@ -1,5 +1,7 @@
 .checkbox {
-	@apply hidden;
+	visibility: hidden;
+	opacity: 0;
+	@apply absolute;
 }
 
 .circle {
@@ -29,6 +31,10 @@
 
 		.checkbox:checked ~ .switchBg {
 			background: var(--primary-light);
+		}
+
+		.checkbox:disabled ~ .switchBg {
+			@apply opacity-50;
 		}
 	}
 }

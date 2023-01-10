@@ -1,5 +1,3 @@
-import { Checkbox } from '@/components/ui/inputs/Checkbox';
-import { Switch } from '@/components/ui/inputs/Switch';
 import Head from 'next/head';
 
 const Home = () => {
@@ -11,11 +9,9 @@ const Home = () => {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<main>
-				<Switch />
-				<Checkbox label="dsdadsad" id="dsadsad" labelPlacement="bottom" className="ml-5" />
-			</main>
+			<main></main>
 		</>
 	);
 };
+
 export default Home;
