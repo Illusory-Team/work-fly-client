@@ -3,7 +3,7 @@ import { TextFieldProps } from './TextField.types';
 import styles from './TextField.module.scss';
 import classNames from 'classnames';
 
-const TextField: FC<TextFieldProps> = ({
+export const TextField: FC<TextFieldProps> = ({
 	variant = 'outlined',
 	type = 'text',
 	icon: Icon = null,
@@ -28,7 +28,7 @@ const TextField: FC<TextFieldProps> = ({
 
 	const iconPasswordHandler = () => {
 		// eslint-disable-next-line arrow-parens
-		setInputType((prev) => (prev === 'text' ? 'password' : 'text'));
+		setInputType(prev => (prev === 'text' ? 'password' : 'text'));
 	};
 
 	return (
@@ -52,5 +52,3 @@ const TextField: FC<TextFieldProps> = ({
 		</div>
 	);
 };
-
-export default TextField;
