@@ -1,50 +1,58 @@
-import { FC } from 'react';
+/* eslint-disable react/display-name */
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { CheckboxProps } from './Checkbox.types';
 import styles from './Checkbox.module.scss';
 import classNames from 'classnames';
+import { Icon } from '../../Icon';
 
-export const Checkbox: FC<CheckboxProps> = ({
-	checkboxSize = 'm',
-	color = 'primary',
-	label = '',
-	labelPlacement = 'right',
-	checkedIcon = null,
-	notCheckedIcon = null,
-	className = '',
-	id,
-	...props
-}) => {
-	const clContainer = classNames(
-		styles.container,
-		styles[labelPlacement],
-		styles[color],
-		styles[checkboxSize],
-		className,
-	);
-	const clChecked = classNames(styles.interface, styles.checked);
-	const clNotChecked = classNames(styles.interface, styles.notChecked);
+export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
+	(
+		{
+			checkboxSize = 'm',
+			color = 'primary',
+			label = '',
+			labelPlacement = 'right',
+			checkedIcon = null,
+			notCheckedIcon = null,
+			className = '',
+			...props
+		},
+		ref,
+	) => {
+		const inputRef = useRef<HTMLInputElement>(null);
+		useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
 
-	return (
-		<div className={clContainer}>
-			{label && (
-				<label className={styles.label} htmlFor={id}>
-					{label}
-				</label>
-			)}
-			<input className={styles.checkbox} id={id} type="checkbox" {...props} />
-			<label htmlFor={id} className={clChecked}>
-				{checkedIcon ? (
-					checkedIcon
-				) : (
-					<svg className={styles.defaultIcon} viewBox="0 0 16 16">
-						<rect />
-						<path d="M12 5C11.72 5 11.47 5.11 11.29 5.29L7 9.59L4.71 7.29C4.53 7.11 4.28 7 4 7C3.45 7 3 7.45 3 8C3 8.28 3.11 8.53 3.29 8.71L6.29 11.71C6.47 11.89 6.72 12 7 12C7.28 12 7.53 11.89 7.71 11.71L12.71 6.71C12.89 6.53 13 6.28 13 6C13 5.45 12.55 5 12 5Z" />
-					</svg>
+		const clContainer = classNames(
+			styles.container,
+			styles[labelPlacement],
+			styles[color],
+			styles[checkboxSize],
+			className,
+		);
+		const clChecked = classNames(styles.interface, styles.checked);
+		const clNotChecked = classNames(styles.interface, styles.notChecked);
+
+		const clickHandler = () => {
+			if (inputRef.current) {
+				inputRef.current.click();
+			}
+		};
+
+		return (
+			<div className={clContainer}>
+				{label && (
+					<div className={styles.label} onClick={clickHandler}>
+						{label}
+					</div>
 				)}
-			</label>
-			<label htmlFor={id} className={clNotChecked}>
-				{notCheckedIcon ? notCheckedIcon : <div className={styles.defaultBorder}></div>}
-			</label>
-		</div>
-	);
-};
+				<input ref={inputRef} className={styles.checkbox} type="checkbox" {...props} />
+				<div onClick={clickHandler} className={clChecked}>
+					{checkedIcon ? checkedIcon : <Icon name="other_yes" className={styles.defaultIcon} />}
+				</div>
+				<div onClick={clickHandler} className={clNotChecked}>
+					{notCheckedIcon ? notCheckedIcon : <div className={styles.defaultBorder}></div>}
+				</div>
+			</div>
+		);
+	},
+);
