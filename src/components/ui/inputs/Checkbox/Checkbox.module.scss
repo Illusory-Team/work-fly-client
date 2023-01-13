@@ -38,9 +38,7 @@
 .defaultIcon {
 	@apply transition-all;
 
-	path {
-		fill: var(--default-light);
-	}
+	color: var(--default-light);
 }
 
 .defaultBorder {

@@ -1,29 +1,30 @@
 {
-  "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "next",
-    "next/core-web-vitals",
-    "plugin:react-hooks/recommended"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 12,
-    "sourceType": "module"
-  },
-  "plugins": ["@typescript-eslint"],
-  "rules": {
-    "indent": "off",
-    "no-tabs": "off",
-    "import/prefer-default-export": "off",
-    "arrow-parens": ["error", "as-needed"],
-    "no-underscore-dangle": "off",
-    "class-methods-use-this": "off",
-    "prefer-destructuring": "off",
-    "@typescript-eslint/indent": "off",
-    "@typescript-eslint/comma-dangle": "off",
-    "@typescript-eslint/lines-between-class-members": "off"
-  }
+	"extends": [
+		"plugin:@typescript-eslint/recommended",
+		"next",
+		"next/core-web-vitals",
+		"plugin:react-hooks/recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"plugins": ["@typescript-eslint"],
+	"rules": {
+		"indent": "off",
+		"no-tabs": "off",
+		"no-console": "warn",
+		"import/prefer-default-export": "off",
+		"arrow-parens": ["error", "as-needed"],
+		"no-underscore-dangle": "off",
+		"class-methods-use-this": "off",
+		"prefer-destructuring": "off",
+		"@typescript-eslint/indent": "off",
+		"@typescript-eslint/comma-dangle": "off",
+		"@typescript-eslint/lines-between-class-members": "off"
+	}
 }
