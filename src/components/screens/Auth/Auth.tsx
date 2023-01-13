@@ -1,5 +1,3 @@
-import { LoginForm } from '@/components/forms/LoginForm';
-import { RegistrationForm } from '@/components/forms/RegistrationForm';
 import { AuthLayout } from '@/components/layouts/AuthLayout';
 import { Container } from '@/components/layouts/Container';
 import Image from 'next/image';
@@ -7,7 +5,7 @@ import Link from 'next/link';
 import { FC } from 'react';
 import { AuthProps } from './Auth.types';
 
-export const Auth: FC<AuthProps> = ({ isLoginPage }) => {
+export const Auth: FC<AuthProps> = ({ isLoginPage, form }) => {
 	return (
 		<AuthLayout>
 			<Container className="h-screen pt-20 flex px-8">
@@ -32,9 +30,7 @@ export const Auth: FC<AuthProps> = ({ isLoginPage }) => {
 						priority
 					/>
 				</div>
-				<div className="h-full flex-1 flex-col-center-start">
-					{isLoginPage ? <LoginForm className="mt-24" /> : <RegistrationForm className="mt-24" />}
-				</div>
+				<div className="h-full flex-1 flex-col-center-start">{form}</div>
 			</Container>
 		</AuthLayout>
 	);
