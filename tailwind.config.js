@@ -46,13 +46,6 @@ module.exports = {
 				'.m-0-a': {
 					margin: '0 auto',
 				},
-				'.display-b': {
-					display: 'block',
-				},
-				'.w-container': {
-					maxWidth: '1920px',
-					width: '100%',
-				},
 				'.rounded-4xl': {
 					borderRadius: '28px',
 				},

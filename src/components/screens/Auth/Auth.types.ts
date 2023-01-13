@@ -1,1 +1,3 @@
-export type AuthType = 'login' | 'registration';
+export interface AuthProps {
+	isLoginPage: boolean;
+}

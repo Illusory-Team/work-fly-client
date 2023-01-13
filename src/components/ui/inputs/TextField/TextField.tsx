@@ -3,7 +3,7 @@ import { forwardRef, useState } from 'react';
 import { TextFieldProps } from './TextField.types';
 import styles from './TextField.module.scss';
 import classNames from 'classnames';
-import { Icon } from '../../Icon';
+import { Icon } from '@/components/ui/Icon';
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 	(
@@ -28,7 +28,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 			styles[inputSize],
 			styles[variant],
 			styles[color],
-			CustomIcon ? styles.isIcon : '',
+			CustomIcon || type === 'password' ? styles.rightPadding : '',
 			className,
 		);
 
@@ -49,10 +49,8 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 						<div onClick={iconPasswordHandler} className={styles.icon}>
 							{CustomIcon ? (
 								CustomIcon
-							) : inputType === 'text' ? (
-								<Icon name="other_show" width={24} height={24} />
 							) : (
-								<Icon name="other_closed" width={24} height={24} />
+								<Icon name={inputType === 'text' ? 'other_show' : 'other_closed'} width={24} height={24} />
 							)}
 						</div>
 					) : (

@@ -4,19 +4,4 @@ body {
 	font-size: 15px;
 	font-weight: 500;
 	font-family: Inter, sans-serif;
-	min-width: 375px;
-}
-
-.block {
-	position: relative;
-
-	&__item {
-		display: block;
-		display: flex;
-	}
-
-	&::after {
-		content: '';
-		color: red;
-	}
 }

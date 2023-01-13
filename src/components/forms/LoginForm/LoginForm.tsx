@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
-import { Button } from '../../Button';
-import { TextField } from '../../inputs/TextField';
+import { Button } from '@/components/ui/Button';
+import { TextField } from '@/components/ui/inputs/TextField';
 import styles from './LoginForm.module.scss';
 import { ILogin, LoginFormProps } from './LoginForm.types';
 

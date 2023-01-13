@@ -6,8 +6,8 @@ import { FC } from 'react';
 import { Container } from '../../Container';
 
 export const Header: FC = () => {
-	const { query } = useRouter();
-	const isLogin = query.auth_type === 'login';
+	const { pathname } = useRouter();
+	const isLogin = pathname === '/auth/login';
 
 	return (
 		<header className="absolute w-full">
