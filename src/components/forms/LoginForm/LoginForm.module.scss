@@ -21,6 +21,10 @@
 	}
 }
 
+.errorMessage {
+	color: var(--danger-main);
+}
+
 .form {
 	margin-top: 46px;
 
@@ -28,11 +32,10 @@
 
 	.input {
 		max-width: 480px;
-		@apply mt-14 w-full;
+		@apply mt-16 w-full;
 	}
 }
 
 .footerText {
-	margin-top: 170px;
-	@apply text-center;
+	@apply text-center mt-36;
 }
