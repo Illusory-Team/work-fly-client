@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IUser } from 'shared/types/auth/IUser.types';
+import { User } from 'shared/models/user.model';
 
 interface InitialType {
-	user: IUser | null;
+	user: Nullable<User>;
 }
 
 const initialState: InitialType = {
