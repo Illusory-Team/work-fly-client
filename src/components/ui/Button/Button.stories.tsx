@@ -24,15 +24,15 @@ export default {
 
 const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Default = Template.bind({});
+Default.args = {
 	children: 'Text',
 	variant: 'default',
 };
 
-export const Secondary = Template.bind({});
+export const Outlined = Template.bind({});
 
-Secondary.args = {
+Outlined.args = {
 	children: 'Text',
 	variant: 'outlined',
 };

@@ -96,7 +96,7 @@
 			background: var(--primary-light);
 
 			&:hover {
-				background: var(--primary-main);
+				background: var(--primary-light);
 			}
 
 			&:active {
@@ -117,14 +117,14 @@
 		}
 
 		.interface {
-			fill: var(--primary-light);
+			color: var(--primary-light);
 
 			&:hover {
-				fill: var(--primary-main);
+				color: var(--primary-main);
 			}
 
 			&:active {
-				fill: var(--primary-dark);
+				color: var(--primary-dark);
 			}
 		}
 	}
@@ -147,23 +147,23 @@
 			border-color: var(--success-light);
 
 			&:hover {
-				background: var(--success-main);
+				border-color: var(--success-main);
 			}
 
 			&:active {
-				background: var(--success-dark);
+				border-color: var(--success-dark);
 			}
 		}
 		/* stylelint-disable-next-line */
 		.interface {
-			fill: var(--success-light);
+			color: var(--success-light);
 
 			&:hover {
-				fill: var(--success-main);
+				color: var(--success-main);
 			}
 
 			&:active {
-				fill: var(--success-dark);
+				color: var(--success-dark);
 			}
 		}
 	}
@@ -179,7 +179,7 @@
 		}
 		/* stylelint-disable-next-line */
 		.interface {
-			fill: var(--danger-light);
+			color: var(--danger-light);
 		}
 	}
 }
