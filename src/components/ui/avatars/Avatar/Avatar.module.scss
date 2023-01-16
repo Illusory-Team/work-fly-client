@@ -1,0 +1,37 @@
+.l {
+	@apply w-16 h-16 text-3xl font-bold;
+}
+
+.m {
+	@apply w-14 h-14 text-2xl font-bold;
+}
+
+.s {
+	@apply w-12 h-12 text-xl font-bold;
+}
+
+.xs {
+	@apply w-9 h-9 text-lg font-bold;
+}
+
+.default {
+	color: var(--default-light);
+	background: var(--primary-light);
+	@apply flex-center-center;
+}
+
+.circle {
+	@apply rounded-full;
+}
+
+.rounded {
+	@apply rounded-xl;
+}
+
+.square {
+	@apply rounded-none;
+}
+
+.container {
+	@apply relative overflow-hidden;
+}
