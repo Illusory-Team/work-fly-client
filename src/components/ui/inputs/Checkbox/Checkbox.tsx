@@ -3,7 +3,7 @@ import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { CheckboxProps } from './Checkbox.types';
 import styles from './Checkbox.module.scss';
 import classNames from 'classnames';
-import { Icon } from '../../Icon';
+import { Icon } from '@/components/ui/Icon';
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 	(
