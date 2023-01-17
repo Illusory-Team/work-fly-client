@@ -1,9 +1,9 @@
-export interface User {
+export interface user {
 	id: number | string;
 	email: string;
 	fullName: string;
 	phone: number;
-	birthday: Nullable<string>;
-	address: Nullable<string>;
-	description: Nullable<string>;
+	birthday: nullable<string>;
+	address: nullable<string>;
+	description: nullable<string>;
 }

@@ -1,8 +1,8 @@
-export interface RegistrationFormProps {
+export interface registrationformprops {
 	className?: string;
 }
 
-export interface IRegistration {
+export interface iregistration {
 	email: string;
 	phone: string;
 }
