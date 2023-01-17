@@ -1,0 +1,54 @@
+.overlay {
+	visibility: hidden;
+	opacity: 0;
+	background: rgba(0, 0, 0, 0.207);
+	@apply w-full h-full fixed top-0 left-0 z-40 transition-all;
+
+	&.show {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+.drawer {
+	background: var(--bg-secondary);
+	box-shadow: 0 24px 38px rgba(47, 53, 57, 0.03), 0 9px 46px rgba(71, 116, 138, 0.02),
+		0 11px 15px rgba(95, 137, 158, 0.04);
+	@apply fixed z-50 transition-all;
+}
+
+.left {
+	min-width: 320px;
+	@apply top-0 left-0 -translate-x-full h-screen;
+
+	&.show {
+		@apply translate-x-0;
+	}
+}
+
+.right {
+	min-width: 320px;
+	@apply top-0 right-0 translate-x-full h-screen;
+
+	&.show {
+		@apply translate-x-0;
+	}
+}
+
+.top {
+	min-height: 320px;
+	@apply left-0 top-0 -translate-y-full w-screen;
+
+	&.show {
+		@apply translate-y-0;
+	}
+}
+
+.bottom {
+	min-height: 320px;
+	@apply left-0 bottom-0 translate-y-full w-screen;
+
+	&.show {
+		@apply translate-y-0;
+	}
+}

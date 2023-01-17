@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/Button';
 import { TextField } from '@/components/ui/inputs/TextField';
 import styles from './LoginForm.module.scss';
 import { LoginFormProps } from './LoginForm.types';
-import { useLoginHookForm } from '@/hooks/auth/useLoginHookForm.hook';
+import { useLoginHookForm } from '@/hooks/auth/useLoginHookForm';
 
 export const LoginForm: FC<LoginFormProps> = ({ className }) => {
 	const { submitHandler, getEmailInputProps, getPasswordInputProps } = useLoginHookForm();
