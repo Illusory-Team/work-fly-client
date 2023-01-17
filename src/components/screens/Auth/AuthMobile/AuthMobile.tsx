@@ -1,5 +1,5 @@
 import { Container } from '@/components/layouts/Container';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/buttons/Button';
 import { MobileAuthCarousel } from '@/components/carousel/MobileAuthCarousel';
 import Image from 'next/image';
 import Link from 'next/link';

@@ -1,0 +1,57 @@
+.primary {
+	background: var(--primary-light);
+}
+
+.success {
+	background: var(--success-light);
+}
+
+.danger {
+	background: var(--danger-light);
+}
+
+.badge {
+	color: var(--default-light);
+	visibility: visible;
+	opacity: 1;
+	@apply absolute rounded-full -translate-x-1/2 -translate-y-1/2 select-none transition-all text-sm z-10;
+}
+
+.invisible {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.top {
+	@apply top-0;
+}
+
+.bottom {
+	@apply top-full;
+}
+
+.right {
+	@apply left-full;
+}
+
+.left {
+	@apply left-0;
+}
+
+.dot {
+	@apply p-2;
+}
+
+.content {
+	@apply p-1;
+
+	span {
+		min-width: 20px;
+		min-height: 20px;
+		@apply inline-block flex-center-center;
+	}
+}
+
+.circular {
+	@apply -translate-x-2/3 -translate-y-1/3;
+}
