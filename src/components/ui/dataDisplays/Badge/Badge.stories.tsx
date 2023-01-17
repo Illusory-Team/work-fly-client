@@ -71,7 +71,7 @@ export const Variant = () => (
 			<Avatar src={avatarUrl} />
 		</Badge>
 		<h2>Dot</h2>
-		<Badge variant="dot" className="m-6" color="primary">
+		<Badge variant="dot" overlap="circular" className="m-6" color="primary">
 			<Avatar src={avatarUrl} />
 		</Badge>
 	</>
@@ -81,11 +81,11 @@ export const Overlap = () => (
 	<>
 		<h2>Default overlap square</h2>
 		<Badge className="m-6" color="primary">
-			<Avatar src={avatarUrl} size="l" />
+			<div className="w-28 h-28 bg-orange-600 rounded-full"></div>
 		</Badge>
 		<h2>Overlap circular</h2>
 		<Badge overlap="circular" className="m-6" color="primary">
-			<Avatar src={avatarUrl} size="l" />
+			<div className="w-28 h-28 bg-orange-600 rounded-full"></div>
 		</Badge>
 	</>
 );
