@@ -87,6 +87,16 @@ export const Overlap = () => (
 		<Badge overlap="circular" className="m-6" color="primary">
 			<div className="w-28 h-28 bg-orange-600 rounded-full"></div>
 		</Badge>
+		<Badge variant="dot" horizontal="left" overlap="circular" className="m-6" color="primary">
+			<div className="w-28 h-28 bg-orange-600 rounded-full"></div>
+		</Badge>
+		<Badge vertical="bottom" overlap="circular" className="m-6" color="primary">
+			<div className="w-28 h-28 bg-orange-600 rounded-full"></div>
+		</Badge>
+		<Badge variant="dot" horizontal="left" vertical="bottom" overlap="circular" className="m-6" color="primary">
+			<div className="w-28 h-28 bg-orange-600 rounded-full"></div>
+		</Badge>
+		<p>Works only for a flat circle</p>
 	</>
 );
 

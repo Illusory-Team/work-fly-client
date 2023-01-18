@@ -1,4 +1,4 @@
-export const getLimitationNumber = (num: number, maxNum: number) => {
-	if (num > maxNum) return `${maxNum}+`;
+export const getLimitationNumber = (num: number, maxNum: number, char = '+') => {
+	if (num > maxNum) return `${maxNum}${char}`;
 	else return num;
 };

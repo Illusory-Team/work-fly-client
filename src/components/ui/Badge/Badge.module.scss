@@ -10,6 +10,22 @@
 	background: var(--danger-light);
 }
 
+.top {
+	top: 0;
+}
+
+.bottom {
+	top: 100%;
+}
+
+.left {
+	left: 0;
+}
+
+.right {
+	left: 100%;
+}
+
 .badge {
 	color: var(--default-light);
 	visibility: visible;
