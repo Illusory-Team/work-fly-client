@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/buttons/Button';
 import { TextField } from '@/components/ui/inputs/TextField';
 import styles from './RegistrationForm.module.scss';
 import classNames from 'classnames';

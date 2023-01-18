@@ -2,8 +2,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Button } from './Button';
 
-import '../../../styles/globals.scss';
-
 const icon = (
 	<svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<path
