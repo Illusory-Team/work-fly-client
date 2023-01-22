@@ -19,8 +19,8 @@ export function SelectField<
 	IsMulti extends boolean = false,
 	Group extends GroupBase<Option> = GroupBase<Option>,
 >(props: Props<Option, IsMulti, Group>) {
-	const cl = classNames(`${props.selectSize || 'lg'} custom-select-field ${props.className}`);
-	const clPrefix = classNames(`${props.selectSize || 'lg'} custom-select-field`);
+	const cl = classNames(props.selectSize || 'lg', 'custom-select-field', props.className);
+	const clPrefix = classNames(props.selectSize || 'lg', 'custom-select-field');
 
 	return (
 		<Select
