@@ -16,7 +16,7 @@ export const Drawer: FC<PropsWithChildren<DrawerProps>> = ({
 	return (
 		<>
 			<div onClick={toggleHandler} className={clOverlay}></div>
-			<div className={cl}>{children}</div>;
+			<div className={cl}>{children}</div>
 		</>
 	);
 };
