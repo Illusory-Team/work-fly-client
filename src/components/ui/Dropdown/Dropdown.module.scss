@@ -1,0 +1,14 @@
+.container {
+	@apply relative inline-block;
+}
+
+.dropdown {
+	background: var(--bg-secondary);
+	visibility: hidden;
+	@apply absolute top-full left-0 p-2 rounded-xl opacity-0 transition-all w-full shadow-lg;
+
+	&.show {
+		visibility: visible;
+		@apply opacity-100;
+	}
+}
