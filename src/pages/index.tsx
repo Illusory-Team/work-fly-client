@@ -1,3 +1,5 @@
+import { SelectField } from '@/components/ui/inputs/SelectField';
+import { TextField } from '@/components/ui/inputs/TextField';
 import Head from 'next/head';
 
 const Home = () => {
@@ -9,7 +11,13 @@ const Home = () => {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<main></main>
+			<main>
+				<SelectField
+					options={[{ value: 'a', label: 'A' }, { value: 'b', label: 'B' }, , { value: 'c', label: 'C' }]}
+					selectSize="xs"
+				/>
+				<TextField placeholder="dssad" inputSize="xs" />
+			</main>
 		</>
 	);
 };

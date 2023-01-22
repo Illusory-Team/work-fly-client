@@ -1,6 +1,6 @@
 import { useToggle } from '@/hooks/util/useToggle';
 import { ComponentMeta } from '@storybook/react';
-import { Button } from '../Button';
+import { Button } from '@/components/ui/buttons/Button';
 
 import { Drawer } from './Drawer';
 

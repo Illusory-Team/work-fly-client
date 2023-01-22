@@ -1,4 +1,4 @@
-import { TextFieldProps } from '@/components/ui/inputs/TextField/TextField.types';
+import { TextFieldProps } from '@/components/ui/inputs/TextField';
 import authService from '@/services/auth';
 import { EMAIL_PATTERN_MESSAGE, FIELD_REQUIRED, PASSWORD_PATTERN_MESSAGE } from '@/utils/constants/auth/auth.const';
 import { REGULAR_EMAIL, REGULAR_PASSWORD } from '@/utils/constants/regular';
