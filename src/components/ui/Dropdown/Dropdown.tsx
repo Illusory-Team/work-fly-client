@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { FC, PropsWithChildren } from 'react';
 import { DropdownProps } from './Dropdown.types';
 import styles from './Dropdown.module.scss';
-import { useOutside } from '@/hooks/util/useOutside';
+import { useOutsideClick } from '@/hooks/util/useOutsideClick';
 
 export const Dropdown: FC<PropsWithChildren<DropdownProps>> = ({
 	show,
@@ -14,7 +14,7 @@ export const Dropdown: FC<PropsWithChildren<DropdownProps>> = ({
 }) => {
 	const cl = classNames(styles.dropdown, show && styles.show, className);
 
-	const { ref } = useOutside<HTMLDivElement>(() => {
+	const { ref } = useOutsideClick<HTMLDivElement>(() => {
 		closeHandler();
 	});
 
