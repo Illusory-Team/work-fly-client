@@ -59,3 +59,25 @@ export const Anchor = () => {
 		</>
 	);
 };
+
+export const Size = () => {
+	const { state: left, toggleHandler: leftToggle } = useToggle(false, 350);
+	const { state: right, toggleHandler: rightToggle } = useToggle(false, 350);
+
+	return (
+		<>
+			<Drawer show={left} toggleHandler={leftToggle}>
+				Content from Drawer
+			</Drawer>
+			<Drawer show={right} toggleHandler={rightToggle}>
+				Content from Drawer
+			</Drawer>
+			<Button className="m-8" onClick={leftToggle}>
+				Size L
+			</Button>
+			<Button size="m" className="m-8" onClick={rightToggle}>
+				Size M
+			</Button>
+		</>
+	);
+};

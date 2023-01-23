@@ -7,10 +7,11 @@ export const Drawer: FC<PropsWithChildren<DrawerProps>> = ({
 	show,
 	toggleHandler,
 	anchor = 'left',
+	size = 'l',
 	className = '',
 	children,
 }) => {
-	const cl = classNames(styles.drawer, styles[anchor], show && styles.show, className);
+	const cl = classNames(styles.drawer, styles[anchor], styles[size], show && styles.show, className);
 	const clOverlay = classNames(styles.overlay, show && styles.show);
 
 	return (

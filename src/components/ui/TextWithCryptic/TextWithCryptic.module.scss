@@ -1,0 +1,13 @@
+.container {
+	@apply flex-col;
+}
+
+.title {
+	color: var(--primary-light);
+	@apply h2;
+}
+
+.text {
+	color: var(--paragraph-light);
+	@apply subhead mt-2;
+}
