@@ -10,11 +10,11 @@
 	}
 }
 
-.x {
+.l {
 	max-width: 652px;
 }
 
-.s {
+.m {
 	max-width: 584px;
 }
 
@@ -22,7 +22,7 @@
 	background: var(--bg-secondary);
 	box-shadow: 0 24px 38px rgba(47, 53, 57, 0.03), 0 9px 46px rgba(71, 116, 138, 0.02),
 		0 11px 15px rgba(95, 137, 158, 0.04);
-	@apply fixed z-50 transition-all;
+	@apply fixed z-50 transition-all w-full;
 }
 
 .left {

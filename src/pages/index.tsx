@@ -1,8 +1,11 @@
-import { SelectField } from '@/components/ui/inputs/SelectField';
-import { TextField } from '@/components/ui/inputs/TextField';
+import { UserDrawer } from '@/components/drawers/UserDrawer';
+import { Button } from '@/components/ui/buttons/Button';
+import { useToggle } from '@/hooks/util/useToggle';
 import Head from 'next/head';
 
 const Home = () => {
+	const { state, toggleHandler } = useToggle(false, 350);
+
 	return (
 		<>
 			<Head>
@@ -12,11 +15,8 @@ const Home = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main>
-				<SelectField
-					options={[{ value: 'a', label: 'A' }, { value: 'b', label: 'B' }, , { value: 'c', label: 'C' }]}
-					selectSize="xs"
-				/>
-				<TextField placeholder="dssad" inputSize="xs" />
+				<Button onClick={toggleHandler}>CLICK</Button>
+				<UserDrawer show={state} toggleShow={toggleHandler} />
 			</main>
 		</>
 	);

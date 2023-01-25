@@ -1,5 +1,9 @@
 .container {
-	@apply flex-col;
+	@apply flex items-center;
+}
+
+.textContent {
+	@apply flex-col ml-3;
 }
 
 .title {
@@ -7,7 +11,7 @@
 	@apply h2;
 }
 
-.text {
+.subTitle {
 	color: var(--paragraph-light);
-	@apply subhead mt-2;
+	@apply subhead;
 }

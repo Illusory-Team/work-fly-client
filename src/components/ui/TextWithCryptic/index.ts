@@ -1,1 +1,0 @@
-export { TextWithCryptic } from './TextWithCryptic';

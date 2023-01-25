@@ -1,0 +1,22 @@
+.container {
+	@apply flex px-8 mt-8;
+
+	.tag {
+		color: var(--paragraph-light);
+		@apply cursor-pointer;
+
+		&.active {
+			color: var(--primary-light);
+			border-bottom: 4px solid var(--primary-light);
+		}
+	}
+
+	.tag:not(:last-child) {
+		@apply mr-6;
+	}
+}
+
+.content {
+	background: var(--bg-secondary);
+	@apply px-8 py-6 h-full;
+}

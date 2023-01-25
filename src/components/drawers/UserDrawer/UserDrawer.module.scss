@@ -1,3 +1,21 @@
-.container {
-	width: 100%;
+.body {
+	background: var(--bg-primary);
+	@apply h-full;
+
+	.firstSection {
+		@apply w-full flex-center-between  px-8 py-7;
+
+		.close {
+			color: var(--paragraph-light);
+			@apply cursor-pointer mr-2;
+		}
+	}
+
+	.secondSection {
+		@apply w-full flex justify-between mt-20 px-8;
+
+		h4 {
+			color: var(--paragraph-light);
+		}
+	}
 }

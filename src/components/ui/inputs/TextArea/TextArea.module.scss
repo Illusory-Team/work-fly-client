@@ -1,0 +1,13 @@
+.container {
+	@apply relative w-full;
+
+	label {
+		color: var(--descriptor-main);
+		@apply absolute bottom-full mb-2 left-2;
+	}
+
+	textarea {
+		border: 2px solid var(--default-main);
+		@apply w-full resize-none rounded-xl h-28 px-4 py-2;
+	}
+}
