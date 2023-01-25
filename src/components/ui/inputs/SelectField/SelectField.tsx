@@ -1,6 +1,7 @@
 import Select, { components, DropdownIndicatorProps, GroupBase, Props } from 'react-select';
 import { Icon } from '@/components/ui/Icon';
 import classNames from 'classnames';
+import styles from './SelectField.module.scss';
 
 function DropdownIndicator<
 	Option = unknown,
@@ -19,16 +20,19 @@ export function SelectField<
 	IsMulti extends boolean = false,
 	Group extends GroupBase<Option> = GroupBase<Option>,
 >(props: Props<Option, IsMulti, Group>) {
-	const cl = classNames(`${props.selectSize || 'lg'} custom-select-field ${props.className}`);
-	const clPrefix = classNames(`${props.selectSize || 'lg'} custom-select-field`);
+	const cl = classNames(styles.container, props.className);
+	const clPrefix = classNames(props.selectSize ? props.selectSize : 'lg', 'custom-select-field');
 
 	return (
-		<Select
-			components={{ DropdownIndicator }}
-			{...props}
-			isSearchable={false}
-			className={cl}
-			classNamePrefix={clPrefix}
-		/>
+		<div className={cl}>
+			<label className={styles.label}>{props.label}</label>
+			<Select
+				components={{ DropdownIndicator }}
+				{...props}
+				isSearchable={false}
+				className={clPrefix}
+				classNamePrefix={clPrefix}
+			/>
+		</div>
 	);
 }

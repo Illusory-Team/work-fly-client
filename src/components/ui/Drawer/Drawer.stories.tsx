@@ -14,7 +14,7 @@ export const Default = () => {
 
 	return (
 		<>
-			<Drawer show={state} toggleHandler={toggleHandler}>
+			<Drawer isShow={state} closeHandler={toggleHandler}>
 				Content from Drawer
 			</Drawer>
 			<Button className="m-8" onClick={toggleHandler}>
@@ -32,16 +32,16 @@ export const Anchor = () => {
 
 	return (
 		<>
-			<Drawer show={left} toggleHandler={leftToggle}>
+			<Drawer isShow={left} closeHandler={leftToggle}>
 				Content from Drawer
 			</Drawer>
-			<Drawer anchor="right" show={right} toggleHandler={rightToggle}>
+			<Drawer anchor="right" isShow={right} closeHandler={rightToggle}>
 				Content from Drawer
 			</Drawer>
-			<Drawer anchor="top" show={top} toggleHandler={topToggle}>
+			<Drawer anchor="top" isShow={top} closeHandler={topToggle}>
 				Content from Drawer
 			</Drawer>
-			<Drawer anchor="bottom" show={bottom} toggleHandler={bottomToggle}>
+			<Drawer anchor="bottom" isShow={bottom} closeHandler={bottomToggle}>
 				Content from Drawer
 			</Drawer>
 			<Button className="m-8" onClick={leftToggle}>
@@ -55,6 +55,28 @@ export const Anchor = () => {
 			</Button>
 			<Button className="m-8" onClick={bottomToggle}>
 				Bottom
+			</Button>
+		</>
+	);
+};
+
+export const Size = () => {
+	const { state: left, toggleHandler: leftToggle } = useToggle(false, 350);
+	const { state: right, toggleHandler: rightToggle } = useToggle(false, 350);
+
+	return (
+		<>
+			<Drawer isShow={left} closeHandler={leftToggle}>
+				Content from Drawer
+			</Drawer>
+			<Drawer isShow={right} closeHandler={rightToggle}>
+				Content from Drawer
+			</Drawer>
+			<Button className="m-8" onClick={leftToggle}>
+				Size L
+			</Button>
+			<Button size="m" className="m-8" onClick={rightToggle}>
+				Size M
 			</Button>
 		</>
 	);

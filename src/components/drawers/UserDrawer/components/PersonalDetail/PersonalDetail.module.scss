@@ -1,0 +1,13 @@
+.container {
+	grid-template-columns: 1fr 1fr;
+	@apply grid  justify-items-center;
+
+	.input {
+		max-width: 284px;
+		@apply w-full mt-16;
+	}
+}
+
+.button {
+	@apply w-full mt-10;
+}
