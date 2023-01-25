@@ -16,7 +16,7 @@ const Home = () => {
 			</Head>
 			<main>
 				<Button onClick={toggleHandler}>CLICK</Button>
-				<UserDrawer show={state} toggleShow={toggleHandler} />
+				<UserDrawer isShow={state} toggleShow={toggleHandler} />
 			</main>
 		</>
 	);

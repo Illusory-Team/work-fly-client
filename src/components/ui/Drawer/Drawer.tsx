@@ -4,19 +4,19 @@ import { DrawerProps } from './Drawer.types';
 import styles from './Drawer.module.scss';
 
 export const Drawer: FC<PropsWithChildren<DrawerProps>> = ({
-	show,
-	toggleHandler,
+	isShow,
+	closeHandler,
 	anchor = 'left',
 	size = 'l',
 	className = '',
 	children,
 }) => {
-	const cl = classNames(styles.drawer, styles[anchor], styles[size], show && styles.show, className);
-	const clOverlay = classNames(styles.overlay, show && styles.show);
+	const cl = classNames(styles.drawer, styles[anchor], styles[size], isShow && styles.show, className);
+	const clOverlay = classNames(styles.overlay, isShow && styles.show);
 
 	return (
 		<>
-			<div onClick={toggleHandler} className={clOverlay}></div>
+			<div onClick={closeHandler} className={clOverlay}></div>
 			<div className={cl}>{children}</div>
 		</>
 	);

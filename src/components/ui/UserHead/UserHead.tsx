@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 import { FC, PropsWithChildren } from 'react';
-import { TitledAvatarProps } from './TitledAvatar.types';
-import styles from './TitledAvatar.module.scss';
+import { UserHeadProps } from './UserHead.types';
+import styles from './UserHead.module.scss';
 import Image from 'next/image';
 
-export const TitledAvatar: FC<PropsWithChildren<TitledAvatarProps>> = ({
+export const UserHead: FC<PropsWithChildren<UserHeadProps>> = ({
 	children,
 	src = '',
 	title = '',

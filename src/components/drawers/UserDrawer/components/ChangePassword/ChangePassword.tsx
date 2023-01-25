@@ -1,9 +1,9 @@
 import { Button } from '@/components/ui/buttons/Button';
 import { TextField } from '@/components/ui/inputs/TextField';
 import { FC } from 'react';
-import styles from './Password.module.scss';
+import styles from './ChangePassword.module.scss';
 
-export const Password: FC = () => {
+export const ChangePassword: FC = () => {
 	return (
 		<form className={styles.container}>
 			<TextField

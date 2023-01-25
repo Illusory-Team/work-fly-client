@@ -1,5 +1,5 @@
 export interface UserDrawerProps {
-	show: boolean;
+	isShow: boolean;
 	toggleShow: () => void;
 	className?: string;
 }
