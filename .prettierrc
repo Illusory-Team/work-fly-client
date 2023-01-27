@@ -7,5 +7,21 @@
 	"trailingComma": "all",
 	"endOfLine": "lf",
 	"printWidth": 120,
-	"arrowParens": "avoid"
+	"arrowParens": "avoid",
+	"importOrder": [
+		"<THIRD_PARTY_MODULES>",
+		"^@/layouts/(.*)$",
+		"^@/application/(.*)$",
+		"^@/processes/(.*)$",
+		"^@/pages/(.*)$",
+		"^@/widgets/(.*)$",
+		"^@/features/(.*)$",
+		"^@/entities/(.*)$",
+		"^@/shared/(.*)$",
+		"^../(.*)",
+		"^./(.*)",
+		"^(.scss)$"
+	],
+	"importOrderSeparation": true,
+	"importOrderSortSpecifiers": true
 }

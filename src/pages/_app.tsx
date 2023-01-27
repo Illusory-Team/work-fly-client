@@ -1,12 +1,12 @@
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import '@/styles/index.scss';
-import { wrapper } from '@/store/store';
+import '@/app/styles/index.scss';
+import { wrapper } from '@/app/store/store';
 import { Provider } from 'react-redux';
 
 const queryClient = new QueryClient({
-  defaultOptions: {
+	defaultOptions: {
 		queries: {
 			refetchOnWindowFocus: false,
 		},
@@ -20,7 +20,7 @@ export default function App({ Component, ...rest }: AppProps) {
 		<QueryClientProvider client={queryClient}>
 			<Provider store={store}>
 				<Component {...props.pageProps} />
-        <ReactQueryDevtools initialIsOpen={false} />
+				<ReactQueryDevtools initialIsOpen={false} />
 			</Provider>
 		</QueryClientProvider>
 	);

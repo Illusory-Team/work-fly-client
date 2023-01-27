@@ -1,0 +1,2 @@
+export { REGULAR_EMAIL, REGULAR_PASSWORD } from './regular';
+export { EMAIL_PATTERN_MESSAGE, FIELD_REQUIRED, PASSWORD_PATTERN_MESSAGE } from './errorMessage';

@@ -1,7 +1,9 @@
-import { UserDrawer } from '@/components/drawers/UserDrawer';
-import { Button } from '@/components/ui/buttons/Button';
-import { useToggle } from '@/hooks/util/useToggle';
 import Head from 'next/head';
+
+import { UserDrawer } from '@/entities/User';
+
+import { useToggle } from '@/shared/hooks';
+import { Button } from '@/shared/ui/Button';
 
 const Home = () => {
 	const { state, toggleHandler } = useToggle(false, 350);
@@ -15,8 +17,8 @@ const Home = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main>
+				<UserDrawer isShow={state} closeHandler={toggleHandler} />
 				<Button onClick={toggleHandler}>CLICK</Button>
-				<UserDrawer isShow={state} toggleShow={toggleHandler} />
 			</main>
 		</>
 	);
