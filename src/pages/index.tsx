@@ -1,13 +1,6 @@
 import Head from 'next/head';
 
-import { UserDrawer } from '@/entities/User';
-
-import { useToggle } from '@/shared/hooks';
-import { Button } from '@/shared/ui/Button';
-
 const Home = () => {
-	const { state, toggleHandler } = useToggle(false, 350);
-
 	return (
 		<>
 			<Head>
@@ -16,10 +9,7 @@ const Home = () => {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<main>
-				<UserDrawer isShow={state} closeHandler={toggleHandler} />
-				<Button onClick={toggleHandler}>CLICK</Button>
-			</main>
+			<main></main>
 		</>
 	);
 };
