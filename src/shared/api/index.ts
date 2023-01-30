@@ -1,1 +1,1 @@
-export { api } from './axios';
+export { api, fakeApi } from './axios';

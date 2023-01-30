@@ -1,19 +1,45 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 import { IUser } from '../types';
 
-interface InitialType {
-	user: Nullable<IUser>;
+interface InitialState {
+	user: IUser;
+	status: string;
+	readonly: boolean;
+	id: string | number;
 }
 
-const initialState: InitialType = {
-	user: null,
+const initialState: InitialState = {
+	user: {
+		id: null,
+		activity: null,
+		address: null,
+		avatar: '/anonym.png',
+		birthday: null,
+		description: '',
+		email: '',
+		fullName: 'anonym',
+		phone: null,
+	},
+	status: 'Work',
+	readonly: false,
+	id: '',
 };
 
-const UserSlice = createSlice({
-	name: 'auth',
+const userSlice = createSlice({
+	name: 'user',
 	initialState,
-	reducers: {},
+	reducers: {
+		setAlienUser(state, action: PayloadAction<string | number>) {
+			state.id = action.payload;
+			state.readonly = true;
+		},
+		setReadonly(state, action: PayloadAction<boolean>) {
+			state.readonly = action.payload;
+		},
+	},
 });
 
-export const userReducer = UserSlice.reducer;
+export const userReducer = userSlice.reducer;
+
+export const { setAlienUser, setReadonly } = userSlice.actions;

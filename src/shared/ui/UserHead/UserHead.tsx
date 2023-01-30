@@ -16,7 +16,7 @@ export const UserHead: FC<PropsWithChildren<UserHeadProps>> = ({
 
 	return (
 		<div className={cl} {...props}>
-			<Image src={src} width={56} height={56} alt="" />
+			<Image src={src ?? '/anonym.png'} width={56} height={56} alt="" />
 			<div className={styles.textContent}>
 				<h2 className={styles.title}>{title}</h2>
 				<p className={styles.subTitle}>{children}</p>

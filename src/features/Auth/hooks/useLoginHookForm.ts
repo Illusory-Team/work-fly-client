@@ -3,9 +3,14 @@ import { useForm } from 'react-hook-form';
 
 import { TextFieldProps } from '@/shared/ui/inputs/TextField';
 
-import { EMAIL_PATTERN_MESSAGE, FIELD_REQUIRED, PASSWORD_PATTERN_MESSAGE } from '../constants';
-import { REGULAR_EMAIL, REGULAR_PASSWORD } from '../constants';
-import { getEmailMaxLength, getPasswordMinLength } from '../helpers';
+import {
+	EMAIL_PATTERN_MESSAGE,
+	FIELD_REQUIRED,
+	PASSWORD_PATTERN_MESSAGE,
+	REGULAR_EMAIL,
+	REGULAR_PASSWORD,
+} from '../lib/constants';
+import { getEmailMaxLength, getPasswordMinLength } from '../lib/helpers';
 import { AuthService } from '../services';
 import { IErrorAuthResponse, IFormLogin } from '../types';
 

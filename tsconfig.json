@@ -17,6 +17,7 @@
 		"typeRoots": ["node_modules/@types", "src/application/typing/app.d.ts"],
 		"baseUrl": "./src",
 		"paths": {
+			"~/*": ["/*"],
 			"@/app/*": ["application/*"],
 			"@/processes/*": ["processes/*"],
 			"@/pages/*": ["pages/*"],

@@ -1,1 +1,2 @@
-export { userReducer } from './user.slice';
+export { userPopupSelector, userSelector } from './user.selector';
+export { userReducer, setAlienUser, setReadonly } from './user.slice';

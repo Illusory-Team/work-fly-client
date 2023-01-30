@@ -1,6 +1,14 @@
 import Head from 'next/head';
 
+import { useProfile } from '@/entities/User';
+
+import { Button } from '@/shared/ui/Button';
+
+import { UserProfile } from '@/widgets/UserProfile';
+
 const Home = () => {
+	const { openOwnProfileHandler, openProfileHandler } = useProfile();
+
 	return (
 		<>
 			<Head>
@@ -9,7 +17,13 @@ const Home = () => {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<main></main>
+			<main>
+				<UserProfile />
+				<Button onClick={openOwnProfileHandler}>CLICK</Button>
+				<Button onClick={() => openProfileHandler(1)}>USER 1</Button>
+				<Button onClick={() => openProfileHandler(2)}>USER 2</Button>
+				<Button onClick={() => openProfileHandler(3)}>USER 3</Button>
+			</main>
 		</>
 	);
 };

@@ -1,9 +1,10 @@
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import '@/app/styles/index.scss';
-import { wrapper } from '@/app/store/store';
 import { Provider } from 'react-redux';
+
+import { wrapper } from '@/app/store/store';
+import '@/app/styles/index.scss';
 
 const queryClient = new QueryClient({
 	defaultOptions: {

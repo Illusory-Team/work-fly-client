@@ -1,0 +1,27 @@
+.content {
+	max-width: 647px;
+	min-width: 320px;
+	min-height: 797px;
+	background: var(--bg-secondary);
+	padding: 50px 80px;
+	box-shadow: 0 24px 38px rgba(47, 53, 57, 0.03), 0 9px 46px rgba(71, 116, 138, 0.02),
+		0 11px 15px rgba(95, 137, 158, 0.04);
+	@apply rounded-4xl w-full relative;
+
+	.title {
+		margin-top: 35px;
+
+		@apply text-center h2;
+	}
+
+	.subTitle {
+		color: var(--paragraph-main);
+		margin-top: 10px;
+
+		@apply text-center subhead mb-11;
+	}
+}
+
+.footer {
+	@apply text-center absolute bottom-12 left-1/2 -translate-x-1/2;
+}

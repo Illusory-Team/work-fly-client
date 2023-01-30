@@ -1,5 +1,7 @@
 import { AxiosResponse } from 'axios';
+
 import { api } from '@/shared/api';
+
 import { IFormLogin, ILoginResponse } from '../types';
 
 export const AuthService = {

@@ -1,4 +1,4 @@
-import { IUser } from '@/entities/User/types';
+import { IUser } from '@/entities/User';
 
 import { ITokens } from './ITokens';
 
