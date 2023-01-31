@@ -6,7 +6,7 @@ interface InitialState {
 	user: IUser;
 	status: string;
 	readonly: boolean;
-	readonlyId: string | number;
+	otherUserId: string | number;
 }
 
 const initialState: InitialState = {
@@ -23,7 +23,7 @@ const initialState: InitialState = {
 	},
 	status: 'Work',
 	readonly: false,
-	readonlyId: '',
+	otherUserId: '',
 };
 
 const userSlice = createSlice({
@@ -31,7 +31,7 @@ const userSlice = createSlice({
 	initialState,
 	reducers: {
 		setAlienUser(state, action: PayloadAction<string | number>) {
-			state.readonlyId = action.payload;
+			state.otherUserId = action.payload;
 			state.readonly = true;
 		},
 		setReadonly(state, action: PayloadAction<boolean>) {

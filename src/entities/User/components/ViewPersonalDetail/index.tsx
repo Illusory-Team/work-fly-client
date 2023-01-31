@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { IUser } from '@/entities/User';
 
-import { TheDescribedText } from '@/shared/ui/texts/TheDescribedText';
+import { DescribedText } from '../DescribedText';
 
 import styles from './ViewPersonalDetail.module.scss';
 
@@ -28,9 +28,9 @@ export const ViewPersonalDetail: FC<ViewPersonalDetailProps> = ({ user, isLoadin
 			<h2>PROFILE DETAIL</h2>
 			<div className={styles.wrapper}>
 				{userInfo.map(info => (
-					<TheDescribedText className={styles.info} key={info.description} description={info.description}>
+					<DescribedText className={styles.info} key={info.description} description={info.description}>
 						{info.text}
-					</TheDescribedText>
+					</DescribedText>
 				))}
 			</div>
 			<p className={styles.description}>{user.description ?? '---'}</p>

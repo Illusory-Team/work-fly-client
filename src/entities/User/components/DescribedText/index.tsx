@@ -1,14 +1,14 @@
 import classNames from 'classnames';
 import { FC, HTMLAttributes, PropsWithChildren } from 'react';
 
-import styles from './TheDescribedText.module.scss';
+import styles from './DescribedText.module.scss';
 
-interface TheDescribedTextProps extends HTMLAttributes<HTMLDivElement> {
+interface DescribedTextProps extends HTMLAttributes<HTMLDivElement> {
 	description: string;
 	className?: string;
 }
 
-export const TheDescribedText: FC<PropsWithChildren<TheDescribedTextProps>> = ({
+export const DescribedText: FC<PropsWithChildren<DescribedTextProps>> = ({
 	description,
 	className = '',
 	children,
