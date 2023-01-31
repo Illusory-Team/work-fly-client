@@ -40,40 +40,88 @@ npm run storybook
 Component
   ├── index.ts
   ├── Component.tsx
-  ├── Component.scss
+  ├── Component.module.scss
   ├── Component.stories.tsx
   ├── Component.types.ts
   ├── Component.context.ts
+  ├── Component.lazy.ts
   └── Component.test.ts
 ```
 
-- Все эти файлы могут быть не обязательны. К примеру, если типизация достаточно большая, то выносим её в отдельный файл. В противном случае не обязательно
+Все эти файлы могут быть не обязательны. К примеру, если типизация достаточно большая, то выносим её в отдельный файл. В противном случае не обязательно.
+
+Про lazy файл. Он служит для декомпозиций набора стилизованных loader или skeleton если она окажется достаточно большой
 
 ## Структура страницы
 
 ```
 pages
   └── registration
-    ├── index.ts
-    ├── registration.tsx
-    ├── registration.scss
+    ├── index.tsx
+    ├── registration.module.scss
     ├── registration.types.ts
     ├── registration.context.ts
     └── registration.test.ts
 ```
 
-С помощью index файла дефолтно экспортируем компонент страницы
+В index файле компонент страницы, которая экспортируется дефолтно.
+
+```
+pages
+└── registration
+  ├── index.tsx
+  ├── registration.module.scss
+  ├── registration.types.ts
+  ├── registration.context.ts
+  ├── registration.test.ts
+  └── sections
+    ├── first
+    | ├── index.tsx
+    | ├── first.module.scss
+    | ├── first.types.ts
+    | ├── first.context.ts
+    | └── first.test.ts
+    └── second 
+      ├── index.tsx
+      ├── second.module.scss
+      ├── second.types.ts
+      ├── second.context.ts
+      └── second.test.ts
+```
+
+В случай, если в страницу много секций. Создаем папку sections и туда помещаем first, second, third и тд 
+для декомпозиций страницы. После куски собираем в index файле. Так же можно index файл сделать public api
+
+```
+pages
+└── registration
+  ├── index.ts
+  ├── registration.module.scss
+  ├── registration.types.ts
+  ├── registration.context.ts
+  ├── registration.test.ts
+  └── registration.tsx
+```
 
 ## Структура приложения
 
 ```
+
 src
   ├── application ─ содержит настройку роутера, глобальные хранилища и стили.
   ├── processes ─ содержит часть аутентификации, отвечающую за чтение/запись токенов аутентификации.
   ├── pages ─ содержит компоненты роутов на каждую страницу в приложении, преимущественно композирующие, по возможности, без собственной логики.
-  ├── layouts ─
   ├── widgets ─ содержит "собранную" карточку поста, с содержимым и интерактивными кнопками, в которые вшиты запросы к бэкенду.
   ├── features ─ содержит всю интерактивность карточки (например, кнопку лайка) и логику обработки этой интерактивности.
   ├── entities ─ содержит скелет карточки со слотами под интерактивные элементы. Компонент, демонстрирующий автора поста, также находится в этой папке, но в другом слайсе.
   └── shared ─ максимально переиспользуемые компоненты(ui), helpers, constants без бизнес логики.
+
 ```
+
+## Архитектура приложения
+
+Используем архитектуру feature sliced design. У данной архитектуры есть своя документация. Вот ссылка https://feature-sliced.design/
+можете ознакомится с данной архитектурой.
+
+У нас в сегментах нет lib, у нас идут сегменты constants и helpers. Для типизаций и хуков сегменты types и hooks соответственно.
+Так же возможно, что могут быть введены ещё какие-то сегменты. 

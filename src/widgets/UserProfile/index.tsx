@@ -8,7 +8,7 @@ import { ChangePassword, ChangePersonalDetail } from '@/features/ChangeUser';
 import { useAppSelector } from '@/shared/hooks';
 
 export const UserProfile: FC = () => {
-	const { user, readonly, status, id } = useAppSelector(userSelector);
+	const { user, readonly, status, readonlyId: id } = useAppSelector(userSelector);
 	const { data, isLoading, refetch } = useQuery('user-view', () => UserService.getUser(id), {
 		enabled: !!id,
 	});

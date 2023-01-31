@@ -14,7 +14,7 @@ import { getEmailMaxLength, getPasswordMinLength } from '../lib/helpers';
 import { AuthService } from '../services';
 import { IErrorAuthResponse, IFormLogin } from '../types';
 
-export const useLoginHookForm = () => {
+export const useLoginForm = () => {
 	const {
 		register,
 		setError,

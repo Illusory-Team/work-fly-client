@@ -45,15 +45,15 @@ export const UserDrawer: FC<UserDrawerProps> = ({ data, isLoading, status, tabs,
 					<h4>ID: {data.id}</h4>
 				</div>
 				<div className={styles.third}>
-					{tabs.map((tag, index) => (
+					{tabs.map((tab, index) => (
 						<h4
 							onClick={() => setSelectTab(index)}
-							className={cn(styles.tag, {
+							className={cn(styles.tab, {
 								[styles.active]: selectTab === index,
 							})}
-							key={tag.title}
+							key={tab.title}
 						>
-							{tag.title}
+							{tab.title}
 						</h4>
 					))}
 				</div>

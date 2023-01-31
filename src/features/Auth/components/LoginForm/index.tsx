@@ -6,7 +6,7 @@ import { FormTemplate } from '@/entities/User';
 import { Button } from '@/shared/ui/Button';
 import { TextField } from '@/shared/ui/inputs/TextField';
 
-import { useLoginHookForm } from '../../hooks';
+import { useLoginForm } from '../../hooks';
 
 import styles from './LoginForm.module.scss';
 
@@ -15,7 +15,7 @@ interface LoginFormProps {
 }
 
 export const LoginForm: FC<LoginFormProps> = ({ className }) => {
-	const { submitHandler, getEmailInputProps, getPasswordInputProps } = useLoginHookForm();
+	const { submitHandler, getEmailInputProps, getPasswordInputProps } = useLoginForm();
 
 	return (
 		<FormTemplate

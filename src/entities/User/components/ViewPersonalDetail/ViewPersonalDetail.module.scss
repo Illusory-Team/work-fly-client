@@ -3,13 +3,8 @@
 		grid-template-columns: 1fr 1fr;
 		@apply grid;
 
-		.titledText {
+		.info {
 			@apply py-6;
-
-			h5 {
-				color: var(--paragraph-light);
-				@apply caption-14-md;
-			}
 		}
 	}
 }

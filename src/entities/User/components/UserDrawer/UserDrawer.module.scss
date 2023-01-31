@@ -25,7 +25,7 @@
 	.third {
 		@apply flex px-8 mt-8;
 
-		.tag {
+		.tab {
 			color: var(--paragraph-light);
 			@apply cursor-pointer;
 
@@ -35,7 +35,7 @@
 			}
 		}
 
-		.tag:not(:last-child) {
+		.tab:not(:last-child) {
 			@apply mr-6;
 		}
 	}
