@@ -1,0 +1,10 @@
+.container {
+	.wrapper {
+		grid-template-columns: 1fr 1fr;
+		@apply grid;
+
+		.info {
+			@apply py-6;
+		}
+	}
+}

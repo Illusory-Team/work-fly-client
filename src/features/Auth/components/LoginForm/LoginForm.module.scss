@@ -1,0 +1,14 @@
+.errorMessage {
+	color: var(--danger-main);
+}
+
+.form {
+	margin-top: 46px;
+
+	@apply flex-col-center-center;
+
+	.input {
+		max-width: 480px;
+		@apply mt-16 w-full;
+	}
+}

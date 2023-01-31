@@ -5,9 +5,9 @@
 		"selector-class-pattern": null,
 		"alpha-value-notation": "number",
 		"color-function-notation": "legacy",
-    "import-notation": "string",
-    "scss/at-import-partial-extension": "always",
-    "color-hex-length": "short"
+		"import-notation": "string",
+		"scss/at-import-partial-extension": "always",
+		"color-hex-length": "short"
 	},
-	"ignoreFiles": ["build/*", "./src/styles/lib/*.scss"]
+	"ignoreFiles": ["build/*", "./src/application/styles/lib/*.scss"]
 }

@@ -1,1 +1,0 @@
-export { UserHead } from './UserHead';

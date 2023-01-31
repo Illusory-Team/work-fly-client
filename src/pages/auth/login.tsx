@@ -1,9 +1,31 @@
-import { LoginForm } from '@/components/forms/LoginForm';
-import { Auth } from '@/components/screens/Auth/Auth';
+import Link from 'next/link';
 import { FC } from 'react';
 
+import { LoginForm } from '@/features/Auth';
+
+import { Meta } from '@/shared/ui/Meta';
+
+import { AuthLayout } from '@/widgets/AuthLayout';
+
 const Login: FC = () => {
-	return <Auth isLoginPage={true} form={<LoginForm className="mt-16" />} />;
+	return (
+		<>
+			<Meta title="Work Fly | Login" />
+			<AuthLayout
+				form={<LoginForm className="mt-20" />}
+				src="/login-illustration.png"
+				href="registration"
+				subTitle={
+					<>
+						Have no account?{' '}
+						<Link href="registration" className="font-bold">
+							Registration
+						</Link>
+					</>
+				}
+			/>
+		</>
+	);
 };
 
 export default Login;

@@ -1,10 +1,13 @@
-import { UserDrawer } from '@/components/drawers/UserDrawer';
-import { Button } from '@/components/ui/buttons/Button';
-import { useToggle } from '@/hooks/util/useToggle';
 import Head from 'next/head';
 
+import { useProfile } from '@/entities/User';
+
+import { Button } from '@/shared/ui/Button';
+
+import { UserProfile } from '@/widgets/UserProfile';
+
 const Home = () => {
-	const { state, toggleHandler } = useToggle(false, 350);
+	const { openOwnProfileHandler, openProfileHandler } = useProfile();
 
 	return (
 		<>
@@ -15,8 +18,11 @@ const Home = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<main>
-				<Button onClick={toggleHandler}>CLICK</Button>
-				<UserDrawer isShow={state} toggleShow={toggleHandler} />
+				<UserProfile />
+				<Button onClick={openOwnProfileHandler}>CLICK</Button>
+				<Button onClick={() => openProfileHandler(1)}>USER 1</Button>
+				<Button onClick={() => openProfileHandler(2)}>USER 2</Button>
+				<Button onClick={() => openProfileHandler(3)}>USER 3</Button>
 			</main>
 		</>
 	);
