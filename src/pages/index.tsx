@@ -1,13 +1,17 @@
 import Head from 'next/head';
+import { useDispatch } from 'react-redux';
 
 import { useProfile } from '@/entities/User';
 
+import { openPopup } from '@/shared/store/popupsController';
 import { Button } from '@/shared/ui/Button';
 
-import { UserProfile } from '@/widgets/UserProfile';
+import { ViewNotificationDrawer } from '@/widgets/DashboardLayout';
+import { UserProfile } from '@/widgets/DashboardLayout/components/UserProfile';
 
 const Home = () => {
 	const { openOwnProfileHandler, openProfileHandler } = useProfile();
+	const dispatch = useDispatch();
 
 	return (
 		<>
@@ -23,6 +27,8 @@ const Home = () => {
 				<Button onClick={() => openProfileHandler(1)}>USER 1</Button>
 				<Button onClick={() => openProfileHandler(2)}>USER 2</Button>
 				<Button onClick={() => openProfileHandler(3)}>USER 3</Button>
+				<Button onClick={() => dispatch(openPopup('viewNotificationDrawer'))}>Notification</Button>
+				<ViewNotificationDrawer />
 			</main>
 		</>
 	);

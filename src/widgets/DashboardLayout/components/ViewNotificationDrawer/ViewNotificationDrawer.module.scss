@@ -1,0 +1,13 @@
+.filter {
+	border-bottom: 2px solid var(--divider-light);
+	@apply p-4;
+
+	.filterButton {
+		color: var(--descriptor-light);
+		@apply mr-6;
+
+		&.active {
+			color: var(--primary-light);
+		}
+	}
+}

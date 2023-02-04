@@ -1,0 +1,16 @@
+.header {
+	@apply flex justify-end px-8 mt-7;
+
+	.close {
+		color: var(--paragraph-light);
+		@apply cursor-pointer mr-2 ml-2;
+	}
+}
+
+.title {
+	@apply h1 mt-20 pl-8;
+}
+
+.body {
+	@apply ml-8 mt-8;
+}

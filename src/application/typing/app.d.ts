@@ -1,4 +1,8 @@
+import { RootState } from '../store/store';
+
 declare global {
+	// eslint-disable-next-line @typescript-eslint/no-empty-interface
+	export interface AppState extends RootState {}
 	export type Nullable<T> = T | null;
 
 	export type Keys<T extends Record<string, unknown>> = keyof T;

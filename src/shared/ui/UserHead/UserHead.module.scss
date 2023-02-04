@@ -6,12 +6,25 @@
 	@apply flex-col ml-3;
 }
 
-.title {
-	color: var(--primary-light);
-	@apply h2;
+.l {
+	.title {
+		color: var(--primary-light);
+		@apply h2;
+	}
+
+	.subTitle {
+		color: var(--paragraph-light);
+		@apply subhead;
+	}
 }
 
-.subTitle {
-	color: var(--paragraph-light);
-	@apply subhead;
+.m {
+	.title {
+		@apply headline;
+	}
+
+	.subTitle {
+		color: var(--paragraph-light);
+		@apply caption-14-rg;
+	}
 }

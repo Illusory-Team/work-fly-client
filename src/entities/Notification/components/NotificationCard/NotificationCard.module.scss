@@ -1,0 +1,22 @@
+.card {
+	max-width: 500px;
+	@apply flex flex-col w-full;
+
+	.footer {
+		@apply flex items-center ml-14 mt-3;
+
+		p {
+			color: var(--descriptor-light);
+			@apply m-0 caption-13-rg;
+		}
+
+		.priority {
+			background: var(--pink-light);
+			@apply h5 py-1 px-2 rounded-3xl mr-2;
+		}
+
+		.date {
+			@apply mr-2;
+		}
+	}
+}
