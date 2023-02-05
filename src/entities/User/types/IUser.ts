@@ -6,6 +6,6 @@ export interface IUser {
 	birthday: Nullable<string>;
 	address: Nullable<string>;
 	description: Nullable<string>;
-	activity: Nullable<string>;
+	position?: string;
 	avatar: string;
 }

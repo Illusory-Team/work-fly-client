@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FC } from 'react';
+import React from 'react';
 
 import { LoginForm } from '@/features/Auth';
 
@@ -7,7 +7,7 @@ import { Meta } from '@/shared/ui/Meta';
 
 import { AuthLayout } from '@/widgets/AuthLayout';
 
-const Registration: FC = () => {
+export const RegistrationView = () => {
 	return (
 		<>
 			<Meta title="Work Fly | Registration" />
@@ -27,5 +27,3 @@ const Registration: FC = () => {
 		</>
 	);
 };
-
-export default Registration;
