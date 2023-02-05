@@ -33,7 +33,7 @@ export const ViewPersonalDetail: FC<ViewPersonalDetailProps> = ({ user, isLoadin
 					</DescribedText>
 				))}
 			</div>
-			<p className={styles.description}>{user.description ?? '---'}</p>
+			<p>{user.description ?? '---'}</p>
 		</div>
 	);
 };
