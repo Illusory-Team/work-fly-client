@@ -12,7 +12,7 @@ interface InitialState {
 const initialState: InitialState = {
 	user: {
 		id: null,
-		position: null,
+		position: undefined,
 		address: null,
 		avatar: '/anonym.png',
 		birthday: null,
