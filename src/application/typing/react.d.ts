@@ -12,3 +12,6 @@ declare module '*.png' {
 	const content: any;
 	export default content;
 }
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+declare type PropsWithChildren<T = {}> = import('react').PropsWithChildren<T>;

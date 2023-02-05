@@ -12,7 +12,7 @@ interface InitialState {
 const initialState: InitialState = {
 	user: {
 		id: null,
-		activity: null,
+		position: null,
 		address: null,
 		avatar: '/anonym.png',
 		birthday: null,
@@ -30,6 +30,9 @@ const userSlice = createSlice({
 	name: 'user',
 	initialState,
 	reducers: {
+		setCurrentUser(state, action: PayloadAction<IUser>) {
+			state.user = action.payload;
+		},
 		setAlienUser(state, action: PayloadAction<string | number>) {
 			state.otherUserId = action.payload;
 			state.readonly = true;
@@ -42,4 +45,4 @@ const userSlice = createSlice({
 
 export const userReducer = userSlice.reducer;
 
-export const { setAlienUser, setReadonly } = userSlice.actions;
+export const { setAlienUser, setReadonly, setCurrentUser } = userSlice.actions;

@@ -1,5 +1,10 @@
 import { AxiosError } from 'axios';
+import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
+import { useMutation } from 'react-query';
+import { useDispatch } from 'react-redux';
+
+import { setCurrentUser } from '@/entities/User/model/user.slice';
 
 import { TextFieldProps } from '@/shared/ui/inputs/TextField';
 
@@ -21,10 +26,20 @@ export const useLoginForm = () => {
 		handleSubmit,
 		formState: { errors },
 	} = useForm<IFormLogin>({ mode: 'onBlur' });
+	const router = useRouter();
+
+	const dispatch = useDispatch();
+
+	const { mutateAsync } = useMutation('login-user', (data: IFormLogin) => AuthService.login(data), {
+		onSuccess(user) {
+			dispatch(setCurrentUser(user.data.user));
+		},
+	});
 
 	const submitHandler = handleSubmit(async (data: IFormLogin) => {
 		try {
-			await AuthService.login(data);
+			await mutateAsync(data);
+			await router.push('/');
 		} catch (error) {
 			const errorMessage = (error as AxiosError<IErrorAuthResponse>).response?.data.message;
 			if (errorMessage) {
