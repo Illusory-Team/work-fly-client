@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 
 import { IUserTabs, UserDrawer, UserService, ViewPersonalDetail, userSelector } from '@/entities/User';
 
-import { ChangePassword, ChangePersonalDetail } from '@/features/ChangeUser';
+import { ChangePassword, ChangePersonalDetail } from '@/features/UserActions';
 
 import { useAppSelector } from '@/shared/hooks';
 

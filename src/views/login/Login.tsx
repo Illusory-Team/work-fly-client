@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { FC } from 'react';
 
 import { LoginForm } from '@/features/Auth';
 
@@ -7,7 +6,7 @@ import { Meta } from '@/shared/ui/Meta';
 
 import { AuthLayout } from '@/widgets/AuthLayout';
 
-const Login: FC = () => {
+export const LoginView = () => {
 	return (
 		<>
 			<Meta title="Work Fly | Login" />
@@ -27,5 +26,3 @@ const Login: FC = () => {
 		</>
 	);
 };
-
-export default Login;

@@ -1,11 +1,9 @@
 import cn from 'classnames';
 import { FC } from 'react';
 
-import { NotificationDrawer } from '@/entities/Notification';
+import { NotificationDrawer, NotificationList } from '@/entities/Notification';
 
 import { useFilterNotification } from '@/features/FilterNotification';
-
-import { NotificationList } from '../NotificationList';
 
 import styles from './ViewNotificationDrawer.module.scss';
 

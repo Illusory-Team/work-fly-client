@@ -3,7 +3,7 @@
 	@apply flex flex-col w-full;
 
 	.footer {
-		@apply flex items-center ml-14 mt-3;
+		@apply inline-flex items-center ml-16 pl-1 mt-3 w-auto;
 
 		p {
 			color: var(--descriptor-light);

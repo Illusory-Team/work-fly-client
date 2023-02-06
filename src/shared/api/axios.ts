@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000/';
-const FAKE_URL = 'https://6358ff89ff3d7bddb99618ca.mockapi.io/';
+const BASE_URL = process.env.API_URL;
+const FAKE_URL = process.env.FAKE_API_URL;
 
 export const api = axios.create({
 	baseURL: BASE_URL,

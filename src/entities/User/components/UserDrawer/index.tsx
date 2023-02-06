@@ -39,9 +39,7 @@ export const UserDrawer: FC<UserDrawerProps> = ({ data, isLoading, status, tabs,
 					</div>
 				</div>
 				<div className={styles.second}>
-					<UserHead src={data.avatar} title={data.fullName}>
-						{data.activity}
-					</UserHead>
+					<UserHead src={data.avatar} title={data.fullName} position={data.position} />
 					<h4>ID: {data.id}</h4>
 				</div>
 				<div className={styles.third}>

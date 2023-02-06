@@ -7,4 +7,5 @@ export interface UserHeadProps extends HTMLAttributes<HTMLDivElement> {
 	title?: string;
 	size?: SizeType;
 	className?: string;
+	position?: string;
 }

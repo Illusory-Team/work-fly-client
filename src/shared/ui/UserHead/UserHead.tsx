@@ -1,27 +1,26 @@
 import classNames from 'classnames';
-import { FC, PropsWithChildren } from 'react';
-
-import { Avatar } from '../Avatar';
+import Image from 'next/image';
+import { FC } from 'react';
 
 import styles from './UserHead.module.scss';
 import { UserHeadProps } from './UserHead.types';
 
-export const UserHead: FC<PropsWithChildren<UserHeadProps>> = ({
-	children,
+export const UserHead: FC<UserHeadProps> = ({
 	src = '',
 	title = '',
-	size = 'l',
 	className = '',
+	size = 'l',
+	position = 'manager',
 	...props
 }) => {
 	const cl = classNames(styles.container, styles[size], className);
 
 	return (
 		<div className={cl} {...props}>
-			<Avatar src={src ?? '/anonym.png'} />
+			<Image src={src ? src : '/anonym.png'} width={56} height={56} alt="" />
 			<div className={styles.textContent}>
 				<h2 className={styles.title}>{title}</h2>
-				<p className={styles.subTitle}>{children}</p>
+				<p className={styles.position}>{position}</p>
 			</div>
 		</div>
 	);
