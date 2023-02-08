@@ -43,5 +43,6 @@
 
 .body {
 	background: var(--bg-secondary);
-	@apply px-8 py-6 h-full;
+	height: calc(100vh - 272px);
+	@apply px-8 py-6 overflow-auto;
 }

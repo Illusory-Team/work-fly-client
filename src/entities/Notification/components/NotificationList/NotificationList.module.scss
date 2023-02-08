@@ -1,0 +1,17 @@
+.notificationList {
+	@apply px-8 w-full;
+
+	.notificationCard {
+		@apply mt-6;
+	}
+
+	.empty {
+		img {
+			@apply mx-auto mt-32;
+		}
+
+		h2 {
+			@apply text-center h1;
+		}
+	}
+}

@@ -9,10 +9,11 @@ export const UserHead: FC<UserHeadProps> = ({
 	src = '',
 	title = '',
 	className = '',
+	size = 'l',
 	position = 'manager',
 	...props
 }) => {
-	const cl = classNames(styles.container, className);
+	const cl = classNames(styles.container, styles[size], className);
 
 	return (
 		<div className={cl} {...props}>

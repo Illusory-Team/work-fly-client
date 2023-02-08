@@ -3,12 +3,11 @@ import { FC, ReactNode, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useAppSelector } from '@/shared/hooks';
-import { closePopup } from '@/shared/store/popupsController';
+import { closePopup, userProfileDrawerSelector } from '@/shared/store/popupsController';
 import { Drawer } from '@/shared/ui/Drawer';
 import { Icon } from '@/shared/ui/Icon';
 import { UserHead } from '@/shared/ui/UserHead';
 
-import { userPopupSelector } from '../../model';
 import { IUser, IUserTabs } from '../../types';
 
 import styles from './UserDrawer.module.scss';
@@ -23,19 +22,20 @@ interface UserDrawerProps {
 
 export const UserDrawer: FC<UserDrawerProps> = ({ data, isLoading, status, tabs, error = '' }) => {
 	const [selectTab, setSelectTab] = useState(0);
-	const isOpen = useAppSelector(userPopupSelector);
+	const isOpen = useAppSelector(userProfileDrawerSelector);
 	const dispatch = useDispatch();
+	const closeHandler = () => dispatch(closePopup('userProfile'));
 
 	if (error) return <div>error</div>;
 
 	return (
-		<Drawer anchor="right" isShow={isOpen} closeHandler={() => dispatch(closePopup('userProfile'))}>
+		<Drawer anchor="right" isShow={isOpen} closeHandler={closeHandler}>
 			<div className={styles.header}>
 				<div className={styles.first}>
 					<div>{status}</div>
 					<div className={styles.wrapper}>
 						<Icon name="action_archive" />
-						<Icon onClick={() => dispatch(closePopup('userProfile'))} className={styles.close} name="other_back" />
+						<Icon onClick={closeHandler} className={styles.close} name="other_back" />
 					</div>
 				</div>
 				<div className={styles.second}>

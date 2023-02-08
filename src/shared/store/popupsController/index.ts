@@ -1,25 +1,7 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+export {
+	addNotificationDrawerSelector,
+	userProfileDrawerSelector,
+	viewNotificationDrawerSelector,
+} from './popupsController.selector';
 
-interface InitialState {
-	userProfile: boolean;
-}
-
-const initialState: InitialState = {
-	userProfile: false,
-};
-
-const popupsControllerSlice = createSlice({
-	name: 'popupsController',
-	initialState,
-	reducers: {
-		closePopup(state, { payload }: PayloadAction<keyof InitialState>) {
-			state[payload] = false;
-		},
-		openPopup(state, { payload }: PayloadAction<keyof InitialState>) {
-			state[payload] = true;
-		},
-	},
-});
-
-export const popupsControllerReducer = popupsControllerSlice.reducer;
-export const { closePopup, openPopup } = popupsControllerSlice.actions;
+export { popupsControllerReducer, closePopup, openPopup } from './popupsController.slice';
