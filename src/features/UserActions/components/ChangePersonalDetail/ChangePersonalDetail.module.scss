@@ -1,6 +1,6 @@
 .container {
 	grid-template-columns: 1fr 1fr;
-	@apply grid  justify-items-center;
+	@apply grid  justify-items-center gap-2;
 
 	.input {
 		max-width: 284px;

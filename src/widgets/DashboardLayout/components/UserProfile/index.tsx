@@ -3,9 +3,10 @@ import { useQuery } from 'react-query';
 
 import { IUserTabs, UserDrawer, UserService, ViewPersonalDetail, userSelector } from '@/entities/User';
 
-import { ChangePassword, ChangePersonalDetail } from '@/features/UserActions';
+import { ChangeAvatar, ChangePassword, ChangePersonalDetail } from '@/features/UserActions';
 
 import { useAppSelector } from '@/shared/hooks';
+import { EntityHead } from '@/shared/ui/EntityHead';
 
 export const UserProfile: FC = () => {
 	const { user, readonly, status, otherUserId: id } = useAppSelector(userSelector);
@@ -32,6 +33,13 @@ export const UserProfile: FC = () => {
 			status={<p>{status}</p>}
 			isLoading={isLoading}
 			tabs={readonly ? readonlyTabs : tabs}
+			userHead={
+				readonly ? (
+					<EntityHead src={data?.avatar} title={data?.fullName} subTitle={data?.position} />
+				) : (
+					<ChangeAvatar src={user.avatar} title={user.fullName} subTitle={user.position} />
+				)
+			}
 		/>
 	);
 };

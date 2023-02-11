@@ -12,5 +12,6 @@
 }
 
 .body {
+	height: calc(100vh - 180px);
 	@apply ml-8 mt-8;
 }

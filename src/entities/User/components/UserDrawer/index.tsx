@@ -6,7 +6,6 @@ import { useAppSelector } from '@/shared/hooks';
 import { closePopup, userProfileDrawerSelector } from '@/shared/store/popupsController';
 import { Drawer } from '@/shared/ui/Drawer';
 import { Icon } from '@/shared/ui/Icon';
-import { UserHead } from '@/shared/ui/UserHead';
 
 import { IUser, IUserTabs } from '../../types';
 
@@ -17,10 +16,11 @@ interface UserDrawerProps {
 	isLoading: boolean;
 	error?: string;
 	status: ReactNode;
+	userHead?: ReactNode;
 	tabs: IUserTabs[];
 }
 
-export const UserDrawer: FC<UserDrawerProps> = ({ data, isLoading, status, tabs, error = '' }) => {
+export const UserDrawer: FC<UserDrawerProps> = ({ userHead, data, isLoading, status, tabs, error = '' }) => {
 	const [selectTab, setSelectTab] = useState(0);
 	const isOpen = useAppSelector(userProfileDrawerSelector);
 	const dispatch = useDispatch();
@@ -39,7 +39,7 @@ export const UserDrawer: FC<UserDrawerProps> = ({ data, isLoading, status, tabs,
 					</div>
 				</div>
 				<div className={styles.second}>
-					<UserHead src={data.avatar} title={data.fullName} position={data.position} />
+					{userHead}
 					<h4>ID: {data.id}</h4>
 				</div>
 				<div className={styles.third}>
