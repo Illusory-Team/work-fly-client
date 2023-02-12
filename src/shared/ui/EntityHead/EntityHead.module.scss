@@ -26,12 +26,12 @@
 	@apply relative rounded-full overflow-hidden cursor-pointer;
 
 	.addHover {
-		@apply absolute w-full h-full left-0 top-0 transition-all flex-center-center text-transparent;
 		background: transparent;
+		@apply absolute w-full h-full left-0 top-0 transition-all flex-center-center text-transparent;
 	}
 
 	&:hover .addHover {
-		@apply text-white;
 		background: rgba(57, 57, 57, 0.296);
+		@apply text-white;
 	}
 }
