@@ -8,7 +8,6 @@ export interface EntityHeadProps {
 	title?: string;
 	subTitle?: string;
 	isChangeable?: boolean;
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	value?: any;
+	value?: string;
 	onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
