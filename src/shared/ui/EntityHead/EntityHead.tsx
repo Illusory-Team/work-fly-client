@@ -18,7 +18,8 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 			isChangeable = false,
 			className = '',
 			classNameTitle = '',
-			...props
+			value,
+			onChange,
 		},
 		ref,
 	) => {
@@ -38,7 +39,14 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 			<div className={cl}>
 				{isChangeable ? (
 					<>
-						<input className={styles.input} ref={inputRef} type="file" {...props} />
+						<input
+							accept="image/png, image/jpeg"
+							className={styles.input}
+							ref={inputRef}
+							type="file"
+							value={value}
+							onChange={onChange}
+						/>
 						<div className={styles.imgWrapper} onClick={clickHandler}>
 							<div className={styles.addHover}>
 								<Icon name="action_photo" />

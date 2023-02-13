@@ -1,6 +1,6 @@
-import { InputHTMLAttributes } from 'react';
+import { ChangeEvent } from 'react';
 
-export interface EntityHeadProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface EntityHeadProps {
 	className?: string;
 	classNameTitle?: string;
 	imgHandler?: () => void;
@@ -8,4 +8,7 @@ export interface EntityHeadProps extends InputHTMLAttributes<HTMLInputElement> {
 	title?: string;
 	subTitle?: string;
 	isChangeable?: boolean;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	value?: any;
+	onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
