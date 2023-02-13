@@ -4,12 +4,14 @@ interface InitialState {
 	userProfile: boolean;
 	viewNotificationDrawer: boolean;
 	addNotificationDrawer: boolean;
+	companyDrawer: boolean;
 }
 
 const initialState: InitialState = {
 	userProfile: false,
 	viewNotificationDrawer: false,
 	addNotificationDrawer: false,
+	companyDrawer: false,
 };
 
 const popupsControllerSlice = createSlice({

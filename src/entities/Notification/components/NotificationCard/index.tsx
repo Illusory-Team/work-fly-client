@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { FC } from 'react';
 
 import { getRelativeTimeString } from '@/shared/helpers';
-import { UserHead } from '@/shared/ui/UserHead';
+import { EntityHead } from '@/shared/ui/EntityHead';
 
 import { INotification } from '../../types';
 
@@ -25,9 +25,7 @@ export const NotificationCard: FC<NotificationCardProps> = ({
 
 	return (
 		<div className={cl}>
-			<UserHead size="m" src={src} title={title}>
-				{subTitle}
-			</UserHead>
+			<EntityHead classNameTitle={styles.title} src={src} title={title} subTitle={subTitle} />
 			<div className={styles.footer}>
 				{priority && <h5 className={styles.priority}>{priority}</h5>}
 				<p className={styles.date}>{getRelativeTimeString(date)}</p>

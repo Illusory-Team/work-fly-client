@@ -1,1 +1,1 @@
-export { ChangePassword, ChangePersonalDetail } from './components';
+export { ChangePassword, ChangePersonalDetail, ChangeAvatar } from './components';
