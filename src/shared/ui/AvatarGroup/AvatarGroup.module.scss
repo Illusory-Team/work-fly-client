@@ -1,0 +1,25 @@
+.container {
+	@apply inline-block;
+
+	.title {
+		color: var(--descriptor-light);
+		@apply caption-13-rg mb-1;
+	}
+
+	.avatarList {
+		@apply flex;
+
+		.avatar {
+			&:not(:first-child) {
+				@apply -ml-2;
+			}
+		}
+
+		.limitation {
+			@apply -ml-2;
+
+			background: var(--default-main);
+			color: var(--descriptor-light);
+		}
+	}
+}

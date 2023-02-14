@@ -5,6 +5,7 @@ import { CompanyDrawer } from '@/entities/Company/components/CompanyDrawer';
 import { useProfile } from '@/entities/User';
 
 import { openPopup } from '@/shared/store/popupsController';
+import { AvatarGroup } from '@/shared/ui/AvatarGroup/AvatarGroup';
 import { Button } from '@/shared/ui/Button';
 import { EntityHead } from '@/shared/ui/EntityHead';
 
@@ -33,6 +34,7 @@ const Home = () => {
 				<Button onClick={() => dispatch(openPopup('viewNotificationDrawer'))}>Notification</Button>
 				<Button onClick={() => dispatch(openPopup('companyDrawer'))}>Company</Button>
 				<ViewNotificationDrawer />
+				<AvatarGroup title="Users" size="small" data={['/anonym.png', '/avatar.png', '/anonym.png']} />
 			</main>
 		</>
 	);

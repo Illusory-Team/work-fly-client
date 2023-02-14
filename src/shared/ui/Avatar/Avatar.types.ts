@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react';
 
 type VariantType = 'circle' | 'square' | 'rounded';
-type SizeType = 'l' | 'm' | 's' | 'xs';
+type SizeType = 'l' | 'm' | 's' | 'xs' | 'small';
 
 export interface AvatarProps extends HTMLAttributes<HTMLDivElement> {
 	className?: string;
