@@ -12,17 +12,17 @@ export const AvatarGroup: FC<PropsWithChildren<AvatarGroupProps>> = ({
 	variant = 'circle',
 	title = '',
 	className = '',
-	max = 2,
+	maxView = 2,
 	...props
 }) => {
 	const cl = classNames(styles.container, className);
-	const limitation = data.length - max;
+	const limitation = data.length - maxView;
 
 	return (
 		<div {...props} className={cl}>
 			{title && <h3 className={styles.title}>{title}</h3>}
 			<div className={styles.avatarList}>
-				{data.slice(0, max).map(src => (
+				{data.slice(0, maxView).map(src => (
 					<Avatar size={size} className={styles.avatar} variant={variant} key={src} src={src} alt="" />
 				))}
 				{limitation > 0 && (
