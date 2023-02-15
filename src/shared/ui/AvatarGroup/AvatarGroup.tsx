@@ -16,19 +16,18 @@ export const AvatarGroup: FC<PropsWithChildren<AvatarGroupProps>> = ({
 	...props
 }) => {
 	const cl = classNames(styles.container, className);
+	const limitation = data.length - max;
 
 	return (
 		<div {...props} className={cl}>
 			{title && <h3 className={styles.title}>{title}</h3>}
 			<div className={styles.avatarList}>
-				{data
-					.filter((i, x) => x < max)
-					.map(src => (
-						<Avatar size={size} className={styles.avatar} variant={variant} key={src} src={src} alt="" />
-					))}
-				{data.length - max > 0 && (
+				{data.slice(0, max).map(src => (
+					<Avatar size={size} className={styles.avatar} variant={variant} key={src} src={src} alt="" />
+				))}
+				{limitation > 0 && (
 					<Avatar size={size} variant={variant} className={styles.limitation}>
-						+{data.length - max}
+						+{limitation}
 					</Avatar>
 				)}
 			</div>
