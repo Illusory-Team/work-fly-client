@@ -40,7 +40,7 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 				{isChangeable ? (
 					<>
 						<input
-							accept="image/*"
+							accept="image/jpeg, image/png"
 							className={styles.input}
 							ref={inputRef}
 							type="file"

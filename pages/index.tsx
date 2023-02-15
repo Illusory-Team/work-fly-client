@@ -34,7 +34,7 @@ const Home = () => {
 				<Button onClick={() => dispatch(openPopup('viewNotificationDrawer'))}>Notification</Button>
 				<Button onClick={() => dispatch(openPopup('companyDrawer'))}>Company</Button>
 				<ViewNotificationDrawer />
-				<AvatarGroup title="Users" size="small" data={['/anonym.png', '/avatar.png', '/anonym.png']} />
+				<AvatarGroup title="Users" size="xxs" data={['/anonym.png', '/avatar.png', '/anonym.png']} />
 			</main>
 		</>
 	);

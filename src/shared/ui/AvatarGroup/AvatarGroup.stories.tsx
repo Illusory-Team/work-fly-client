@@ -1,10 +1,21 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { AVATAR_URL } from '@/shared/constants';
+import { AVATAR2_URL, AVATAR3_URL, AVATAR4_URL, AVATAR5_URL, AVATAR_URL } from '@/shared/constants';
 
 import { AvatarGroup } from './AvatarGroup';
 
-const avatarData = ['/avatar.png', AVATAR_URL, '/avatar.png', AVATAR_URL, AVATAR_URL, '/avatar.png'];
+const avatarData = [
+	AVATAR_URL,
+	AVATAR2_URL,
+	AVATAR3_URL,
+	AVATAR4_URL,
+	AVATAR5_URL,
+	AVATAR_URL,
+	AVATAR2_URL,
+	AVATAR3_URL,
+	AVATAR4_URL,
+	AVATAR5_URL,
+];
 
 export default {
 	title: 'UI/AvatarGroup',

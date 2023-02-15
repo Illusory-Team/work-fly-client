@@ -10,7 +10,7 @@ enum avatarSize {
 	'm' = 56,
 	's' = 48,
 	'xs' = 36,
-	'small' = 24,
+	'xxs' = 24,
 }
 
 export const Avatar: FC<PropsWithChildren<AvatarProps>> = ({

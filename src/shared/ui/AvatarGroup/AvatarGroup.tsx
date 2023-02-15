@@ -15,7 +15,7 @@ export const AvatarGroup: FC<PropsWithChildren<AvatarGroupProps>> = ({
 	maxView = 2,
 	...props
 }) => {
-	const cl = classNames(styles.container, className);
+	const cl = classNames(styles.container, styles[size], className);
 	const limitation = data.length - maxView;
 
 	return (
