@@ -1,0 +1,56 @@
+.card {
+	background: var(--bg-secondary);
+	@apply w-60 h-40 rounded-xl inline-block;
+
+	.first {
+		@apply h-20 rounded-t-xl flex px-3 pt-6 pb-4 flex-1;
+
+		.icon {
+			@apply text-5xl w-11 h-11;
+		}
+
+		.content {
+			h3 {
+				@apply headline;
+			}
+		}
+
+		.wrapper {
+			@apply flex caption-13-rg;
+
+			p {
+				@apply truncate;
+				flex: 4;
+			}
+
+			span {
+				flex: 3;
+			}
+		}
+	}
+
+	.second {
+		@apply px-5 pt-4 pb-5 flex justify-between items-end;
+
+		.wrapper {
+			@apply flex;
+
+			.new {
+				@apply mr-2 rounded-3xl;
+				background: var(--green-light);
+				color: var(--green-dark);
+			}
+
+			.alert {
+				@apply rounded-3xl;
+				background: var(--pink-light);
+				color: var(--pink-xdark);
+			}
+
+			.new,
+			.alert {
+				@apply text-xs px-1;
+			}
+		}
+	}
+}
