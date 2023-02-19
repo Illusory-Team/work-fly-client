@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { IUser } from '@/entities/User';
+import { IUser } from '@/shared/types';
 
 import { usersMock } from '../../mock/user';
 

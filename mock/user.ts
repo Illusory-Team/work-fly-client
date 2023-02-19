@@ -1,4 +1,4 @@
-import { IUser } from '@/entities/User';
+import { IUser } from '@/shared/types';
 
 export const usersMock: IUser[] = [
 	{

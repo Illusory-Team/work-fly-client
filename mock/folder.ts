@@ -1,4 +1,4 @@
-import { IFolder } from '@/entities/Folder';
+import { IFolder } from '@/shared/types';
 
 export const folderMock: IFolder[] = [
 	{

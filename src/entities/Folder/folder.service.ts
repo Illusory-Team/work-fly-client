@@ -1,6 +1,5 @@
 import { fakeApi } from '@/shared/api';
-
-import { IFolder } from './types/IFolder';
+import { IFolder } from '@/shared/types';
 
 export const FolderService = {
 	getCompanyFolder() {

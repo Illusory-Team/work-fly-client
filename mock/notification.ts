@@ -1,4 +1,4 @@
-import { INotification } from '@/entities/Notification';
+import { INotification } from '@/shared/types';
 
 export const notificationMock: INotification[] = [
 	{

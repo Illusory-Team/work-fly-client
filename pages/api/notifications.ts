@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { INotification } from '@/entities/Notification';
+import { INotification } from '@/shared/types';
 
 import { notificationMock } from '../../mock/notification';
 

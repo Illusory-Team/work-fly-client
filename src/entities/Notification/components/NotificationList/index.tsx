@@ -1,7 +1,9 @@
 import Image from 'next/image';
 import { FC } from 'react';
 
-import { INotification, NotificationCard } from '@/entities/Notification';
+import { NotificationCard } from '@/entities/Notification';
+
+import { INotification } from '@/shared/types';
 
 import styles from './NotificationList.module.scss';
 

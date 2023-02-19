@@ -1,10 +1,9 @@
 import classNames from 'classnames';
 import { FC } from 'react';
 
+import { IFolder } from '@/shared/types';
 import { AvatarGroup } from '@/shared/ui/AvatarGroup';
 import { Icon } from '@/shared/ui/Icon';
-
-import { IFolder } from '../../types/IFolder';
 
 import styles from './FolderCard.module.scss';
 
