@@ -22,8 +22,16 @@ export const AvatarGroup: FC<PropsWithChildren<AvatarGroupProps>> = ({
 		<div {...props} className={cl}>
 			{title && <h3 className={styles.title}>{title}</h3>}
 			<div className={styles.avatarList}>
-				{data.slice(0, maxView).map(src => (
-					<Avatar size={size} className={styles.avatar} variant={variant} key={src} src={src} alt="" />
+				{data.slice(0, maxView).map(avatar => (
+					<Avatar
+						size={size}
+						className={styles.avatar}
+						variant={variant}
+						key={avatar.id}
+						defaultAvatar={`${avatar.firstName} ${avatar.lastName}`}
+						src={avatar.src}
+						alt=""
+					/>
 				))}
 				{limitation > 0 && (
 					<Avatar size={size} variant={variant} className={styles.limitation}>
