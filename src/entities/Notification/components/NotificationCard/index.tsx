@@ -24,7 +24,7 @@ export const NotificationCard: FC<NotificationCardProps> = ({
 
 	return (
 		<div className={cl}>
-			<EntityHead classNameTitle={styles.title} src={src} title={title} subTitle={subTitle} />
+			<EntityHead classNameTitle={styles.head} src={src} title={title} subTitle={subTitle} />
 			<div className={styles.footer}>
 				{priority && <h5 className={styles.priority}>{priority}</h5>}
 				<p className={styles.date}>{getRelativeTimeString(date)}</p>

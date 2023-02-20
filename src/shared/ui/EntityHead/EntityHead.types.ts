@@ -4,7 +4,8 @@ export interface EntityHeadProps {
 	className?: string;
 	classNameTitle?: string;
 	imgHandler?: () => void;
-	src?: string;
+	src?: Nullable<string>;
+	defaultAvatar?: string;
 	title?: string;
 	subTitle?: string;
 	isChangeable?: boolean;

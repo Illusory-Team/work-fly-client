@@ -1,8 +1,8 @@
 import classNames from 'classnames';
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 
 import { IFolder } from '@/shared/types';
-import { AvatarGroup } from '@/shared/ui/AvatarGroup';
+import { AvatarGroup, IAvatarGroupData } from '@/shared/ui/AvatarGroup';
 import { Icon } from '@/shared/ui/Icon';
 
 import styles from './FolderCard.module.scss';
@@ -14,6 +14,17 @@ interface FolderCardProps {
 
 export const FolderCard: FC<FolderCardProps> = ({ data, className = '' }) => {
 	const cl = classNames(styles.card, className);
+
+	const AvatarGroupMembers = useMemo(() => {
+		return data.members.map(member => {
+			return {
+				id: member.id,
+				firstName: member.firstName,
+				lastName: member.lastName,
+				src: member.avatar,
+			} as IAvatarGroupData;
+		});
+	}, [data]);
 
 	return (
 		<div className={cl}>
@@ -28,7 +39,7 @@ export const FolderCard: FC<FolderCardProps> = ({ data, className = '' }) => {
 				</div>
 			</div>
 			<div className={styles.second}>
-				<AvatarGroup size="xxs" title="members" data={data.members} />
+				<AvatarGroup size="xxs" title="members" data={AvatarGroupMembers} />
 				<div className={styles.wrapper}>
 					<div className={styles.new}>2 new</div>
 					<div className={styles.alert}>2 alert</div>

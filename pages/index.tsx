@@ -30,7 +30,9 @@ const Home = () => {
 			</Head>
 			<main>
 				<UserProfile />
-				<CompanyDrawer companyHead={<EntityHead isChangeable={true} title="dsadsa" subTitle="dsadsad" />} />
+				<CompanyDrawer
+					companyHead={<EntityHead isChangeable={true} title="dsadsa" defaultAvatar="No Name" subTitle="dsadsad" />}
+				/>
 				<Button onClick={openOwnProfileHandler}>CLICK</Button>
 				<Button onClick={() => openProfileHandler(1)}>USER 1</Button>
 				<Button onClick={() => openProfileHandler(2)}>USER 2</Button>

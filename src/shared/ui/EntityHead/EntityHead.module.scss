@@ -9,7 +9,7 @@
 }
 
 .textContent {
-	@apply flex-col ml-3;
+	@apply flex-col ml-3 flex-1;
 
 	.title {
 		color: var(--primary-light);
@@ -27,6 +27,7 @@
 
 	.addHover {
 		background: transparent;
+		z-index: 1;
 		@apply absolute w-full h-full left-0 top-0 transition-all flex-center-center text-transparent;
 	}
 

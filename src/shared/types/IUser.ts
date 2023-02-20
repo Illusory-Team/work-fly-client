@@ -1,11 +1,12 @@
 export interface IUser {
-	id: Nullable<number | string>;
+	id: Nullable<string>;
 	email: string;
-	fullName: string;
+	firstName: string;
+	lastName: string;
 	phone: Nullable<number>;
 	birthday: Nullable<string>;
 	address: Nullable<string>;
 	description: Nullable<string>;
 	position?: string;
-	avatar: string;
+	avatar: Nullable<string>;
 }
