@@ -1,12 +1,10 @@
 export const getFirstLetters = (string: string) => {
-	const str = string.trim();
+	const str = string.trim().split(' ');
 	if (!str.length) return 'N';
-	const arr = str.split(' ');
-	if (arr.length === 1) return str[0];
 	else {
 		let result = '';
-		for (let i = 0; i < arr.length; i++) {
-			result += arr[i][0];
+		for (let i = 0; i < str.length; i++) {
+			result += str[i][0];
 		}
 		return result;
 	}

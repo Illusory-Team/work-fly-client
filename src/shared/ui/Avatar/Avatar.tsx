@@ -26,10 +26,10 @@ export const Avatar: FC<PropsWithChildren<AvatarProps>> = ({
 	...props
 }) => {
 	const cl = classNames(styles.container, styles[size], styles[variant], !src && styles.default, className);
-	const color = defaultAvatar ? `var(--avatar-${(defaultAvatar.codePointAt(0) as number) % 10})` : '';
+	const color = defaultAvatar ? `var(--avatar-${(defaultAvatar.codePointAt(0) as number) % 10})` : undefined;
 
 	return (
-		<div style={{ background: defaultAvatar ? color : undefined }} className={cl} {...props}>
+		<div style={{ background: color }} className={cl} {...props}>
 			{src ? (
 				<Image src={src} alt={alt} width={avatarSize[size]} height={avatarSize[size]} />
 			) : defaultAvatar ? (

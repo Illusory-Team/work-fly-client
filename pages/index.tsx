@@ -34,9 +34,9 @@ const Home = () => {
 					companyHead={<EntityHead isChangeable={true} title="dsadsa" defaultAvatar="No Name" subTitle="dsadsad" />}
 				/>
 				<Button onClick={openOwnProfileHandler}>CLICK</Button>
-				<Button onClick={() => openProfileHandler(1)}>USER 1</Button>
-				<Button onClick={() => openProfileHandler(2)}>USER 2</Button>
-				<Button onClick={() => openProfileHandler(3)}>USER 3</Button>
+				<Button onClick={() => openProfileHandler('1')}>USER 1</Button>
+				<Button onClick={() => openProfileHandler('2')}>USER 2</Button>
+				<Button onClick={() => openProfileHandler('3')}>USER 3</Button>
 				<Button onClick={() => dispatch(openPopup('viewNotificationDrawer'))}>Notification</Button>
 				<Button onClick={() => dispatch(openPopup('companyDrawer'))}>Company</Button>
 				<ViewNotificationDrawer />

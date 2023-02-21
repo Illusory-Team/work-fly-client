@@ -15,7 +15,7 @@ interface FolderCardProps {
 export const FolderCard: FC<FolderCardProps> = ({ data, className = '' }) => {
 	const cl = classNames(styles.card, className);
 
-	const AvatarGroupMembers = useMemo(() => {
+	const avatarGroupMembers = useMemo(() => {
 		return data.members.map(member => {
 			return {
 				id: member.id,
@@ -34,12 +34,14 @@ export const FolderCard: FC<FolderCardProps> = ({ data, className = '' }) => {
 					<h3>{data.folderName}</h3>
 					<div className={styles.wrapper}>
 						<p>{data.owner}</p>
-						<span>{data.tasks} tasks</span>
+						<span>
+							<span>{data.tasks}</span> tasks
+						</span>
 					</div>
 				</div>
 			</div>
 			<div className={styles.second}>
-				<AvatarGroup size="xxs" title="members" data={AvatarGroupMembers} />
+				<AvatarGroup size="xxs" title="members" data={avatarGroupMembers} />
 				<div className={styles.wrapper}>
 					<div className={styles.new}>2 new</div>
 					<div className={styles.alert}>2 alert</div>

@@ -58,7 +58,7 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 								onClick={imgHandler}
 								src={src}
 								defaultAvatar={defaultAvatar}
-								alt=""
+								alt="logo"
 							/>
 						</div>
 					</>
@@ -69,7 +69,7 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 						onClick={imgHandler}
 						src={src}
 						defaultAvatar={defaultAvatar}
-						alt=""
+						alt="logo"
 					/>
 				)}
 				<div className={styles.textContent}>
