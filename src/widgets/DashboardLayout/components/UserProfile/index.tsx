@@ -22,6 +22,8 @@ export const UserProfile: FC = () => {
 		{ title: 'Efficiency', content: <p>Efficiency</p> },
 	];
 
+	const fullName = `${user.firstName} ${user.lastName}`;
+
 	useEffect(() => {
 		refetch();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,9 +37,9 @@ export const UserProfile: FC = () => {
 			tabs={readonly ? readonlyTabs : tabs}
 			userHead={
 				readonly ? (
-					<EntityHead src={data?.avatar} title={data?.fullName} subTitle={data?.position} />
+					<EntityHead src={data?.avatar} defaultAvatar={fullName} title={fullName} subTitle={data?.position} />
 				) : (
-					<ChangeAvatar src={user.avatar} title={user.fullName} subTitle={user.position} />
+					<ChangeAvatar src={user.avatar} defaultAvatar={fullName} title={fullName} subTitle={user.position} />
 				)
 			}
 		/>

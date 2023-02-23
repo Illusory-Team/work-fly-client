@@ -4,10 +4,11 @@ import { useDispatch } from 'react-redux';
 
 import { useAppSelector } from '@/shared/hooks';
 import { closePopup, userProfileDrawerSelector } from '@/shared/store/popupsController';
+import { IUser } from '@/shared/types';
 import { Drawer } from '@/shared/ui/Drawer';
 import { Icon } from '@/shared/ui/Icon';
 
-import { IUser, IUserTabs } from '../../types';
+import { IUserTabs } from '../../types';
 
 import styles from './UserDrawer.module.scss';
 

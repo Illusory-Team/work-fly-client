@@ -12,7 +12,7 @@ export const useProfile = () => {
 		dispatch(setReadonly(false));
 	};
 
-	const openProfileHandler = (id: string | number) => {
+	const openProfileHandler = (id: string) => {
 		dispatch(openPopup('userProfile'));
 		dispatch(setAlienUser(id));
 	};

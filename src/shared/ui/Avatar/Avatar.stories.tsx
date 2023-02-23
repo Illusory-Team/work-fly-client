@@ -66,3 +66,15 @@ export const IconAvatar = () => (
 		</Avatar>
 	</>
 );
+
+export const DefaultAvatar = () => (
+	<>
+		<Avatar className="mt-3" src={null} defaultAvatar="Marlen Karimov" />
+		<Avatar className="mt-3" src={null} defaultAvatar="Dima" />
+		<Avatar className="mt-3" src={null} defaultAvatar="Alexander Pushkin" />
+		<p className="mt-3">
+			Accepts a string and puts the very first letters between the words. Also takes color depending on the first letter
+			of the string
+		</p>
+	</>
+);

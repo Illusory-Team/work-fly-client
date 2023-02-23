@@ -1,11 +1,13 @@
 import Head from 'next/head';
+import { useQuery } from 'react-query';
 import { useDispatch } from 'react-redux';
 
 import { CompanyDrawer } from '@/entities/Company/components/CompanyDrawer';
+import { FolderService } from '@/entities/Folder';
+import { FolderCard } from '@/entities/Folder/components/FolderCard';
 import { useProfile } from '@/entities/User';
 
 import { openPopup } from '@/shared/store/popupsController';
-import { AvatarGroup } from '@/shared/ui/AvatarGroup/AvatarGroup';
 import { Button } from '@/shared/ui/Button';
 import { EntityHead } from '@/shared/ui/EntityHead';
 
@@ -15,6 +17,8 @@ import { UserProfile } from '@/widgets/DashboardLayout/components/UserProfile';
 const Home = () => {
 	const { openOwnProfileHandler, openProfileHandler } = useProfile();
 	const dispatch = useDispatch();
+
+	const { data, isLoading } = useQuery('folder', () => FolderService.getOne('1'));
 
 	return (
 		<>
@@ -26,15 +30,17 @@ const Home = () => {
 			</Head>
 			<main>
 				<UserProfile />
-				<CompanyDrawer companyHead={<EntityHead isChangeable={true} title="dsadsa" subTitle="dsadsad" />} />
+				<CompanyDrawer
+					companyHead={<EntityHead isChangeable={true} title="dsadsa" defaultAvatar="No Name" subTitle="dsadsad" />}
+				/>
 				<Button onClick={openOwnProfileHandler}>CLICK</Button>
-				<Button onClick={() => openProfileHandler(1)}>USER 1</Button>
-				<Button onClick={() => openProfileHandler(2)}>USER 2</Button>
-				<Button onClick={() => openProfileHandler(3)}>USER 3</Button>
+				<Button onClick={() => openProfileHandler('1')}>USER 1</Button>
+				<Button onClick={() => openProfileHandler('2')}>USER 2</Button>
+				<Button onClick={() => openProfileHandler('3')}>USER 3</Button>
 				<Button onClick={() => dispatch(openPopup('viewNotificationDrawer'))}>Notification</Button>
 				<Button onClick={() => dispatch(openPopup('companyDrawer'))}>Company</Button>
 				<ViewNotificationDrawer />
-				<AvatarGroup title="Users" size="small" data={['/anonym.png', '/avatar.png', '/anonym.png']} />
+				{isLoading ? <p>loading...</p> : data?.data && <FolderCard data={data.data} />}
 			</main>
 		</>
 	);
