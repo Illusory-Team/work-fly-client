@@ -1,5 +1,8 @@
 import classNames from 'classnames';
-import { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, useCallback, useEffect, useRef } from 'react';
+import { CSSTransition } from 'react-transition-group';
+
+import { Portal } from '../Portal';
 
 import styles from './Drawer.module.scss';
 import { DrawerProps } from './Drawer.types';
@@ -7,18 +10,49 @@ import { DrawerProps } from './Drawer.types';
 export const Drawer: FC<PropsWithChildren<DrawerProps>> = ({
 	isShow,
 	closeHandler,
-	anchor = 'left',
+	direction = 'bottom',
 	size = 'l',
 	className = '',
 	children,
+	transitionDuration = 200,
 }) => {
-	const cl = classNames(styles.drawer, styles[anchor], styles[size], isShow && styles.show, className);
-	const clOverlay = classNames(styles.overlay, isShow && styles.show);
+	const nodeRef = useRef(null);
+	const cl = classNames(styles.drawer, styles[direction], styles[size], isShow && styles.show, className);
+
+	const closeOnEscape = useCallback(
+		(event: KeyboardEvent) => {
+			if (event.key === 'Escape') {
+				closeHandler();
+			}
+		},
+		[closeHandler],
+	);
+
+	useEffect(() => {
+		document.addEventListener('keydown', closeOnEscape);
+
+		return () => {
+			document.addEventListener('keydown', closeOnEscape);
+		};
+	}, [closeOnEscape]);
 
 	return (
-		<>
-			<div onClick={closeHandler} className={clOverlay}></div>
-			<div className={cl}>{children}</div>
-		</>
+		<Portal>
+			<CSSTransition
+				classNames={cl}
+				timeout={{ enter: 0, exit: transitionDuration }}
+				nodeRef={nodeRef}
+				in={isShow}
+				unmountOnExit
+			>
+				<>
+					<div onClick={closeHandler} className={styles.overlay}>
+						<div className={cl} ref={nodeRef}>
+							{children}
+						</div>
+					</div>
+				</>
+			</CSSTransition>
+		</Portal>
 	);
 };

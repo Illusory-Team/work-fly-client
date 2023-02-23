@@ -18,8 +18,20 @@
   }
 }
 
+@mixin transformAnimation ($name, $start, $end) {
+  @include keyframes($name) {
+    0% {
+      transform: $start;
+    }
+
+    100% {
+      transform: $end;
+    }
+  }
+}
+
 @mixin abs-position ($top, $right, $bottom, $left) {
-  position: absolute; 
+  position: absolute;
   top: $top;
   right: $right;
   bottom: $bottom;
@@ -35,7 +47,7 @@
      width: 100%;
      padding-top: ($height / $width) * 100%;
   }
-  
+
   > .inner-box {
      position: absolute;
      top: 0;

@@ -1,13 +1,6 @@
 .overlay {
-	visibility: hidden;
-	opacity: 0;
 	background: rgba(0, 0, 0, 0.207);
 	@apply w-full h-full fixed top-0 left-0 z-40 transition-all;
-
-	&.show {
-		visibility: visible;
-		opacity: 1;
-	}
 }
 
 .l {
@@ -26,37 +19,34 @@
 }
 
 .left {
-	min-width: 320px;
-	@apply top-0 left-0 -translate-x-full h-screen;
+  @include transformAnimation(leftDrawer, translateX(-100%), translate(0));
+	@apply top-0 left-0 h-screen translate-x-0;
 
-	&.show {
-		@apply translate-x-0;
-	}
+	min-width: 320px;
+  animation: leftDrawer .3s ease-in-out;
 }
 
 .right {
-	min-width: 320px;
-	@apply top-0 right-0 translate-x-full h-screen;
+  @include transformAnimation(rightDrawer, translateX(100%), translate(0));
+	@apply top-0 right-0 h-screen translate-x-0;
 
-	&.show {
-		@apply translate-x-0;
-	}
+	min-width: 320px;
+  animation: rightDrawer .3s ease-in-out;
 }
 
 .top {
-	min-height: 320px;
-	@apply left-0 top-0 -translate-y-full w-screen;
+  @include transformAnimation(topDrawer, translateY(-100%), translate(0));
+	@apply left-0 top-0 w-screen;
 
-	&.show {
-		@apply translate-y-0;
-	}
+	min-height: 320px;
+  animation: topDrawer .3s ease-in-out;
 }
 
 .bottom {
-	min-height: 320px;
-	@apply left-0 bottom-0 translate-y-full w-screen;
+  @include transformAnimation(bottomDrawer, translateY(100%), translate(0));
+	@apply left-0 bottom-0 w-screen;
 
-	&.show {
-		@apply translate-y-0;
-	}
+	min-height: 320px;
+  animation: bottomDrawer .3s ease-in-out;
 }
+
