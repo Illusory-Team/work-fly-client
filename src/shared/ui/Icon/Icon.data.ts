@@ -122,4 +122,5 @@ export const LIST_ICON_NAME = <const>[
 	'other_phone-fill',
 	'other_play',
 	'other_right',
+  'logo'
 ];
