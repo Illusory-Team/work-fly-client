@@ -1,6 +1,5 @@
 import { fakeApi } from '@/shared/api';
-
-import { INotification } from './types';
+import { INotification } from '@/shared/types';
 
 export const NotificationService = {
 	async getNotification() {

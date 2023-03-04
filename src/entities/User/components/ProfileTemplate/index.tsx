@@ -1,11 +1,12 @@
 import cn from 'classnames';
 import { FC, ReactNode, useState } from 'react';
 
+import { IUser } from '@/shared/types';
 import { DialogContent } from '@/shared/ui/DialogContent/DialogContent';
 import { EntityHead } from '@/shared/ui/EntityHead';
 import { Icon } from '@/shared/ui/Icon';
 
-import { IUser, IUserTabs } from '../../types';
+import { IUserTabs } from '../../types';
 
 import styles from './ProfileTemplate.module.scss';
 
@@ -47,8 +48,9 @@ export const ProfileTemplate: FC<UserDrawerProps> = ({
 						<EntityHead
 							isChangeable={isChangeable}
 							src={data?.avatar}
-							title={data?.fullName}
+							title={`${data?.firstName} ${data?.lastName}`}
 							subTitle={data?.position}
+							defaultAvatar={`${data?.firstName} ${data?.lastName}`}
 						/>
 						<h4>ID: {data.id}</h4>
 					</div>

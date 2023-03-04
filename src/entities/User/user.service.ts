@@ -1,6 +1,5 @@
 import { fakeApi } from '@/shared/api';
-
-import { IUser } from './types';
+import { IUser } from '@/shared/types';
 
 export const UserService = {
 	async getUser(id: string | number): Promise<IUser> {

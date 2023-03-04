@@ -1,1 +1,1 @@
-export { AVATAR_URL } from './story';
+export { AVATAR_URL, AVATAR2_URL, AVATAR3_URL, AVATAR4_URL, AVATAR5_URL } from './story';

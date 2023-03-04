@@ -1,8 +1,8 @@
 /* eslint-disable react/display-name */
 import classNames from 'classnames';
-import Image from 'next/image';
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 
+import { Avatar } from '../Avatar';
 import { Icon } from '../Icon';
 
 import styles from './EntityHead.module.scss';
@@ -18,6 +18,7 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 			isChangeable = false,
 			className = '',
 			classNameTitle = '',
+			defaultAvatar,
 			value,
 			onChange,
 		},
@@ -40,7 +41,7 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 				{isChangeable ? (
 					<>
 						<input
-							accept="image/*"
+							accept="image/jpeg, image/png"
 							className={styles.input}
 							ref={inputRef}
 							type="file"
@@ -51,17 +52,24 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 							<div className={styles.addHover}>
 								<Icon name="action_photo" />
 							</div>
-							<Image src={src ? src : '/anonym.png'} width={56} height={56} alt="" />
+							<Avatar
+								size="m"
+								className="rounded-full"
+								onClick={imgHandler}
+								src={src}
+								defaultAvatar={defaultAvatar}
+								alt="logo"
+							/>
 						</div>
 					</>
 				) : (
-					<Image
+					<Avatar
+						size="m"
 						className="rounded-full"
 						onClick={imgHandler}
-						src={src ? src : '/anonym.png'}
-						width={56}
-						height={56}
-						alt=""
+						src={src}
+						defaultAvatar={defaultAvatar}
+						alt="logo"
 					/>
 				)}
 				<div className={styles.textContent}>

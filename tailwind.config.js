@@ -10,6 +10,9 @@ module.exports = {
 			transitionDuration: {
 				DEFAULT: '250ms',
 			},
+			borderRadius: {
+				full: '50%',
+			},
 		},
 	},
 	plugins: [

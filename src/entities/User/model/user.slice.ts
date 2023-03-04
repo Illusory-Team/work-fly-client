@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { IUser } from '../types';
+import { IUser } from '@/shared/types';
 
 interface InitialState {
 	user: IUser;
@@ -11,14 +11,15 @@ interface InitialState {
 
 const initialState: InitialState = {
 	user: {
-		id: null,
+		id: '1',
 		position: undefined,
 		address: null,
-		avatar: '/anonym.png',
+		avatar: null,
 		birthday: null,
 		description: '',
 		email: '',
-		fullName: 'anonym',
+		firstName: 'Nameless',
+		lastName: 'Nameless',
 		phone: null,
 	},
 	status: 'Work',

@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 
 import { openDrawer } from '@/shared/store/drawerController';
 
-import { setAlienUser, setReadonly } from '../model';
+import { setReadonly } from '../model';
 
 export const useProfile = () => {
 	const dispatch = useDispatch();
@@ -14,7 +14,6 @@ export const useProfile = () => {
 
 	const openProfileHandler = (id: string | number) => {
 		dispatch(openDrawer());
-		dispatch(setAlienUser(id));
 	};
 
 	return {

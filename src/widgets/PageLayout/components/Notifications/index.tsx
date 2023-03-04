@@ -5,13 +5,17 @@ import { NotificationDrawer, NotificationList } from '@/entities/Notification';
 
 import { useFilterNotification } from '@/features/FilterNotification';
 
-import styles from './ViewNotificationDrawer.module.scss';
+import styles from './Notifications.module.scss';
 
-export const ViewNotificationDrawer: FC = () => {
+type NotificationsProps = {
+	closeHandler: () => void;
+};
+
+export const Notifications: FC<NotificationsProps> = ({ closeHandler }) => {
 	const { filterType, notifications, setFilterType, unreadNotifications, allNotification } = useFilterNotification();
 
 	return (
-		<NotificationDrawer>
+		<NotificationDrawer closeHandler={closeHandler}>
 			<div className={styles.filter}>
 				<button
 					onClick={() => setFilterType('all')}
