@@ -2,13 +2,13 @@ import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useAppSelector } from '@/shared/hooks';
-import { closePopup } from '@/shared/store/popupsController';
+import { closeDrawer } from '@/shared/store/drawerController';
 import { Drawer } from '@/shared/ui/Drawer';
 
 export const AddNotificationDrawer: FC = () => {
-	const isShow = useAppSelector(state => state.popupsController.addNotificationDrawer);
+	const isShow = useAppSelector(state => state.drawerRootController.isOpenDrawer);
 	const dispatch = useDispatch();
-	const closeHandler = () => dispatch(closePopup('addNotificationDrawer'));
+	const closeHandler = () => dispatch(closeDrawer());
 
 	return (
 		<Drawer isShow={isShow} closeHandler={closeHandler}>

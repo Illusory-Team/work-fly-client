@@ -38,7 +38,7 @@ npm run storybook
 
 ```
 Component
-  ├── index.ts
+  ├── index.tsx
   ├── Component.tsx
   ├── Component.module.scss
   ├── Component.stories.tsx
@@ -95,7 +95,7 @@ pages
 ```
 pages
 └── registration
-  ├── index.ts
+  ├── index.tsx
   ├── registration.module.scss
   ├── registration.types.ts
   ├── registration.context.ts

@@ -1,0 +1,38 @@
+.first {
+	@apply w-full flex-center-between  px-8 py-7;
+
+	.close {
+		color: var(--paragraph-light);
+		@apply cursor-pointer mr-2 ml-2;
+	}
+
+	.wrapper {
+		@apply flex;
+	}
+}
+
+.second {
+	@apply w-full flex justify-between mt-20 px-8;
+
+	h4 {
+		color: var(--paragraph-light);
+	}
+}
+
+.third {
+	@apply flex px-8 mt-8;
+
+	.tab {
+		color: var(--paragraph-light);
+		@apply cursor-pointer;
+
+		&.active {
+			color: var(--primary-light);
+			border-bottom: 4px solid var(--primary-light);
+		}
+	}
+
+	.tab:not(:last-child) {
+		@apply mr-6;
+	}
+}

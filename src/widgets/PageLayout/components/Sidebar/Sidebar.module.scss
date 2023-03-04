@@ -1,0 +1,39 @@
+.sidebar {
+  @apply h-screen;
+
+  --sidebar-color: #d0d3d8;
+
+  grid-area: sidebar;
+  max-width: 276px;
+  background-color: var(--bg-tertiary);
+  color: var(--sidebar-color);
+}
+
+.container {
+  padding: 18px 24px;
+}
+
+.head {
+  display: flex;
+}
+
+.content {
+  @apply flex flex-col mt-10;
+}
+
+.linkSection {
+  &:not(:last-child) {
+    @apply mb-6;
+  }
+}
+
+.linksList {
+  @apply flex flex-col;
+}
+
+.sectionTitle {
+  @apply uppercase font-medium mb-2;
+
+  font-size: 13px;
+  color: var(--descriptor-light);
+}

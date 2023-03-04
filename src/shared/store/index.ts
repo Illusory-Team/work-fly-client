@@ -1,8 +1,1 @@
-export {
-	addNotificationDrawerSelector,
-	closePopup,
-	openPopup,
-	popupsControllerReducer,
-	userProfileDrawerSelector,
-	viewNotificationDrawerSelector,
-} from './popupsController';
+export { closeDrawer, openDrawer, drawerControllerReducer, drawerControllerSelector } from './drawerController';

@@ -17,7 +17,7 @@ export const Drawer: FC<PropsWithChildren<DrawerProps>> = ({
 	transitionDuration = 200,
 }) => {
 	const nodeRef = useRef(null);
-	const cl = classNames(styles.drawer, styles[direction], styles[size], isShow && styles.show, className);
+	const cl = classNames(styles.drawer, styles[direction], styles[size], className);
 
 	const closeOnEscape = useCallback(
 		(event: KeyboardEvent) => {
@@ -36,6 +36,8 @@ export const Drawer: FC<PropsWithChildren<DrawerProps>> = ({
 		};
 	}, [closeOnEscape]);
 
+	if (!isShow) return null;
+
 	return (
 		<Portal>
 			<CSSTransition
@@ -46,10 +48,9 @@ export const Drawer: FC<PropsWithChildren<DrawerProps>> = ({
 				unmountOnExit
 			>
 				<>
-					<div onClick={closeHandler} className={styles.overlay}>
-						<div className={cl} ref={nodeRef}>
-							{children}
-						</div>
+					<div onClick={closeHandler} className={styles.overlay} />
+					<div className={cl} ref={nodeRef}>
+						{children}
 					</div>
 				</>
 			</CSSTransition>

@@ -1,1 +1,1 @@
-export { ChangePassword, ChangePersonalDetail, ChangeAvatar } from './components';
+export { ChangePassword, ChangePersonalDetail, EntityHeadWithAvatarEdit } from './components';

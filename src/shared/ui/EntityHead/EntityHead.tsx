@@ -72,3 +72,5 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 		);
 	},
 );
+
+EntityHead.displayName = 'EntityHead';

@@ -1,0 +1,22 @@
+/* stylelint-disable */
+
+.pageLayout {
+  display: grid;
+  grid-template-columns: 276px 1.4fr 0fr;
+  grid-template-rows: 68px 2.7fr;
+  gap: 0 0;
+  grid-template-areas:
+    "sidebar header header"
+    "sidebar content content"
+    "sidebar content content";
+  min-height: 100vh;
+}
+
+.pageContent {
+  overflow: hidden;
+  grid-area: content;
+}
+
+.pageContainer {
+  @apply p-8
+}

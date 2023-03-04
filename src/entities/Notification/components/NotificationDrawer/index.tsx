@@ -2,19 +2,19 @@ import { FC, PropsWithChildren } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useAppSelector } from '@/shared/hooks';
-import { closePopup, viewNotificationDrawerSelector } from '@/shared/store';
+import { closeDrawer, drawerControllerSelector } from '@/shared/store';
 import { Drawer } from '@/shared/ui/Drawer';
 import { Icon } from '@/shared/ui/Icon';
 
 import styles from './NotificationDrawer.module.scss';
 
 export const NotificationDrawer: FC<PropsWithChildren> = ({ children }) => {
-	const isShow = useAppSelector(viewNotificationDrawerSelector);
+	const isShow = useAppSelector(drawerControllerSelector);
 	const dispatch = useDispatch();
-	const closeHandler = () => dispatch(closePopup('viewNotificationDrawer'));
+	const closeHandler = () => dispatch(closeDrawer());
 
 	return (
-		<Drawer anchor="right" size="m" isShow={isShow} closeHandler={closeHandler}>
+		<Drawer direction="right" size="m" isShow={true} closeHandler={closeHandler}>
 			<div className={styles.header}>
 				<Icon onClick={closeHandler} className={styles.close} name="other_back" />
 			</div>
