@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import SimpleBar from 'simplebar-react';
 
 import { Drawer } from '@/shared/ui/Drawer';
 import { Icon } from '@/shared/ui/Icon';

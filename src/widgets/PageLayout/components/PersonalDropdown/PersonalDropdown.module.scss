@@ -1,0 +1,63 @@
+.dropdown {
+	@apply absolute right-0 p-2 bg-white z-10 flex flex-col;
+	box-shadow: 0 16px 24px rgba(2, 3, 3, 0.03), 0 6px 30px rgba(2, 3, 3, 0.02), 0 8px 10px rgba(2, 3, 3, 0.04);
+	border-radius: 8px;
+	max-width: 264px;
+	width: 100%;
+	top: calc(100% + 6px);
+}
+
+.linkItem {
+	@apply transition-colors cursor-pointer;
+	padding: 6px;
+
+	&:not(:last-child) {
+		@apply mb-1;
+	}
+
+	&:hover {
+		background-color: var(--bg-primary);
+	}
+}
+
+.userTitle {
+	h2 {
+		@apply text-sm;
+	}
+
+	p {
+		font-size: 13px;
+		line-height: 18px;
+	}
+}
+
+.userAvatar {
+	width: 32px;
+	height: 32px;
+	font-size: 15px;
+}
+
+.userVacationItem {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top: 1px solid var(--bg-primary);
+	border-bottom: 1px solid var(--bg-primary);
+}
+
+.userVacation {
+	@apply flex justify-between relative;
+}
+
+.switchWrap {
+	@apply flex;
+
+	span {
+		margin-right: 7px;
+	}
+}
+
+.signOut {
+	color: var(--danger-main);
+	padding-top: 10px;
+	border-top: 1px solid var(--bg-primary);
+}

@@ -1,0 +1,33 @@
+.linkItem {
+	//@apply pl-8;
+}
+
+.link {
+	@apply pl-8 flex gap-x-2 py-2 justify-between items-center;
+}
+
+.activeLink {
+	background-color: #16152b;
+	border-radius: 0 24px 24px 0;
+}
+
+.textContent {
+	@apply flex;
+}
+
+.text {
+	@apply ml-2;
+}
+
+.count {
+	@apply flex justify-center mr-3;
+
+	color: var(--descriptor-light);
+	background: #16152b;
+	border-radius: 58px;
+	font-weight: 600;
+	font-size: 12px;
+	line-height: 16px;
+	width: 16px;
+	height: 16px;
+}

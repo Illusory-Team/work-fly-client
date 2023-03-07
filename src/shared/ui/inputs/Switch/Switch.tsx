@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import classNames from 'classnames';
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 
@@ -27,3 +26,5 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
 		);
 	},
 );
+
+Switch.displayName = 'Switch';

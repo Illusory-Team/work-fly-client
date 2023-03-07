@@ -14,6 +14,9 @@ module.exports = {
 				full: '50%',
 			},
 		},
+		colors: {
+			negative: '#D44333',
+		},
 	},
 	plugins: [
 		plugin(({ addUtilities, addComponents }) => {
@@ -112,8 +115,8 @@ module.exports = {
 					fontWeight: 500,
 					lineHeight: '18px',
 				},
-			}),
-				addComponents({});
+			});
+			addComponents({});
 		}),
 	],
 };

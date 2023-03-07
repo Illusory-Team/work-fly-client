@@ -1,7 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { useDispatch } from 'react-redux';
 
-import { closeDrawer } from '@/shared/store';
 import { Drawer } from '@/shared/ui/Drawer';
 import { Icon } from '@/shared/ui/Icon';
 
@@ -9,17 +7,12 @@ import styles from './CompanyHead.module.scss';
 
 interface CompanyDrawerProps {
 	companyHead: ReactNode;
+	closeHandler: () => void;
 }
 
-export const CompanyDrawer: FC<CompanyDrawerProps> = ({ companyHead }) => {
-	const dispatch = useDispatch();
-
-	const closeHandler = () => {
-		dispatch(closeDrawer());
-	};
-
+export const CompanyDrawer: FC<CompanyDrawerProps> = ({ companyHead, closeHandler }) => {
 	return (
-		<Drawer direction="right" closeHandler={closeHandler}>
+		<Drawer direction="right" closeHandler={closeHandler} isShow={true}>
 			<div className={styles.header}>
 				<div className={styles.first}>
 					<Icon onClick={closeHandler} name="other_back" className={styles.close} />

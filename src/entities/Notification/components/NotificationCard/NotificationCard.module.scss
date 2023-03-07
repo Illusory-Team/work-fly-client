@@ -3,7 +3,9 @@
 	@apply flex flex-col w-full;
 
 	.head {
-		@apply headline;
+		h2 {
+			@apply headline;
+		}
 	}
 
 	.footer {

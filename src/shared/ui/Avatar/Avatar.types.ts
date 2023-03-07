@@ -1,7 +1,14 @@
 import { HTMLAttributes } from 'react';
 
 type VariantType = 'circle' | 'square' | 'rounded';
-type SizeType = 'l' | 'm' | 's' | 'xs' | 'xxs';
+
+export enum AvatarSize {
+	'l' = 68,
+	'm' = 56,
+	's' = 48,
+	'xs' = 36,
+	'xxs' = 24,
+}
 
 export interface AvatarProps extends HTMLAttributes<HTMLDivElement> {
 	className?: string;
@@ -9,5 +16,5 @@ export interface AvatarProps extends HTMLAttributes<HTMLDivElement> {
 	variant?: VariantType;
 	src?: Nullable<string>;
 	alt?: string;
-	size?: SizeType;
+	size?: keyof typeof AvatarSize;
 }

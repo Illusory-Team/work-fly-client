@@ -1,11 +1,11 @@
+import { NavigationLinks } from '@/shared/constants/navigation-links';
 import { IconNamesType } from '@/shared/ui/Icon/Icon.types';
-
-import { LinkHref } from './link-hrefs';
 
 export type LinkItemType = {
 	text: string;
-	to: LinkHref;
+	to: NavigationLinks;
 	icon: IconNamesType;
+	count: number;
 };
 
 type TeamManageLinksType = {
@@ -16,18 +16,21 @@ type TeamManageLinksType = {
 export const linkList: LinkItemType[] = [
 	{
 		text: 'My tasks',
-		to: LinkHref.HOME,
+		to: NavigationLinks.HOME,
 		icon: 'sidebar_mytask',
+		count: 0,
 	},
 	{
 		text: 'Task Manager',
 		icon: 'task_right',
-		to: LinkHref.TASK_MANAGER,
+		to: NavigationLinks.TASK_MANAGER,
+		count: 2,
 	},
 	{
 		text: 'Storage',
 		icon: 'sidebar_storage',
-		to: LinkHref.STORAGE,
+		to: NavigationLinks.STORAGE,
+		count: 0,
 	},
 ];
 
@@ -37,12 +40,14 @@ export const teamManageLinks: TeamManageLinksType = {
 		{
 			text: 'Work status',
 			icon: 'sidebar_efficiency',
-			to: LinkHref.WORK_STATUS,
+			to: NavigationLinks.WORK_STATUS,
+			count: 0,
 		},
 		{
 			text: 'Contacts',
 			icon: 'sidebar_contacts',
-			to: LinkHref.CONTACTS,
+			to: NavigationLinks.CONTACTS,
+			count: 0,
 		},
 	],
 };
