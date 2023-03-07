@@ -14,9 +14,6 @@ module.exports = {
 				full: '50%',
 			},
 		},
-		colors: {
-			negative: '#D44333',
-		},
 	},
 	plugins: [
 		plugin(({ addUtilities, addComponents }) => {

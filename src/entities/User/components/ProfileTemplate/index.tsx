@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { FC, ReactNode, useState } from 'react';
 
 import { IUser } from '@/shared/types';
-import { DialogContent } from '@/shared/ui/DialogContent/DialogContent';
+import { DialogContent } from '@/shared/ui/DialogContent';
 import { EntityHead } from '@/shared/ui/EntityHead';
 import { Icon } from '@/shared/ui/Icon';
 

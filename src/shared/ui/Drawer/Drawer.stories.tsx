@@ -36,13 +36,13 @@ export const Anchor = () => {
 			<Drawer isShow={left} closeHandler={leftToggle}>
 				Content from Drawer
 			</Drawer>
-			<Drawer anchor="right" isShow={right} closeHandler={rightToggle}>
+			<Drawer direction="right" isShow={right} closeHandler={rightToggle}>
 				Content from Drawer
 			</Drawer>
-			<Drawer anchor="top" isShow={top} closeHandler={topToggle}>
+			<Drawer direction="top" isShow={top} closeHandler={topToggle}>
 				Content from Drawer
 			</Drawer>
-			<Drawer anchor="bottom" isShow={bottom} closeHandler={bottomToggle}>
+			<Drawer direction="bottom" isShow={bottom} closeHandler={bottomToggle}>
 				Content from Drawer
 			</Drawer>
 			<Button className="m-8" onClick={leftToggle}>
