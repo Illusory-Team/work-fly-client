@@ -1,20 +1,16 @@
 import { useDispatch } from 'react-redux';
 
-import { openPopup } from '@/shared/store/popupsController';
-
-import { setAlienUser, setReadonly } from '../model';
+import { openDrawer } from '@/shared/store/drawerController';
 
 export const useProfile = () => {
 	const dispatch = useDispatch();
 
 	const openOwnProfileHandler = () => {
-		dispatch(openPopup('userProfile'));
-		dispatch(setReadonly(false));
+		dispatch(openDrawer());
 	};
 
-	const openProfileHandler = (id: string) => {
-		dispatch(openPopup('userProfile'));
-		dispatch(setAlienUser(id));
+	const openProfileHandler = (id: string | number) => {
+		dispatch(openDrawer());
 	};
 
 	return {

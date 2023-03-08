@@ -12,6 +12,7 @@ export const usersMock: IUser[] = [
 		description: '',
 		position: 'Captain',
 		avatar: null,
+		isOwner: true,
 	},
 	{
 		id: '2',
@@ -24,6 +25,7 @@ export const usersMock: IUser[] = [
 		description: 'I Matros',
 		position: 'Matros',
 		avatar: null,
+		isOwner: false,
 	},
 	{
 		id: '3',
@@ -36,6 +38,7 @@ export const usersMock: IUser[] = [
 		description: 'I Matros',
 		position: 'Matros',
 		avatar: null,
+		isOwner: false,
 	},
 	{
 		id: '4',
@@ -48,5 +51,6 @@ export const usersMock: IUser[] = [
 		description: 'I Matros',
 		position: 'Matros',
 		avatar: null,
+		isOwner: false,
 	},
 ];

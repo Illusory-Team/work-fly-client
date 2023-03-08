@@ -112,8 +112,8 @@ module.exports = {
 					fontWeight: 500,
 					lineHeight: '18px',
 				},
-			}),
-				addComponents({});
+			});
+			addComponents({});
 		}),
 	],
 };

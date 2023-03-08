@@ -7,7 +7,8 @@
 		"color-function-notation": "legacy",
 		"import-notation": "string",
 		"scss/at-import-partial-extension": "always",
-		"color-hex-length": "short"
+		"color-hex-length": "short",
+    "declaration-empty-line-before": null
 	},
 	"ignoreFiles": ["build/*", "./src/application/styles/lib/*.scss"]
 }

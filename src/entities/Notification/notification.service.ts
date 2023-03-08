@@ -3,8 +3,6 @@ import { INotification } from '@/shared/types';
 
 export const NotificationService = {
 	async getNotification() {
-		return await (
-			await fakeApi.get<INotification[]>('notifications')
-		).data;
+		return (await fakeApi.get<INotification[]>('notifications')).data;
 	},
 };

@@ -1,0 +1,9 @@
+.header {
+	background: var(--bg-primary);
+}
+
+.body {
+	background: var(--bg-secondary);
+	height: calc(100vh - 272px);
+	@apply px-8 py-6 overflow-hidden;
+}

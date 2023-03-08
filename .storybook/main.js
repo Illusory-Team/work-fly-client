@@ -29,16 +29,28 @@ module.exports = {
 	},
 	webpackFinal: async (config) => {
 		// add SCSS support for CSS Modules
-		config.module.rules.push({
-			test: /\.scss$/,
-			use: ['style-loader', 'css-loader?modules&importLoaders', 'postcss-loader', 'sass-loader'],
-			include: path.resolve(__dirname, '../'),
-		});
 
 		config.resolve.alias = {
 			...config.resolve?.alias,
 			'@': [path.resolve(__dirname, '../src/'), path.resolve(__dirname, '../')],
 		};
+
+    config.module.rules.push({
+      test: /\.s(a|c)ss$/,
+      use: [
+        'style-loader',
+        'css-loader?modules&importLoaders',
+        'postcss-loader',
+        {
+          loader: 'sass-loader',
+          options: {
+            additionalData: `
+              @import "@/shared/styles/_mixins.scss";
+            `
+          },
+        },
+      ],
+    })
 
 		return config;
 	},

@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import classNames from 'classnames';
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 
@@ -17,15 +16,16 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 			title = '',
 			isChangeable = false,
 			className = '',
-			classNameTitle = '',
+			classNameText,
 			defaultAvatar,
 			value,
 			onChange,
+			avatarSize,
+			classNameAvatar,
 		},
 		ref,
 	) => {
 		const cl = classNames(styles.container, className);
-		const clTitle = classNames(styles.title, classNameTitle);
 		const inputRef = useRef<HTMLInputElement>(null);
 
 		useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
@@ -53,8 +53,8 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 								<Icon name="action_photo" />
 							</div>
 							<Avatar
-								size="m"
-								className="rounded-full"
+								size={avatarSize}
+								className={`rounded-full ${classNameAvatar}`}
 								onClick={imgHandler}
 								src={src}
 								defaultAvatar={defaultAvatar}
@@ -64,19 +64,21 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 					</>
 				) : (
 					<Avatar
-						size="m"
-						className="rounded-full"
+						size={avatarSize}
+						className={`rounded-full ${classNameAvatar}`}
 						onClick={imgHandler}
 						src={src}
 						defaultAvatar={defaultAvatar}
 						alt="logo"
 					/>
 				)}
-				<div className={styles.textContent}>
-					<h2 className={clTitle}>{title}</h2>
+				<div className={classNames(styles.textContent, classNameText)}>
+					<h2 className={styles.title}>{title}</h2>
 					<p className={styles.subTitle}>{subTitle}</p>
 				</div>
 			</div>
 		);
 	},
 );
+
+EntityHead.displayName = 'EntityHead';

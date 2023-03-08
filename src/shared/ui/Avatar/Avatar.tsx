@@ -5,15 +5,7 @@ import { FC, PropsWithChildren } from 'react';
 import { getFirstLetters } from '@/shared/helpers/getFirstLetters';
 
 import styles from './Avatar.module.scss';
-import { AvatarProps } from './Avatar.types';
-
-enum avatarSize {
-	'l' = 68,
-	'm' = 56,
-	's' = 48,
-	'xs' = 36,
-	'xxs' = 24,
-}
+import { AvatarProps, AvatarSize } from './Avatar.types';
 
 export const Avatar: FC<PropsWithChildren<AvatarProps>> = ({
 	className,
@@ -31,7 +23,7 @@ export const Avatar: FC<PropsWithChildren<AvatarProps>> = ({
 	return (
 		<div style={{ background: color }} className={cl} {...props}>
 			{src ? (
-				<Image src={src} alt={alt} width={avatarSize[size]} height={avatarSize[size]} />
+				<Image src={src} alt={alt} width={AvatarSize[size]} height={AvatarSize[size]} />
 			) : defaultAvatar ? (
 				getFirstLetters(defaultAvatar)
 			) : (

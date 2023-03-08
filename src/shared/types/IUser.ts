@@ -9,4 +9,5 @@ export interface IUser {
 	description: Nullable<string>;
 	position?: string;
 	avatar: Nullable<string>;
+	isOwner: boolean;
 }

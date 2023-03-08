@@ -1,6 +1,5 @@
 .notificationList {
-	height: calc(100% - 90px);
-	@apply px-8 w-full overflow-auto;
+	@apply px-8 w-full;
 
 	.notificationCard {
 		@apply mt-6;

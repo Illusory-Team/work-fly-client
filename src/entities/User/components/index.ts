@@ -1,3 +1,3 @@
 export { FormTemplate } from './FormTemplate';
-export { UserDrawer } from './UserDrawer';
+export { ProfileTemplate } from './ProfileTemplate';
 export { ViewPersonalDetail } from './ViewPersonalDetail';
