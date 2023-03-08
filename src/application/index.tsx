@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { Provider } from 'react-redux';
+import 'simplebar-react/dist/simplebar.min.css';
 
 import { AppProvider } from './providers';
 import { wrapper } from './store/store';

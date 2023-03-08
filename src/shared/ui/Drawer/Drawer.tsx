@@ -10,7 +10,7 @@ import { DrawerProps } from './Drawer.types';
 export const Drawer: FC<PropsWithChildren<DrawerProps>> = ({
 	isShow,
 	closeHandler,
-	direction = 'bottom',
+	direction = 'right',
 	size = 'l',
 	className = '',
 	children,
