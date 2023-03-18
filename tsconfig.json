@@ -25,9 +25,10 @@
 			"@/features/*": ["features/*"],
 			"@/entities/*": ["entities/*"],
 			"@/shared/*": ["shared/*"],
-			"@/layouts/*": ["layouts/*"]
+			"@/layouts/*": ["layouts/*"],
+      "@test-utils": ["../test/test-utils.tsx"]
 		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.config.ts", "./src/**/*.ts"],
 	"exclude": ["node_modules"]
 }
