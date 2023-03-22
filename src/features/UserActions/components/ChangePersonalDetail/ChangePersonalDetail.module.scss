@@ -1,13 +1,17 @@
-.container {
-	grid-template-columns: 1fr 1fr;
-	@apply grid  justify-items-center gap-2;
+.form {
+	@apply pb-36;
 
-	.input {
-		max-width: 284px;
-		@apply w-full mt-16;
+	.container {
+		grid-template-columns: 1fr 1fr;
+		@apply grid  justify-items-center gap-2;
+
+		.input {
+			max-width: 284px;
+			@apply w-full mt-16;
+		}
 	}
-}
 
-.button {
-	@apply w-full mt-10;
+	.button {
+		@apply w-full mt-10;
+	}
 }

@@ -9,7 +9,7 @@ import styles from './ChangePersonalDetail.module.scss';
 
 export const ChangePersonalDetail: FC = () => {
 	return (
-		<form>
+		<form className={styles.form}>
 			<div className={styles.container}>
 				<TextField placeholder="+996771435642" label="Phone" className={styles.input} />
 				<TextField placeholder="Kavoon@gmail.com..." label="E-mail" className={styles.input} />
