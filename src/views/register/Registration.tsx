@@ -13,7 +13,7 @@ export const RegistrationView = () => {
 			<Meta title="Work Fly | Registration" />
 			<AuthLayout
 				form={<LoginForm className="mt-20" />}
-				src="/registration-illustration.png"
+				src="/images/illustrations/registration-illustration.png"
 				href="login"
 				subTitle={
 					<>
