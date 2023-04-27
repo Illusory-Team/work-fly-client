@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
 
-import { rootReducer } from './rootReducer';
+import { RootReducer, rootReducer } from './rootReducer';
 
 export const makeStore = () => {
-	return configureStore({
+	return configureStore<RootReducer>({
 		reducer: rootReducer,
 		devTools: process.env.NODE_ENV === 'development',
 	});

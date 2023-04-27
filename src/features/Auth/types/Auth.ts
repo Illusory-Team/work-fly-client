@@ -1,7 +1,5 @@
 import { IUser } from '@/shared/types';
 
-import { ITokens } from './ITokens';
-
 export interface IErrorAuthResponse {
 	message: string;
 	statusCode: number;
@@ -17,7 +15,7 @@ export interface IFormRegistration {
 	phone: string;
 }
 
-export interface ILoginResponse {
-	token: ITokens;
-	user: IUser;
+export interface UserResponse {
+	csrfToken: string;
+	user: Omit<IUser, 'firstName' | 'lastName'> & { fullName: string };
 }

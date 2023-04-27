@@ -1,10 +1,7 @@
-import { fakeApi } from '@/shared/api';
-import { IUser } from '@/shared/types';
+import { api } from '@/shared/api';
 
 export const UserService = {
-	async getUser(id: string | number): Promise<IUser> {
-		return await (
-			await fakeApi(`users?id=${id}`)
-		).data[0];
+	async getUserProfile() {
+		return await api.get('/users');
 	},
 };

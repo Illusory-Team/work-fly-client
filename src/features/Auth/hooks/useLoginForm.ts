@@ -32,7 +32,9 @@ export const useLoginForm = () => {
 
 	const { mutateAsync } = useMutation('login-user', (data: IFormLogin) => AuthService.login(data), {
 		onSuccess(user) {
-			dispatch(setCurrentUser(user.data.user));
+			if (user) {
+				dispatch(setCurrentUser(user.data));
+			}
 		},
 	});
 

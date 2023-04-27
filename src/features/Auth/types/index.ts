@@ -1,2 +1,1 @@
-export type { ILoginResponse, IErrorAuthResponse, IFormLogin, IFormRegistration } from './Auth';
-export type { ITokens } from './ITokens';
+export type { UserResponse, IErrorAuthResponse, IFormLogin, IFormRegistration } from './Auth';
