@@ -1,4 +1,4 @@
-import { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { setCookie } from 'cookies-next';
 import { NextPageContext } from 'next';
 
@@ -17,8 +17,10 @@ export const AuthService = {
 			api.defaults.headers.common['x-csrf-token'] = response.data.csrfToken;
 
 			return response;
-		} catch (error: any) {
-			logger({ type: 'error', message: errorCatch(error) });
+		} catch (error: unknown) {
+			if (axios.isAxiosError(error)) {
+				logger({ type: 'error', message: errorCatch(error) });
+			}
 		}
 	},
 	async refreshToken(ctx?: NextPageContext): Promise<AxiosResponse<UserResponse> | undefined> {
@@ -44,14 +46,16 @@ export const AuthService = {
 				}
 
 				return response;
-			} catch (error: any) {
-				logger({ type: 'error', message: errorCatch(error) });
+			} catch (error: unknown) {
+				if (axios.isAxiosError(error)) {
+					logger({ type: 'error', message: errorCatch(error) });
 
-				if (error.response.data.message === 'Unauthorized' && !isAuthPath(asPath)) {
-					redirectSSR(LOGIN_PATH, res);
+					if (error?.response?.data.message === 'Unauthorized' && !isAuthPath(asPath)) {
+						redirectSSR(LOGIN_PATH, res);
+					}
+
+					return;
 				}
-
-				return;
 			}
 		}
 

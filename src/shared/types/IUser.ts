@@ -1,6 +1,8 @@
+type PositionValueType = 'owner' | 'member' | 'manager';
+
 export type UserPositionType = {
 	id: string;
-	value: 'owner' | 'member' | 'maneger';
+	value: PositionValueType;
 };
 
 export interface IUser {

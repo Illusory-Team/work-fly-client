@@ -13,19 +13,6 @@ interface InitialState {
 }
 
 const initialState: InitialState = {
-	// user: {
-	// 	id: '1',
-	// 	position: 'Manager',
-	// 	address: null,
-	// 	avatar: null,
-	// 	birthday: null,
-	// 	description: '',
-	// 	email: '',
-	// 	firstName: 'Nameless',
-	// 	lastName: 'Nameless',
-	// 	phone: null,
-	// 	isOwner: true,
-	// },
 	user: null,
 	status: 'Work',
 	readonly: false,

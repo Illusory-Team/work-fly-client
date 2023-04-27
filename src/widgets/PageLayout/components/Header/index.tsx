@@ -44,7 +44,7 @@ export const Header: FC<HeaderProps> = ({ notificationHandler }) => {
 							<Avatar
 								onClick={toggleDropDownVisible}
 								size="s"
-								defaultAvatar={`${user ? user.firstName : ''}`}
+								defaultAvatar={user ? `${user.firstName} ${user.lastName}` : ''}
 								className={styles.headerAvatar}
 							/>
 							{!!user && <PersonalDropdown isVisible={isVisibleDropdown} ref={ref} user={user} />}
