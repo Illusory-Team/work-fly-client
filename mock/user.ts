@@ -10,9 +10,13 @@ export const usersMock: IUser[] = [
 		birthday: null,
 		address: null,
 		description: '',
-		position: 'Captain',
+		position: {
+			id: '1',
+			value: 'member',
+		},
 		avatar: null,
 		isOwner: true,
+		csrfToken: 'lololo',
 	},
 	{
 		id: '2',
@@ -23,9 +27,13 @@ export const usersMock: IUser[] = [
 		birthday: null,
 		address: null,
 		description: 'I Matros',
-		position: 'Matros',
+		position: {
+			id: '1',
+			value: 'member',
+		},
 		avatar: null,
 		isOwner: false,
+		csrfToken: '123',
 	},
 	{
 		id: '3',
@@ -36,9 +44,13 @@ export const usersMock: IUser[] = [
 		birthday: null,
 		address: null,
 		description: 'I Matros',
-		position: 'Matros',
+		position: {
+			id: '1',
+			value: 'member',
+		},
 		avatar: null,
 		isOwner: false,
+		csrfToken: '123',
 	},
 	{
 		id: '4',
@@ -49,8 +61,12 @@ export const usersMock: IUser[] = [
 		birthday: null,
 		address: null,
 		description: 'I Matros',
-		position: 'Matros',
+		position: {
+			id: '1',
+			value: 'member',
+		},
 		avatar: null,
 		isOwner: false,
+		csrfToken: '123',
 	},
 ];
