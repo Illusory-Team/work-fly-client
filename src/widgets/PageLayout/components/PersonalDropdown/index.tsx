@@ -1,7 +1,6 @@
 import cn from 'classnames';
-import { FC, useState } from 'react';
+import { forwardRef, useState } from 'react';
 
-import { useOutsideClick } from '@/shared/hooks';
 import { IUser } from '@/shared/types';
 import { EntityHead } from '@/shared/ui/EntityHead';
 import { Switch } from '@/shared/ui/inputs/Switch';
@@ -10,24 +9,28 @@ import { LinkItem } from './LinkItem';
 import styles from './PersonalDropdown.module.scss';
 
 type PersonalDropdownProps = {
-	closeHandler: () => void;
 	user: IUser;
+	isVisible: boolean;
 };
 
-export const PersonalDropdown: FC<PersonalDropdownProps> = ({ closeHandler, user }) => {
+export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps>(({ isVisible, user }, ref) => {
 	const [isVacation, setIsVacation] = useState<'on' | 'off'>('off');
-	const { ref } = useOutsideClick<HTMLDivElement>(closeHandler);
 
 	const toggleSwitch = () => {
 		setIsVacation(prevState => (prevState === 'off' ? 'on' : 'off'));
 	};
 
 	return (
-		<div className={styles.dropdown} ref={ref}>
+		<div
+			className={cn(styles.dropdown, {
+				[styles.visible]: isVisible,
+			})}
+			ref={ref}
+		>
 			<EntityHead
-				defaultAvatar={`${user.firstName} ${user.lastName}`}
-				title={`${user.firstName} ${user.lastName}`}
-				subTitle={user.position}
+				defaultAvatar={`${user?.firstName} ${user?.lastName}`}
+				title={`${user?.firstName} ${user?.lastName}`}
+				subTitle={user?.position?.value}
 				className="p-2 mb-1"
 				classNameAvatar={styles.userAvatar}
 				classNameText={styles.userTitle}
@@ -44,10 +47,12 @@ export const PersonalDropdown: FC<PersonalDropdownProps> = ({ closeHandler, user
 					</div>
 				</li>
 				<LinkItem title="Profile" href="/?dialog=profile" />
-				{user.isOwner && <LinkItem title="Admin settings" href="/?dialog=company-manage" />}
-				{user.isOwner && <LinkItem title="Archive" href="/archive" />}
+				{!!user && user?.isOwner && <LinkItem title="Admin settings" href="/?dialog=company-manage" />}
+				{!!user && user?.isOwner && <LinkItem title="Archive" href="/archive" />}
 				<LinkItem title="Sign out" href="/" className={styles.signOut} />
 			</ul>
 		</div>
 	);
-};
+});
+
+PersonalDropdown.displayName = 'PersonalDropdown';

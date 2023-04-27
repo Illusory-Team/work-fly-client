@@ -21,13 +21,18 @@ export const UserProfile: FC = () => {
 
 	return (
 		<Drawer direction="right" isShow={true} closeHandler={closeHandler}>
-			<ProfileTemplate
-				closeHandler={closeHandler}
-				data={user}
-				status={<p>{status}</p>}
-				tabs={tabs}
-				isChangeable={true}
-			/>
+			{/* TODO: сделать обработку в случае, если user === null*/}
+			{!!user ? (
+				<ProfileTemplate
+					closeHandler={closeHandler}
+					data={user}
+					status={<p>{status}</p>}
+					tabs={tabs}
+					isChangeable={true}
+				/>
+			) : (
+				<p>Something went wrong</p>
+			)}
 		</Drawer>
 	);
 };

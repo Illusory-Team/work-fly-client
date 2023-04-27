@@ -1,1 +1,1 @@
-export const userSelector = (state: AppState) => state.user;
+export const userSelector = (state: AppState) => state.userReducer;

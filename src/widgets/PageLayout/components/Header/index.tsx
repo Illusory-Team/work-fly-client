@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 
 import { userSelector } from '@/entities/User';
 
-import { useAppSelector } from '@/shared/hooks';
+import { useAppSelector, useOutsideClick } from '@/shared/hooks';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
@@ -23,9 +23,11 @@ export const Header: FC<HeaderProps> = ({ notificationHandler }) => {
 		setIsVisibleDropdown(false);
 	};
 
-	const openDropDown = () => {
-		setIsVisibleDropdown(true);
+	const toggleDropDownVisible = () => {
+		setIsVisibleDropdown(!isVisibleDropdown);
 	};
+
+	const { ref } = useOutsideClick<HTMLDivElement>(closeDropDown);
 
 	return (
 		<>
@@ -40,12 +42,12 @@ export const Header: FC<HeaderProps> = ({ notificationHandler }) => {
 								</Button>
 							</div>
 							<Avatar
-								onClick={openDropDown}
+								onClick={toggleDropDownVisible}
 								size="s"
-								defaultAvatar={`${user.firstName}`}
+								defaultAvatar={user ? `${user.firstName} ${user.lastName}` : ''}
 								className={styles.headerAvatar}
 							/>
-							{isVisibleDropdown && <PersonalDropdown user={user} closeHandler={closeDropDown} />}
+							{!!user && <PersonalDropdown isVisible={isVisibleDropdown} ref={ref} user={user} />}
 						</div>
 					</div>
 				</div>

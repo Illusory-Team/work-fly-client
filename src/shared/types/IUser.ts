@@ -1,3 +1,10 @@
+type PositionValueType = 'owner' | 'member' | 'manager';
+
+export type UserPositionType = {
+	id: string;
+	value: PositionValueType;
+};
+
 export interface IUser {
 	id: Nullable<string>;
 	email: string;
@@ -7,7 +14,8 @@ export interface IUser {
 	birthday: Nullable<string>;
 	address: Nullable<string>;
 	description: Nullable<string>;
-	position?: string;
+	position?: UserPositionType;
 	avatar: Nullable<string>;
 	isOwner: boolean;
+	csrfToken: string;
 }
