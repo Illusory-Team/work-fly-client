@@ -1,10 +1,14 @@
 .dropdown {
-	@apply absolute right-0 p-2 bg-white z-10 flex flex-col;
+	@apply absolute right-0 p-2 bg-white z-10 flex flex-col opacity-0 overflow-hidden;
 	box-shadow: 0 16px 24px rgba(2, 3, 3, 0.03), 0 6px 30px rgba(2, 3, 3, 0.02), 0 8px 10px rgba(2, 3, 3, 0.04);
 	border-radius: 8px;
 	max-width: 264px;
 	width: 100%;
 	top: calc(100% + 6px);
+}
+
+.visible {
+	@apply opacity-100 overflow-visible;
 }
 
 .linkItem {

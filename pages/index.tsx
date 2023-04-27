@@ -1,6 +1,20 @@
+import { useEffect } from 'react';
+
+import { UserService } from '@/entities/User';
+
 import { HomeView } from '@/views/home/Home';
 
 const Home = () => {
+	// тестовый запрос для проерки заголовков у запроса
+	useEffect(() => {
+		async function fetchData() {
+			const response = await UserService.getUserProfile();
+			console.log(response);
+		}
+
+		fetchData();
+	});
+
 	return (
 		<>
 			<HomeView />
@@ -9,7 +23,3 @@ const Home = () => {
 };
 
 export default Home;
-//{isLoading ? <p>loading...</p> : data?.data && <FolderCard data={data.data} />}
-//<CompanyDrawer
-// 					companyHead={<EntityHead isChangeable={true} title="dsadsa" defaultAvatar="No Name" subTitle="dsadsad" />}
-// 				/>

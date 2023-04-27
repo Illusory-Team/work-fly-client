@@ -49,7 +49,7 @@ export const ProfileTemplate: FC<UserDrawerProps> = ({
 							isChangeable={isChangeable}
 							src={data?.avatar}
 							title={`${data?.firstName} ${data?.lastName}`}
-							subTitle={data?.position}
+							subTitle={data?.position?.value}
 							defaultAvatar={`${data?.firstName} ${data?.lastName}`}
 						/>
 						<h4>ID: {data.id}</h4>
