@@ -5,7 +5,8 @@ import { rootReducer } from './rootReducer';
 
 export const makeStore = () => {
 	return configureStore({
-		reducer: rootReducer,
+		//это пока временно
+		reducer: rootReducer as any,
 		devTools: process.env.NODE_ENV === 'development',
 	});
 };

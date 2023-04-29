@@ -61,4 +61,7 @@ export const AuthService = {
 
 		return await api.get<UserResponse>('/auth/refresh');
 	},
+	async logout() {
+		await api.patch('/auth/logout');
+	},
 };

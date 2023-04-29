@@ -36,6 +36,9 @@ const userSlice = createSlice({
 				csrfToken: action.payload.csrfToken,
 			};
 		},
+		clearUserState(state) {
+			state.user = null;
+		},
 	},
 	extraReducers: {
 		[HYDRATE]: (state, action) => {
@@ -49,4 +52,4 @@ const userSlice = createSlice({
 
 export const userReducer = userSlice.reducer;
 
-export const { setCurrentUser } = userSlice.actions;
+export const { setCurrentUser, clearUserState } = userSlice.actions;
