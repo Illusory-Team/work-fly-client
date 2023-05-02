@@ -6,6 +6,7 @@ const FAKE_URL = process.env.FAKE_API_URL;
 export const api = axios.create({
 	baseURL: BASE_URL,
 	withCredentials: true,
+	timeout: 5000,
 });
 
 export const fakeApi = axios.create({

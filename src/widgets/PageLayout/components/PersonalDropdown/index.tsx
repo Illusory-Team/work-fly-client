@@ -1,6 +1,13 @@
 import cn from 'classnames';
+import { useRouter } from 'next/router';
 import { forwardRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
+import { clearUserState } from '@/entities/User/model/user.slice';
+
+import { AuthService } from '@/features/Auth/services';
+
+import { LOGIN_PATH } from '@/shared/config/paths';
 import { IUser } from '@/shared/types';
 import { EntityHead } from '@/shared/ui/EntityHead';
 import { Switch } from '@/shared/ui/inputs/Switch';
@@ -16,8 +23,18 @@ type PersonalDropdownProps = {
 export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps>(({ isVisible, user }, ref) => {
 	const [isVacation, setIsVacation] = useState<'on' | 'off'>('off');
 
+	const router = useRouter();
+	const dispatch = useDispatch();
+
 	const toggleSwitch = () => {
 		setIsVacation(prevState => (prevState === 'off' ? 'on' : 'off'));
+	};
+
+	const onLogout = async () => {
+		await AuthService.logout();
+
+		dispatch(clearUserState());
+		await router.push(LOGIN_PATH);
 	};
 
 	return (
@@ -49,7 +66,7 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 				<LinkItem title="Profile" href="/?dialog=profile" />
 				{!!user && user?.isOwner && <LinkItem title="Admin settings" href="/?dialog=company-manage" />}
 				{!!user && user?.isOwner && <LinkItem title="Archive" href="/archive" />}
-				<LinkItem title="Sign out" href="/" className={styles.signOut} />
+				<LinkItem title="Sign out" onClick={onLogout} className={styles.signOut} />
 			</ul>
 		</div>
 	);

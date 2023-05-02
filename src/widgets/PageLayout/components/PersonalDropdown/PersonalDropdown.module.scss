@@ -5,10 +5,12 @@
 	max-width: 264px;
 	width: 100%;
 	top: calc(100% + 6px);
+	visibility: hidden;
 }
 
 .visible {
 	@apply opacity-100 overflow-visible;
+	visibility: visible;
 }
 
 .linkItem {
