@@ -1,20 +1,25 @@
 {
-	"compilerOptions": {
-		"target": "es5",
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
-		"esModuleInterop": true,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"jsx": "preserve",
-		"incremental": true,
-		"typeRoots": ["node_modules/@types", "src/application/typing/app.d.ts"],
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "types": ["cypress", "node"],
+//		"typeRoots": ["node_modules/@types", "src/application/typing/app.d.ts"],
 		"baseUrl": "./src",
 		"paths": {
 			"~/*": ["/*"],
@@ -26,9 +31,21 @@
 			"@/entities/*": ["entities/*"],
 			"@/shared/*": ["shared/*"],
 			"@/layouts/*": ["layouts/*"],
-      "@test-utils": ["../test/test-utils.tsx"]
+      "@test-utils": ["../test/utils/test-utils.tsx"]
 		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "jest.config.ts", "./src/**/*.ts"],
-	"exclude": ["node_modules"]
+	"include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "node_modules/cypress/types/cypress-global-vars.d.ts"
+  ],
+	"exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "./cypress.config.ts",
+    "cypress",
+    "**/*.cy.tsx"
+  ]
 }
