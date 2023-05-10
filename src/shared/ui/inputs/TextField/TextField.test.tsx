@@ -22,12 +22,11 @@ describe('UI/TextField', () => {
 		render(<TextField />);
 
 		expect(screen.getByRole('textbox')).toBeInTheDocument();
+		expect(screen.getByRole('textbox')).toHaveClass('input');
 	});
 
 	it('should render component with props', () => {
-		const container = render(<TextField {...textFieldProps} />);
-
-		expect(screen.getByRole('textbox')).toHaveClass('input');
+		const { container } = render(<TextField {...textFieldProps} />);
 
 		expect(screen.getByRole('textbox')).toHaveAttribute('type', 'text');
 		expect(screen.getByRole('textbox')).toHaveAttribute('required');
@@ -35,7 +34,7 @@ describe('UI/TextField', () => {
 		expect(screen.getByText('test label')).toBeInTheDocument();
 		expect(screen.getByText('test label')).toHaveTextContent(/test label/i);
 
-		expect(container.container.firstChild).toHaveClass('xs', 'container', 'outlined', 'primary');
+		expect(container.firstChild).toHaveClass('xs', 'container', 'outlined', 'primary');
 	});
 
 	it('should have focus', () => {
