@@ -52,7 +52,12 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 							{CustomIcon ? (
 								CustomIcon
 							) : (
-								<Icon name={inputType === 'text' ? 'other_show' : 'other_closed'} width={24} height={24} />
+								<Icon
+									name={inputType === 'text' ? 'other_show' : 'other_closed'}
+									width={24}
+									height={24}
+									data-testid="icon-toggle"
+								/>
 							)}
 						</div>
 					) : (
