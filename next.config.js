@@ -6,7 +6,9 @@ const nextConfig = {
 		API_URL: process.env.API_URL,
 		FAKE_API_URL: process.env.FAKE_API_URL,
 	},
-
+	experimental: {
+		serverActions: true,
+	},
 	images: {
 		domains: [],
 	},

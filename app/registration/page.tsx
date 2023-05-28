@@ -1,6 +1,10 @@
-import { NextPage } from 'next';
+import { Metadata, NextPage } from 'next';
 
 import { RegistrationView } from '@/views/register';
+
+export const metadata: Metadata = {
+	title: 'Work Fly | Registration',
+};
 
 const Registration: NextPage = () => {
 	return <RegistrationView />;

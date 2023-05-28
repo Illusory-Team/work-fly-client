@@ -1,4 +1,6 @@
 /* eslint-disable react/display-name */
+'use client';
+
 import classNames from 'classnames';
 import { forwardRef, useState } from 'react';
 
@@ -6,6 +8,8 @@ import { Icon } from '@/shared/ui/Icon';
 
 import styles from './TextField.module.scss';
 import { TextFieldProps } from './TextField.types';
+
+/* eslint-disable react/display-name */
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
 	(

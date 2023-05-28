@@ -1,3 +1,5 @@
+'use client';
+
 import { useRef } from 'react';
 
 export const useDelayHandler = (callback: () => void, CD: number) => {

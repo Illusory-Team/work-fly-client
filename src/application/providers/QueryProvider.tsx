@@ -1,3 +1,5 @@
+'use client';
+
 import { FC, PropsWithChildren } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 

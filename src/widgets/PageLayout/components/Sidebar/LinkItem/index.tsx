@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { FC } from 'react';
 
 import { Icon } from '@/shared/ui/Icon';
@@ -12,14 +12,14 @@ import styles from './LinkItem.module.scss';
 type LinkItemProps = LinkItemType;
 
 export const LinkItem: FC<LinkItemProps> = ({ text, to, icon, count }) => {
-	const router = useRouter();
+	const pathname = usePathname();
 
 	return (
 		<li className={styles.linkItem}>
 			<Link
 				href={to}
 				className={cn(styles.link, {
-					[styles.activeLink]: router.pathname === to,
+					[styles.activeLink]: pathname === to,
 				})}
 			>
 				<div className={styles.textContent}>
