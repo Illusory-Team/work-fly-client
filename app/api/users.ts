@@ -1,9 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-
-import { IUser } from '@/shared/types';
+import { NextResponse } from 'next/server';
 
 import { usersMock } from '../../mock/user';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<IUser[]>) {
-	res.status(200).json(usersMock);
+export async function GET() {
+	return NextResponse.json(usersMock);
 }

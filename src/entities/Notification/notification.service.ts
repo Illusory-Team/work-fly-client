@@ -1,8 +1,9 @@
-import { fakeApi } from '@/shared/api';
+import axios from 'axios';
+
 import { INotification } from '@/shared/types';
 
 export const NotificationService = {
 	async getNotification() {
-		return (await fakeApi.get<INotification[]>('notifications')).data;
+		return (await axios.get<INotification[]>('/api/notifications')).data;
 	},
 };
