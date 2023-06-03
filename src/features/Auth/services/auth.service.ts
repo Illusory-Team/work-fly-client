@@ -13,7 +13,9 @@ import { IFormLogin, UserResponse } from '../types';
 export const AuthService = {
 	async login(loginData: IFormLogin) {
 		try {
-			const response = await api.post<UserResponse>('/auth/login', loginData);
+			const response = await axios.post<UserResponse>('/api/v2/auth/login', loginData, {
+				withCredentials: true,
+			});
 			api.defaults.headers.common['x-csrf-token'] = response.data.csrfToken;
 
 			return response;
