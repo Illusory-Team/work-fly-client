@@ -1,3 +1,5 @@
+'use client';
+
 import { useRef, useState } from 'react';
 
 export const useToggle = (init = false, coolDown = 0, firstCallback?: () => void, secondCallback?: () => void) => {

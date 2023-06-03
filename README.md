@@ -55,34 +55,35 @@ Component
 ## Структура страницы
 
 ```
-pages
+app
   └── registration
-    ├── index.tsx
+    ├── page.tsx
+    ├── layout.tsx
     ├── registration.module.scss
     ├── registration.types.ts
     ├── registration.context.ts
     └── registration.test.ts
 ```
 
-В index файле компонент страницы, которая экспортируется дефолтно.
+В page.tsx файле компонент страницы, которая экспортируется дефолтно.
 
 ```
-pages
+app
 └── registration
-  ├── index.tsx
+  ├── page.tsx
   ├── registration.module.scss
   ├── registration.types.ts
   ├── registration.context.ts
   ├── registration.test.ts
   └── sections
     ├── first
-    | ├── index.tsx
+    | ├── page.tsx
     | ├── first.module.scss
     | ├── first.types.ts
     | ├── first.context.ts
     | └── first.test.ts
     └── second 
-      ├── index.tsx
+      ├── page.tsx
       ├── second.module.scss
       ├── second.types.ts
       ├── second.context.ts
@@ -93,9 +94,9 @@ pages
 для декомпозиций страницы. После куски собираем в index файле. Так же можно index файл сделать public api
 
 ```
-pages
+app
 └── registration
-  ├── index.tsx
+  ├── page.tsx
   ├── registration.module.scss
   ├── registration.types.ts
   ├── registration.context.ts

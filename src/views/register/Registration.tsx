@@ -3,22 +3,21 @@ import React from 'react';
 
 import { LoginForm } from '@/features/Auth';
 
-import { Meta } from '@/shared/ui/Meta';
+import { LOGIN_PATH } from '@/shared/config/paths';
 
 import { AuthLayout } from '@/widgets/AuthLayout';
 
 export const RegistrationView = () => {
 	return (
 		<>
-			<Meta title="Work Fly | Registration" />
 			<AuthLayout
 				form={<LoginForm className="mt-20" />}
 				src="/images/illustrations/registration-illustration.png"
 				href="login"
 				subTitle={
 					<>
-						Already have an account?{' '}
-						<Link href="login" className="font-bold">
+						Already have an account?
+						<Link href={LOGIN_PATH} className="font-bold">
 							Login
 						</Link>
 					</>

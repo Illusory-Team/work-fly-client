@@ -2,14 +2,13 @@ import Link from 'next/link';
 
 import { LoginForm } from '@/features/Auth';
 
-import { Meta } from '@/shared/ui/Meta';
+import { REGISTER_PATH } from '@/shared/config/paths';
 
 import { AuthLayout } from '@/widgets/AuthLayout';
 
 export const LoginView = () => {
 	return (
 		<>
-			<Meta title="Work Fly | Login" />
 			<AuthLayout
 				form={<LoginForm className="mt-20" />}
 				src="/images/illustrations/login-illustration.png"
@@ -17,7 +16,7 @@ export const LoginView = () => {
 				subTitle={
 					<>
 						Have no account?{' '}
-						<Link href="registration" className="font-bold">
+						<Link href={REGISTER_PATH} className="font-bold">
 							Registration
 						</Link>
 					</>

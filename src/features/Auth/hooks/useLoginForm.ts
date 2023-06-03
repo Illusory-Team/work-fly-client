@@ -1,5 +1,7 @@
+'use client';
+
 import { AxiosError } from 'axios';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { useDispatch } from 'react-redux';
