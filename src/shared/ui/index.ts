@@ -1,7 +1,11 @@
 'use client';
 
-export { Avatar, AvatarGroup, Icon } from './data-display';
-export type { IAvatarProps, AvatarGroupProps, IconProps } from './data-display';
+export { Avatar, AvatarGroup, Icon, EntityHead } from './data-display';
+export type { IAvatarProps, AvatarGroupProps, IconProps, EntityHeadProps } from './data-display';
+
+export { Drawer } from './navigation';
+export type { DrawerProps } from './navigation';
+
 export {
 	Button,
 	Typography,

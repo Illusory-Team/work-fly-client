@@ -1,4 +1,8 @@
 export const getRelativeTimeString = (date: Date | number, lang = navigator.language) => {
+	if (!date) {
+		return '';
+	}
+
 	const timeMs = typeof date === 'number' ? date : date.getTime();
 	const deltaSeconds = Math.round((timeMs - Date.now()) / 1000);
 	const cutoffs = [60, 3600, 86400, 86400 * 7, 86400 * 30, 86400 * 365, Infinity];

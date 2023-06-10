@@ -9,7 +9,7 @@ import { AuthService } from '@/features/Auth/services';
 
 import { LOGIN_PATH } from '@/shared/config/paths';
 import { IUser } from '@/shared/types';
-import { EntityHead } from '@/shared/ui/EntityHead';
+import { EntityHead } from '@/shared/ui/data-display/EntityHead';
 import { Switch } from '@/shared/ui/inputs/Switch';
 
 import { LinkItem } from './LinkItem';

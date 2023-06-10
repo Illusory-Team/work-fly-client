@@ -6,7 +6,7 @@ import SimpleBar from 'simplebar-react';
 
 import { CompanyDrawer } from '@/entities/Company';
 
-import { EntityHead } from '@/shared/ui/EntityHead';
+import { EntityHead } from '@/shared/ui/data-display/EntityHead';
 
 import { Header, Notifications, Sidebar, UserProfile } from '@/widgets/PageLayout/components';
 

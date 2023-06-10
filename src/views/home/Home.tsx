@@ -3,6 +3,7 @@
 import { FC } from 'react';
 
 import { FolderCard } from '@/entities/Folder';
+import { NotificationCard } from '@/entities/Notification';
 import { userSelector } from '@/entities/User';
 
 import { useAppSelector } from '@/shared/hooks';

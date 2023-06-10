@@ -3,8 +3,8 @@
 import classNames from 'classnames';
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 
-import { Avatar } from '../Avatar';
-import { Icon } from '../Icon';
+import { Avatar } from '../../Avatar';
+import { Icon } from '../../Icon';
 
 import styles from './EntityHead.module.scss';
 import { EntityHeadProps } from './EntityHead.types';

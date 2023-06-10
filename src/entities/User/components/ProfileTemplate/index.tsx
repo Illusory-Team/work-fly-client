@@ -5,8 +5,8 @@ import { FC, ReactNode, useState } from 'react';
 
 import { IUser } from '@/shared/types';
 import { DialogContent } from '@/shared/ui/DialogContent';
-import { EntityHead } from '@/shared/ui/EntityHead';
 import { Icon } from '@/shared/ui/Icon';
+import { EntityHead } from '@/shared/ui/data-display/EntityHead';
 
 import { IUserTabs } from '../../types';
 
