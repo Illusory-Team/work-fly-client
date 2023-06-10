@@ -12,6 +12,7 @@ interface ViewPersonalDetailProps {
 }
 
 export const ViewPersonalDetail: FC<ViewPersonalDetailProps> = ({ user, isLoading }) => {
+	// FIX ME - пока костыль
 	const userInfo = [
 		{ description: 'Phone Number', text: user.phone ?? '---' },
 		{ description: 'Email', text: user.email },

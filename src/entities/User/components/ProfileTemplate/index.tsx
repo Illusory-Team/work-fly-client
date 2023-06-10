@@ -4,9 +4,7 @@ import cn from 'classnames';
 import { FC, ReactNode, useState } from 'react';
 
 import { IUser } from '@/shared/types';
-import { DialogContent } from '@/shared/ui/DialogContent';
-import { Icon } from '@/shared/ui/Icon';
-import { EntityHead } from '@/shared/ui/data-display/EntityHead';
+import { DialogContent, EntityHead, Icon } from '@/shared/ui';
 
 import { IUserTabs } from '../../types';
 

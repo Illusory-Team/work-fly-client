@@ -6,6 +6,8 @@ export type { IAvatarProps, AvatarGroupProps, IconProps, EntityHeadProps } from 
 export { Drawer } from './navigation';
 export type { DrawerProps } from './navigation';
 
+export { DialogContent } from './DialogContent';
+
 export {
 	Button,
 	Typography,
