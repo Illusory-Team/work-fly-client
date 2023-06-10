@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import { Drawer } from '@/shared/ui/Drawer';
+import { Drawer } from '@/shared/ui';
 import { Icon } from '@/shared/ui/Icon';
 
 import styles from './CompanyHead.module.scss';
@@ -12,7 +12,7 @@ interface CompanyDrawerProps {
 
 export const CompanyDrawer: FC<CompanyDrawerProps> = ({ companyHead, closeHandler }) => {
 	return (
-		<Drawer direction="right" closeHandler={closeHandler} isShow={true}>
+		<Drawer anchor="right" onClose={closeHandler} open={true}>
 			<div className={styles.header}>
 				<div className={styles.first}>
 					<Icon onClick={closeHandler} name="other_back" className={styles.close} />
