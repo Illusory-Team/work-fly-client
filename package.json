@@ -34,6 +34,10 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
+    "@mui/material": "5.13.4",
+    "@mui/x-date-pickers": "6.6.0",
     "@next/font": "13.0.7",
     "@reduxjs/toolkit": "1.9.1",
     "axios": "1.2.2",

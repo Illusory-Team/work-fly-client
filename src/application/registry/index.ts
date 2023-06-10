@@ -1,0 +1,1 @@
+export { RootStyleRegistry } from "./RootStyleRegistry"
