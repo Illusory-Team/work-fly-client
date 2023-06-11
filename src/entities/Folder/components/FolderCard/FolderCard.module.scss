@@ -7,7 +7,12 @@
 
 .textContent {
 	margin-left: 11px;
-	flex: 1;
+	width: calc(100% - 36px - 11px);
+}
+
+.head {
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .icon {

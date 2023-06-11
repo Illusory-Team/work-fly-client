@@ -14,7 +14,7 @@ import { PageLayout } from '@/widgets/PageLayout';
 const mock: IFolder = {
 	id: '123',
 	color: '#2491d0',
-	folderName: 'Zhook',
+	folderName: 'Zhookkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk',
 	icon: { name: 'sidebar_contacts' },
 	members: [],
 	owner: '12e3',
