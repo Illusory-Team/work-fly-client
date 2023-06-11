@@ -24,14 +24,8 @@ const userSlice = createSlice({
 	initialState,
 	reducers: {
 		setCurrentUser(state, action: PayloadAction<UserResponse>) {
-			const fullNameSplit = action.payload.user.fullName.split(' ');
-			const firstName = fullNameSplit[0];
-			const lastName = fullNameSplit[1];
-
 			state.user = {
 				...action.payload.user,
-				firstName,
-				lastName,
 				isOwner: false,
 				csrfToken: action.payload.csrfToken,
 			};

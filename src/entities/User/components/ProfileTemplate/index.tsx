@@ -1,10 +1,9 @@
 'use client';
 
-import cn from 'classnames';
-import { FC, ReactNode, useState } from 'react';
+import { FC, ReactNode, SyntheticEvent, useState } from 'react';
 
 import { IUser } from '@/shared/types';
-import { DialogContent, EntityHead, Icon } from '@/shared/ui';
+import { DialogContent, EntityHead, Icon, Tab, TabPanel, Tabs } from '@/shared/ui';
 
 import { IUserTabs } from '../../types';
 
@@ -30,7 +29,11 @@ export const ProfileTemplate: FC<UserDrawerProps> = ({
 	closeHandler,
 	isChangeable = false,
 }) => {
-	const [selectTab, setSelectTab] = useState(0);
+	const [selectTab, setSelectTab] = useState(1);
+
+	const handleChange = (_: SyntheticEvent, newValue: number) => {
+		setSelectTab(newValue);
+	};
 
 	if (error) return <div>error</div>;
 
@@ -55,22 +58,25 @@ export const ProfileTemplate: FC<UserDrawerProps> = ({
 						<h4>ID: {data.id}</h4>
 					</div>
 					<div className={styles.third}>
-						{tabs.map((tab, index) => (
-							<h4
-								onClick={() => setSelectTab(index)}
-								className={cn(styles.tab, {
-									[styles.active]: selectTab === index,
-								})}
-								key={tab.title}
-							>
-								{tab.title}
-							</h4>
-						))}
+						<Tabs value={selectTab} onChange={handleChange}>
+							<Tab value={1} label="personal detail" />
+							<Tab value={2} label="password" />
+						</Tabs>
 					</div>
 				</>
 			}
 		>
-			<div className={styles.body}>{isLoading ? <div>loading</div> : tabs[selectTab].content}</div>
+			<div className={styles.body}>
+				{isLoading ? (
+					<div>loading</div>
+				) : (
+					tabs.map((tab, i) => (
+						<TabPanel key={i} value={selectTab} index={i + 1}>
+							{tab.content}
+						</TabPanel>
+					))
+				)}
+			</div>
 		</DialogContent>
 	);
 };

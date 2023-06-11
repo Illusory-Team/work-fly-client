@@ -1,13 +1,13 @@
 'use client';
 
 import { FC } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { FolderCard } from '@/entities/Folder';
-import { NotificationCard } from '@/entities/Notification';
-import { userSelector } from '@/entities/User';
+import { setCurrentUser } from '@/entities/User';
 
-import { useAppSelector } from '@/shared/hooks';
 import { IFolder } from '@/shared/types';
+import { Button } from '@/shared/ui';
 
 import { PageLayout } from '@/widgets/PageLayout';
 
@@ -22,11 +22,38 @@ const mock: IFolder = {
 };
 
 export const HomeView: FC = () => {
-	const { user } = useAppSelector(userSelector);
+	// FIX ME - Пока что для проверок
+	const dispatch = useDispatch();
+
+	const addUser = async () => {
+		dispatch(
+			setCurrentUser({
+				csrfToken: 'sdsad',
+				user: {
+					id: '1',
+					email: 'zhook@gmail.com',
+					firstName: 'Dima',
+					lastName: 'Kavoon',
+					phone: 984545445545,
+					birthday: null,
+					address: null,
+					description: '',
+					position: {
+						id: '1',
+						value: 'member',
+					},
+					avatar: null,
+					isOwner: true,
+					csrfToken: 'lololo',
+				},
+			}),
+		);
+	};
 
 	return (
 		<PageLayout>
 			<FolderCard data={mock} />
+			<Button onClick={addUser}>User Drawer</Button>
 		</PageLayout>
 	);
 };

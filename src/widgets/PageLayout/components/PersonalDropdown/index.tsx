@@ -30,6 +30,7 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 		setIsVacation(prevState => (prevState === 'off' ? 'on' : 'off'));
 	};
 
+	// FIX ME - вынести в фичу юзера logout кнопку как ui
 	const onLogout = async () => {
 		await AuthService.logout();
 

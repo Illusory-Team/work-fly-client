@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 type LoggerParams = {
 	type: 'warn' | 'error' | 'info';
 	message: string;

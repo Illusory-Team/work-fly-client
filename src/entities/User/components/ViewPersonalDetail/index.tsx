@@ -14,12 +14,12 @@ interface ViewPersonalDetailProps {
 export const ViewPersonalDetail: FC<ViewPersonalDetailProps> = ({ user, isLoading }) => {
 	// FIX ME - пока костыль
 	const userInfo = [
-		{ description: 'Phone Number', text: user.phone ?? '---' },
+		{ description: 'Phone Number', text: user.phone || '---' },
 		{ description: 'Email', text: user.email },
 		{ description: 'Department', text: '---' },
-		{ description: 'Activity', text: user.phone ?? '---' },
-		{ description: 'Birthday', text: user.phone ?? '---' },
-		{ description: 'Address', text: user.phone ?? '---' },
+		{ description: 'Activity', text: user.phone || '---' },
+		{ description: 'Birthday', text: user.phone || '---' },
+		{ description: 'Address', text: user.phone || '---' },
 	];
 
 	if (isLoading) return <div>Loading</div>;
@@ -34,7 +34,7 @@ export const ViewPersonalDetail: FC<ViewPersonalDetailProps> = ({ user, isLoadin
 					</DescribedText>
 				))}
 			</div>
-			<p>{user.description ?? '---'}</p>
+			<p>{user.description || '---'}</p>
 		</div>
 	);
 };
