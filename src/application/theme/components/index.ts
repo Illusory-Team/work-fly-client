@@ -3,6 +3,7 @@ import { Components, Theme } from '@mui/material';
 import { MuiButton } from './Button';
 import { MuiCard } from './Card';
 import { MuiCheckbox } from './Checkbox';
+import { MuiContainer } from './Container';
 import { MuiFormControl } from './FormControl';
 import { MuiInputLabel } from './InputLabel';
 import { MuiMenu } from './Menu';
@@ -24,4 +25,5 @@ export const components: Components<Omit<Theme, 'components'>> = {
 	MuiFormControl,
 	MuiInputLabel,
 	MuiSelect,
+	MuiContainer,
 };
