@@ -2,21 +2,24 @@ import axios, { AxiosResponse } from 'axios';
 import { setCookie } from 'cookies-next';
 import { NextPageContext } from 'next';
 
+import { UserResponse } from '@/entities/User';
+
 import { api } from '@/shared/api';
 import { LOGIN_PATH, isAuthPath } from '@/shared/config/paths';
 import { redirectSSR } from '@/shared/config/redirectSSR';
 import { errorCatch } from '@/shared/helpers/errorCatch';
 import { logger } from '@/shared/helpers/logger';
 
-import { IFormLogin, UserResponse } from '../types';
+import { IFormLogin } from '../types';
 
+// FIX ME - это надо в shared
 export const AuthService = {
 	async login(loginData: IFormLogin) {
 		try {
-			const response = await api.post<UserResponse>('/auth/login', loginData);
-			api.defaults.headers.common['x-csrf-token'] = response.data.csrfToken;
+			const { data } = await api.post<UserResponse>('/auth/login', loginData);
+			api.defaults.headers.common['x-csrf-token'] = data.csrfToken;
 
-			return response;
+			return data;
 		} catch (error: unknown) {
 			if (axios.isAxiosError(error)) {
 				logger({ type: 'error', message: errorCatch(error) });

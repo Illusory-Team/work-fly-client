@@ -31,4 +31,6 @@ export {
 	InputLabel,
 	Select,
 } from '@mui/material';
+export type { TextFieldProps } from '@mui/material';
+
 export { DatePicker } from '@mui/x-date-pickers';

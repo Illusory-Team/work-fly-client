@@ -3,7 +3,7 @@ import { HYDRATE } from 'next-redux-wrapper';
 
 import { IUser } from '@/shared/types';
 
-import { UserResponse } from '../types/UserResponse';
+import { UserResponse } from '../types';
 
 interface InitialState {
 	user: Nullable<IUser>;
