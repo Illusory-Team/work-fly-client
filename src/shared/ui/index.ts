@@ -6,6 +6,9 @@ export type { IAvatarProps, AvatarGroupProps, IconProps, EntityHeadProps } from 
 export { Drawer, TabPanel } from './navigation';
 export type { DrawerProps } from './navigation';
 
+export { TextArea } from './inputs';
+export type { TextAreaProps } from './inputs';
+
 export { DialogContent } from './DialogContent';
 
 export {
@@ -24,5 +27,8 @@ export {
 	Chip,
 	Tab,
 	Tabs,
+	FormControl,
+	InputLabel,
+	Select,
 } from '@mui/material';
 export { DatePicker } from '@mui/x-date-pickers';
