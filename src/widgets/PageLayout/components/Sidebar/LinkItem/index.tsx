@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FC } from 'react';
 
-import { Icon } from '@/shared/ui/Icon';
+import { Icon } from '@/shared/ui';
 
 import { LinkItemType } from '../../../constants/link-list';
 

@@ -3,8 +3,8 @@
 import classNames from 'classnames';
 import { forwardRef, useImperativeHandle, useRef } from 'react';
 
-import { Avatar } from '../../Avatar';
-import { Icon } from '../../Icon';
+import { Avatar } from '../Avatar';
+import { Icon } from '../Icon';
 
 import styles from './EntityHead.module.scss';
 import { EntityHeadProps } from './EntityHead.types';
@@ -12,14 +12,14 @@ import { EntityHeadProps } from './EntityHead.types';
 export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 	(
 		{
-			src = null,
+			src,
 			imgHandler,
 			subTitle = '',
 			title = '',
 			isChangeable = false,
 			className = '',
 			classNameText,
-			defaultAvatar,
+			alt,
 			value,
 			onChange,
 			avatarSize,
@@ -59,8 +59,7 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 								className={`rounded-full ${classNameAvatar}`}
 								onClick={imgHandler}
 								src={src}
-								defaultAvatar={defaultAvatar}
-								alt="logo"
+								alt={alt}
 							/>
 						</div>
 					</>
@@ -70,8 +69,7 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 						className={`rounded-full ${classNameAvatar}`}
 						onClick={imgHandler}
 						src={src}
-						defaultAvatar={defaultAvatar}
-						alt="logo"
+						alt={alt}
 					/>
 				)}
 				<div className={classNames(styles.textContent, classNameText)}>

@@ -48,12 +48,13 @@ export const ProfileTemplate: FC<UserDrawerProps> = ({
 						</div>
 					</div>
 					<div className={styles.second}>
+						{/* FIX ME - вопрос с fullname так же будет зависеть от стора */}
 						<EntityHead
 							isChangeable={isChangeable}
-							src={data?.avatar}
+							src={data.avatar || undefined}
 							title={`${data?.firstName} ${data?.lastName}`}
 							subTitle={data?.position?.value}
-							defaultAvatar={`${data?.firstName} ${data?.lastName}`}
+							alt={data ? `${data.firstName} ${data.lastName}` : ''}
 						/>
 						<h4>ID: {data.id}</h4>
 					</div>

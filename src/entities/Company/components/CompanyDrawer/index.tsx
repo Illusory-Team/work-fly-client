@@ -1,7 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import { Drawer } from '@/shared/ui';
-import { Icon } from '@/shared/ui/Icon';
+import { Drawer, Icon } from '@/shared/ui';
 
 import styles from './CompanyHead.module.scss';
 

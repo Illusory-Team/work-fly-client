@@ -48,7 +48,7 @@ export const Header: FC<HeaderProps> = ({ notificationHandler }) => {
 								onClick={toggleDropDownVisible}
 								size="small"
 								// FIX ME - в зависимости от стора будем править это место
-								alt={user || `${user.firstName} ${user.lastName}`}
+								alt={user ? `${user.firstName} ${user.lastName}` : undefined}
 								className={styles.headerAvatar}
 							/>
 							{!!user && <PersonalDropdown isVisible={isVisibleDropdown} ref={ref} user={user} />}

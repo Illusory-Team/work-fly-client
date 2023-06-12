@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import { useQuery } from 'react-query';
 
 import { NotificationService } from '@/entities/Notification';
@@ -13,11 +13,15 @@ export const useFilterNotification = () => {
 	const { data } = useQuery('notifications', NotificationService.getNotification);
 	const unreadNotifications = data?.filter(notification => !notification.isRead);
 
+	const changeHandler = (_: SyntheticEvent, newValue: FilterType) => {
+		setFilterType(newValue);
+	};
+
 	const notifications = filterType === 'unread' ? unreadNotifications : data;
 
 	return {
 		filterType,
-		setFilterType,
+		changeHandler,
 		notifications,
 		allNotification: data,
 		unreadNotifications,

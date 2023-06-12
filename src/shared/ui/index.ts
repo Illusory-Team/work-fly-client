@@ -1,7 +1,7 @@
 'use client';
 
 export { Avatar, AvatarGroup, Icon, EntityHead } from './data-display';
-export type { IAvatarProps, AvatarGroupProps, IconProps, EntityHeadProps } from './data-display';
+export type { IAvatarProps, AvatarGroupProps, IconProps, EntityHeadProps, IconNamesType } from './data-display';
 
 export { Drawer, TabPanel } from './navigation';
 export type { DrawerProps } from './navigation';
@@ -9,7 +9,9 @@ export type { DrawerProps } from './navigation';
 export { TextArea } from './inputs';
 export type { TextAreaProps } from './inputs';
 
-export { DialogContent } from './DialogContent';
+export { DialogContent } from './feedback';
+
+export { Portal } from './utility';
 
 export {
 	Button,

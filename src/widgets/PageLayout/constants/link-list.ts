@@ -1,5 +1,5 @@
 import { NavigationLinks } from '@/shared/constants/navigation-links';
-import { IconNamesType } from '@/shared/ui/Icon/Icon.types';
+import { IconNamesType } from '@/shared/ui';
 
 export type LinkItemType = {
 	text: string;
