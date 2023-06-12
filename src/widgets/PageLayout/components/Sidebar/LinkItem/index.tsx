@@ -5,7 +5,7 @@ import { FC } from 'react';
 
 import { Icon } from '@/shared/ui/Icon';
 
-import { LinkItemType } from '../../../const/link-list';
+import { LinkItemType } from '../../../constants/link-list';
 
 import styles from './LinkItem.module.scss';
 

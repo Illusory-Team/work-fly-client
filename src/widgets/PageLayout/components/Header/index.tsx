@@ -3,9 +3,7 @@ import { FC, useState } from 'react';
 import { userSelector } from '@/entities/User';
 
 import { useAppSelector, useOutsideClick } from '@/shared/hooks';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Button } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
+import { Avatar, Button, Icon } from '@/shared/ui';
 
 import { PersonalDropdown } from '../PersonalDropdown';
 
@@ -37,14 +35,20 @@ export const Header: FC<HeaderProps> = ({ notificationHandler }) => {
 					<div className={styles.rightMenu}>
 						<div className={styles.personalNav}>
 							<div className={styles.notificationButtonWrapper}>
-								<Button size="s" variant="outlined" className={styles.notificationButton} onClick={notificationHandler}>
+								<Button
+									size="small"
+									variant="outlined"
+									className={styles.notificationButton}
+									onClick={notificationHandler}
+								>
 									<Icon name="other_notify" width={15} height={16} />
 								</Button>
 							</div>
 							<Avatar
 								onClick={toggleDropDownVisible}
-								size="s"
-								defaultAvatar={user ? `${user.firstName} ${user.lastName}` : ''}
+								size="small"
+								// FIX ME - в зависимости от стора будем править это место
+								alt={user || `${user.firstName} ${user.lastName}`}
 								className={styles.headerAvatar}
 							/>
 							{!!user && <PersonalDropdown isVisible={isVisibleDropdown} ref={ref} user={user} />}

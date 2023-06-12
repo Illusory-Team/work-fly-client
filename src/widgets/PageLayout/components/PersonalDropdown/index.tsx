@@ -3,14 +3,13 @@ import { useRouter } from 'next/navigation';
 import { forwardRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { clearUserState } from '@/entities/User/model/user.slice';
+import { clearUserState } from '@/entities/User';
 
-import { AuthService } from '@/features/Auth/services';
+import { AuthService } from '@/features/Auth';
 
 import { LOGIN_PATH } from '@/shared/config/paths';
 import { IUser } from '@/shared/types';
-import { EntityHead } from '@/shared/ui/data-display/EntityHead';
-import { Switch } from '@/shared/ui/inputs/Switch';
+import { EntityHead, Switch } from '@/shared/ui';
 
 import { LinkItem } from './LinkItem';
 import styles from './PersonalDropdown.module.scss';
