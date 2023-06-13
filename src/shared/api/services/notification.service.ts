@@ -10,7 +10,7 @@ class NotificationService {
 	}
 
 	async getNotification() {
-		const { data } = await this.api.get<INotification>('/api/notifications');
+		const { data } = await this.api.get<INotification[]>('/api/notifications');
 
 		return data;
 	}

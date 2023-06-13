@@ -12,7 +12,7 @@ import styles from './ChangePersonalDetail.module.scss';
 export const ChangePersonalDetail: FC = () => {
 	const { control, submitHandler } = useChangePersonalDetail();
 
-	// FIX ME - кратко говоря, какая то жесть с Select, надо будет разобраться
+	// FIX ME - кратко говоря, какая то жесть с Select, надо будет разобраться, думаю VES edword знает более оптимальный вариант фикса
 	return (
 		<form className={styles.form} onSubmit={submitHandler}>
 			<div className={styles.container}>
@@ -47,7 +47,7 @@ export const ChangePersonalDetail: FC = () => {
 					/>
 				</FormControl>
 				<FormControl className={styles.control}>
-					<InputLabel htmlFor="change-personal-profile-department">Department</InputLabel>
+					<InputLabel id="change-personal-profile-department">Department</InputLabel>
 					<Controller
 						control={control}
 						name="department"

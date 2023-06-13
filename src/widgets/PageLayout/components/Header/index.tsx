@@ -2,7 +2,8 @@ import { FC, useState } from 'react';
 
 import { userSelector } from '@/entities/User';
 
-import { useAppSelector, useOutsideClick } from '@/shared/lib/hooks';
+import { useAppSelector } from '@/shared/lib/hooks';
+import { useOutsideClick } from '@/shared/package/react-hooks';
 import { Avatar, Button, Icon } from '@/shared/ui';
 
 import { PersonalDropdown } from '../PersonalDropdown';
@@ -25,7 +26,7 @@ export const Header: FC<HeaderProps> = ({ notificationHandler }) => {
 		setIsVisibleDropdown(!isVisibleDropdown);
 	};
 
-	const { ref } = useOutsideClick<HTMLDivElement>(closeDropDown);
+	const ref = useOutsideClick<HTMLDivElement>(closeDropDown);
 
 	return (
 		<>

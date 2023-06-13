@@ -14,7 +14,7 @@ const nextConfig = {
 	},
 	sassOptions: {
 		includePaths: ['./src'],
-		prependData: `@import "@/shared/styles/_mixins.scss";`,
+		prependData: `@import "@/shared/lib/styles/_mixins.scss";`,
 	},
 
 	async rewrites() {
