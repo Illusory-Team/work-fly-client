@@ -1,6 +1,7 @@
-import cn from 'classnames';
 import Link from 'next/link';
 import { FC, MouseEvent } from 'react';
+
+import { classname } from '@/shared/package/classname';
 
 import { PersonalLinkType } from '../../types/personal-link.type';
 
@@ -13,7 +14,7 @@ type LinkItemProps = Omit<PersonalLinkType, 'href'> & {
 
 export const LinkItem: FC<LinkItemProps> = ({ title, href, className, onClick }) => {
 	return (
-		<li className={cn(styles.linkItem, className)} onClick={onClick}>
+		<li className={classname(styles.linkItem, className)} onClick={onClick}>
 			{href ? (
 				<Link className="block" href={href}>
 					{title}

@@ -1,4 +1,3 @@
-import cn from 'classnames';
 import { useRouter } from 'next/navigation';
 import { forwardRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -7,6 +6,7 @@ import { clearUserState } from '@/entities/User';
 
 import { IUser, authService } from '@/shared/api';
 import { LOGIN_PATH } from '@/shared/config/paths';
+import { classname } from '@/shared/package/classname';
 import { EntityHead, Switch } from '@/shared/ui';
 
 import { LinkItem } from './LinkItem';
@@ -37,7 +37,7 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 
 	return (
 		<div
-			className={cn(styles.dropdown, {
+			className={classname(styles.dropdown, {
 				[styles.visible]: isVisible,
 			})}
 			ref={ref}
@@ -52,7 +52,7 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 			/>
 
 			<ul>
-				<li className={cn(styles.linkItem, styles.userVacationItem)}>
+				<li className={classname(styles.linkItem, styles.userVacationItem)}>
 					<div className={styles.userVacation}>
 						<span>Vacation status</span>
 						<div className={styles.switchWrap}>

@@ -1,8 +1,8 @@
-import cn from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FC } from 'react';
 
+import { classname } from '@/shared/package/classname';
 import { Icon } from '@/shared/ui';
 
 import { LinkItemType } from '../../../constants/link-list';
@@ -18,7 +18,7 @@ export const LinkItem: FC<LinkItemProps> = ({ text, to, icon, count }) => {
 		<li className={styles.linkItem}>
 			<Link
 				href={to}
-				className={cn(styles.link, {
+				className={classname(styles.link, {
 					[styles.activeLink]: pathname === to,
 				})}
 			>

@@ -1,7 +1,8 @@
 'use client';
 
-import classNames from 'classnames';
 import { forwardRef, useImperativeHandle, useRef } from 'react';
+
+import { classname } from '@/shared/package/classname';
 
 import { Avatar } from '../Avatar';
 import { Icon } from '../Icon';
@@ -27,7 +28,7 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 		},
 		ref,
 	) => {
-		const cl = classNames(styles.container, className);
+		const cl = classname(styles.container, className);
 		const inputRef = useRef<HTMLInputElement>(null);
 
 		useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
@@ -72,7 +73,7 @@ export const EntityHead = forwardRef<HTMLInputElement, EntityHeadProps>(
 						alt={alt}
 					/>
 				)}
-				<div className={classNames(styles.textContent, classNameText)}>
+				<div className={classname(styles.textContent, classNameText)}>
 					<h2 className={styles.title}>{title}</h2>
 					<p className={styles.subTitle}>{subTitle}</p>
 				</div>

@@ -1,8 +1,8 @@
-import classNames from 'classnames';
 import { FC } from 'react';
 
 import { INotification } from '@/shared/api';
 import { getRelativeTimeString } from '@/shared/lib/helpers';
+import { classname } from '@/shared/package/classname';
 import { EntityHead } from '@/shared/ui';
 
 import styles from './NotificationCard.module.scss';
@@ -13,7 +13,7 @@ interface NotificationCardProps {
 }
 
 export const NotificationCard: FC<NotificationCardProps> = ({ data, className = '' }) => {
-	const cl = classNames(styles.card, className);
+	const cl = classname(styles.card, className);
 	const { date, folder_name, priority, src, subTitle, title } = data;
 
 	return (
