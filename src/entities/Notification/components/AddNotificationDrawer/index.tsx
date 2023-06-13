@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { useAppSelector } from '@/shared/hooks';
+import { useAppSelector } from '@/shared/lib/hooks';
 import { closeDrawer } from '@/shared/store/drawerController';
 import { Drawer } from '@/shared/ui';
 

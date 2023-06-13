@@ -1,9 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { HYDRATE } from 'next-redux-wrapper';
 
-import { IUser } from '@/shared/types';
-
-import { UserResponse } from '../types';
+import { IUser, UserResponse } from '@/shared/api';
 
 interface InitialState {
 	user: Nullable<IUser>;
@@ -28,18 +25,12 @@ const userSlice = createSlice({
 				...action.payload.user,
 				isOwner: false,
 				csrfToken: action.payload.csrfToken,
+				firstName: '',
+				lastName: '',
 			};
 		},
 		clearUserState(state) {
 			state.user = null;
-		},
-	},
-	extraReducers: {
-		[HYDRATE]: (state, action) => {
-			return {
-				...state,
-				...action.payload.userReducer,
-			};
 		},
 	},
 });

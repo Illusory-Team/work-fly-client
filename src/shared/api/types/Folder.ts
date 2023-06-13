@@ -1,6 +1,6 @@
-import type { IconProps } from '@/shared/ui/Icon';
+import type { IconProps } from '@/shared/ui';
 
-import { IUser } from './IUser';
+import { IUser } from './User';
 
 type IconNameType = Pick<IconProps, 'name'>;
 

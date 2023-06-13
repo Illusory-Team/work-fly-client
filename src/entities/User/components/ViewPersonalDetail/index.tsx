@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { IUser } from '@/shared/types';
+import { IUser } from '@/shared/api';
 
 import { DescribedText } from '../DescribedText';
 

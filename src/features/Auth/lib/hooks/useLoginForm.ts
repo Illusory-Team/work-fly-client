@@ -8,16 +8,15 @@ import { useDispatch } from 'react-redux';
 
 import { setCurrentUser } from '@/entities/User';
 
-import { AuthService } from '../../services';
-import { IErrorAuthResponse, IFormLogin } from '../../types';
+import { IErrorResponse, IUserLogin, authService } from '@/shared/api';
 
 export const useLoginForm = () => {
-	const { setError, control, handleSubmit } = useForm<IFormLogin>({ mode: 'onBlur' });
+	const { setError, control, handleSubmit } = useForm<IUserLogin>({ mode: 'onBlur' });
 	const router = useRouter();
 
 	const dispatch = useDispatch();
 
-	const { mutateAsync } = useMutation('login-user', (data: IFormLogin) => AuthService.login(data), {
+	const { mutateAsync } = useMutation('login-user', (data: IUserLogin) => authService.login(data), {
 		onSuccess(user) {
 			if (user) {
 				dispatch(setCurrentUser(user));
@@ -25,12 +24,12 @@ export const useLoginForm = () => {
 		},
 	});
 
-	const submitHandler = handleSubmit(async (data: IFormLogin) => {
+	const submitHandler = handleSubmit(async (data: IUserLogin) => {
 		try {
 			await mutateAsync(data);
 			await router.push('/');
 		} catch (error) {
-			const errorMessage = (error as AxiosError<IErrorAuthResponse>).response?.data.message;
+			const errorMessage = (error as AxiosError<IErrorResponse>).response?.data.message;
 			if (errorMessage) {
 				setError('email', { type: 'custom', message: errorMessage });
 				setError('password', { type: 'custom', message: errorMessage });

@@ -19,3 +19,18 @@ export interface IUser {
 	isOwner: boolean;
 	csrfToken: string;
 }
+
+export interface UserResponse {
+	csrfToken: string;
+	user: IUser;
+}
+
+export interface IUserLogin {
+	email: string;
+	password: string;
+}
+
+export interface IUserRegistration {
+	email: string;
+	phone: string;
+}

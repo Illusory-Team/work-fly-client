@@ -4,7 +4,7 @@ import SimpleBar from 'simplebar-react';
 
 import { NotificationCard } from '@/entities/Notification';
 
-import { INotification } from '@/shared/types';
+import { INotification } from '@/shared/api';
 
 import styles from './NotificationList.module.scss';
 

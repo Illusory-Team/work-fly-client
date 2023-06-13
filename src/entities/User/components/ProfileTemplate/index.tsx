@@ -2,7 +2,7 @@
 
 import { FC, ReactNode, SyntheticEvent, useState } from 'react';
 
-import { IUser } from '@/shared/types';
+import { IUser } from '@/shared/api';
 import { DialogContent, EntityHead, Icon, Tab, TabPanel, Tabs } from '@/shared/ui';
 
 import { IUserTabs } from '../../types';

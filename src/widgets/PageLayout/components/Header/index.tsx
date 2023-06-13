@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 
 import { userSelector } from '@/entities/User';
 
-import { useAppSelector, useOutsideClick } from '@/shared/hooks';
+import { useAppSelector, useOutsideClick } from '@/shared/lib/hooks';
 import { Avatar, Button, Icon } from '@/shared/ui';
 
 import { PersonalDropdown } from '../PersonalDropdown';

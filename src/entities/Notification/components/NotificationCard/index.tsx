@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { FC } from 'react';
 
-import { getRelativeTimeString } from '@/shared/helpers';
-import { INotification } from '@/shared/types';
+import { INotification } from '@/shared/api';
+import { getRelativeTimeString } from '@/shared/lib/helpers';
 import { EntityHead } from '@/shared/ui';
 
 import styles from './NotificationCard.module.scss';

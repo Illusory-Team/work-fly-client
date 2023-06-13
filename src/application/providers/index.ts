@@ -1,4 +1,4 @@
-import { combineProviders } from '@/shared/helpers/combineProviders';
+import { combineProviders } from '@/shared/lib/helpers/combineProviders';
 
 import { QueryProvider } from './QueryProvider';
 import { WithThemeProvider } from './theme.provider';

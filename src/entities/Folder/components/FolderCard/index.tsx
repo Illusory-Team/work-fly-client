@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import { AVATAR2_URL } from '@/shared/constants';
-import { IFolder } from '@/shared/types';
+import { IFolder } from '@/shared/api';
+import { AVATAR2_URL } from '@/shared/lib/constants';
 import { Avatar, AvatarGroup, Icon, Typography } from '@/shared/ui';
 
 import styles from './FolderCard.module.scss';

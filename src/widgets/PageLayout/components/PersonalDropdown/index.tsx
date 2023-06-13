@@ -5,10 +5,8 @@ import { useDispatch } from 'react-redux';
 
 import { clearUserState } from '@/entities/User';
 
-import { AuthService } from '@/features/Auth';
-
+import { IUser, authService } from '@/shared/api';
 import { LOGIN_PATH } from '@/shared/config/paths';
-import { IUser } from '@/shared/types';
 import { EntityHead, Switch } from '@/shared/ui';
 
 import { LinkItem } from './LinkItem';
@@ -31,7 +29,7 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 
 	// FIX ME - вынести в фичу юзера logout кнопку как ui
 	const onLogout = async () => {
-		await AuthService.logout();
+		await authService.logout();
 
 		dispatch(clearUserState());
 		await router.push(LOGIN_PATH);
@@ -45,7 +43,7 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 			ref={ref}
 		>
 			<EntityHead
-				defaultAvatar={`${user?.firstName} ${user?.lastName}`}
+				alt={`${user?.firstName} ${user?.lastName}`}
 				title={`${user?.firstName} ${user?.lastName}`}
 				subTitle={user?.position?.value}
 				className="p-2 mb-1"

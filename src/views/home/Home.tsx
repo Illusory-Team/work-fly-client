@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { FolderCard } from '@/entities/Folder';
 import { setCurrentUser } from '@/entities/User';
 
-import { IFolder } from '@/shared/types';
+import { IFolder } from '@/shared/api';
 import { Button } from '@/shared/ui';
 
 import { PageLayout } from '@/widgets/PageLayout';

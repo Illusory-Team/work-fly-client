@@ -1,23 +1,25 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { setCookie } from 'cookies-next';
 import { NextPageContext } from 'next';
 
-import { UserResponse } from '@/entities/User';
-
-import { api } from '@/shared/api';
 import { LOGIN_PATH, isAuthPath } from '@/shared/config/paths';
 import { redirectSSR } from '@/shared/config/redirectSSR';
-import { errorCatch } from '@/shared/helpers/errorCatch';
-import { logger } from '@/shared/helpers/logger';
+import { errorCatch } from '@/shared/lib/helpers/errorCatch';
+import { logger } from '@/shared/lib/helpers/logger';
 
-import { IFormLogin } from '../types';
+import { fakeApi } from '../instance';
+import { IUserLogin, UserResponse } from '../types';
 
-// FIX ME - это надо в shared
-export const AuthService = {
-	async login(loginData: IFormLogin) {
+class AuthService {
+	api: AxiosInstance;
+	constructor() {
+		this.api = fakeApi;
+	}
+
+	async login(loginData: IUserLogin) {
 		try {
-			const { data } = await api.post<UserResponse>('/auth/login', loginData);
-			api.defaults.headers.common['x-csrf-token'] = data.csrfToken;
+			const { data } = await this.api.post<UserResponse>('/auth/login', loginData);
+			this.api.defaults.headers.common['x-csrf-token'] = data.csrfToken;
 
 			return data;
 		} catch (error: unknown) {
@@ -25,15 +27,16 @@ export const AuthService = {
 				logger({ type: 'error', message: errorCatch(error) });
 			}
 		}
-	},
+	}
+
 	async refreshToken(ctx?: NextPageContext): Promise<AxiosResponse<UserResponse> | undefined> {
 		if (!!ctx) {
 			const { req, res, asPath } = ctx;
 
 			try {
-				api.defaults.headers.cookie = req?.headers.cookie as string;
+				this.api.defaults.headers.cookie = req?.headers.cookie as string;
 
-				const response = await api.get<UserResponse>('/auth/refresh');
+				const response = await this.api.get<UserResponse>('/auth/refresh');
 
 				if (response.headers['set-cookie']) {
 					const cookies = response.headers['set-cookie'];
@@ -62,9 +65,12 @@ export const AuthService = {
 			}
 		}
 
-		return await api.get<UserResponse>('/auth/refresh');
-	},
+		return await this.api.get<UserResponse>('/auth/refresh');
+	}
+
 	async logout() {
-		await api.patch('/auth/logout');
-	},
-};
+		await this.api.patch('/auth/logout');
+	}
+}
+
+export const authService = new AuthService();

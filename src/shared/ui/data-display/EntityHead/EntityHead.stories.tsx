@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { AVATAR3_URL, AVATAR_URL } from '@/shared/constants';
+import { AVATAR3_URL, AVATAR_URL } from '@/shared/lib/constants';
 
 import { EntityHead } from './EntityHead';
 

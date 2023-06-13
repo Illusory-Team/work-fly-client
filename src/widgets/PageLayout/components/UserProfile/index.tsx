@@ -5,7 +5,7 @@ import { IUserTabs, ProfileTemplate, userSelector } from '@/entities/User';
 
 import { ChangePassword, ChangePersonalDetail } from '@/features/UserActions';
 
-import { useAppSelector } from '@/shared/hooks';
+import { useAppSelector } from '@/shared/lib/hooks';
 import { Drawer } from '@/shared/ui';
 
 export const UserProfile: FC = () => {

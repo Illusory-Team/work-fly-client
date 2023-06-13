@@ -42,7 +42,8 @@
 		"prefer-destructuring": "off",
 		"@typescript-eslint/indent": "off",
 		"@typescript-eslint/comma-dangle": "off",
-		"@typescript-eslint/lines-between-class-members": "off"
+		"@typescript-eslint/lines-between-class-members": "off",
+		"react-hooks/exhaustive-deps": "off"
 	},
 	"overrides": [{ "files": ["**/*.test.*"], "rules": { "boundaries/element-types": "off" } }]
 }

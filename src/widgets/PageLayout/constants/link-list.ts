@@ -1,4 +1,4 @@
-import { NavigationLinks } from '@/shared/constants/navigation-links';
+import { NavigationLinks } from '@/shared/lib/constants/navigation-links';
 import { IconNamesType } from '@/shared/ui';
 
 export type LinkItemType = {
