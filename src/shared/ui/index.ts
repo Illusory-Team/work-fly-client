@@ -1,7 +1,7 @@
 'use client';
 
 export { Avatar, AvatarGroup, Icon, EntityHead } from './data-display';
-export type { IAvatarProps, AvatarGroupProps, IconProps, EntityHeadProps, IconNamesType } from './data-display';
+export type { AvatarProps, AvatarGroupProps, IconProps, EntityHeadProps, IconNamesType } from './data-display';
 
 export { Drawer, TabPanel } from './navigation';
 export type { DrawerProps } from './navigation';

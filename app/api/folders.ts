@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { IFolder } from '@/shared/types';
+import { IFolder } from '@/shared/api';
 
 import { folderMock } from '../../mock/folder';
 

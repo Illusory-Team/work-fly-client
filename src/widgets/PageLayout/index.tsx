@@ -38,7 +38,7 @@ export const PageLayout: FC<PropsWithChildren> = ({ children }) => {
 			{dialogQuery === 'company-manage' && (
 				<CompanyDrawer
 					closeHandler={closeCompanyManage}
-					companyHead={<EntityHead isChangeable={true} title="dsadsa" defaultAvatar="No Name" subTitle="dsadsad" />}
+					companyHead={<EntityHead isChangeable={true} title="dsadsa" alt="No Name" subTitle="dsadsad" />}
 				/>
 			)}
 			{isShowNotifications && <Notifications closeHandler={closeNotificationsDrawer} />}

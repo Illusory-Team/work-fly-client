@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { IUser } from '@/shared/types';
+import { IUser } from '@/shared/api';
 
 import { usersMock } from '../../../mock/user';
 
