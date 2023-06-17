@@ -15,7 +15,7 @@ export interface IUser {
 	address: Nullable<string>;
 	description: Nullable<string>;
 	position?: UserPositionType;
-	avatar: Nullable<string>;
+	avatar: string;
 	isOwner: boolean;
 	csrfToken: string;
 }

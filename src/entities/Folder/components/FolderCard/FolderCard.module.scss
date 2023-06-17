@@ -1,13 +1,17 @@
+$ICON_WIDTH: 36px;
+$CONTENT_LEFT_PADDING: 11px;
+$TEXT_CONTENT_WIDTH: calc(100% - $ICON_WIDTH - $CONTENT_LEFT_PADDING);
+
 .contentHead {
 	display: flex;
 	align-items: center;
 	height: 86px;
-	padding: 24px 12px 16px 11px;
+	padding: 24px 12px 16px $CONTENT_LEFT_PADDING;
 }
 
 .textContent {
 	margin-left: 11px;
-	width: calc(100% - 36px - 11px);
+	width: $TEXT_CONTENT_WIDTH;
 }
 
 .head {
@@ -17,7 +21,7 @@
 
 .icon {
 	font-size: 32px;
-	width: 36px;
+	width: $ICON_WIDTH;
 	height: 36px;
 }
 

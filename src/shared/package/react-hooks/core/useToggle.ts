@@ -1,44 +1,36 @@
-import { useCallback, useRef, useState } from "react"
+import { useCallback, useRef, useState } from 'react';
 
 export const useToggle = (
 	init = false,
-	coolDown = 0,
-	firstCallback: (() => void) | null = null,
-	secondCallback: (() => void) | null = null,
+	delayValue = 0,
+	onTrue: (() => void) | null = null,
+	onFalse: (() => void) | null = null,
 ) => {
-	const [state, setState] = useState(init)
-	const cd = useRef(true)
+	const [state, setState] = useState(init);
+	const delay = useRef(true);
 
 	const closeHandler = useCallback(() => {
-		setState(false)
-		if (secondCallback) {
-			secondCallback()
-		}
-	}, [])
+		setState(false);
+		onFalse && onFalse();
+	}, []);
 
 	const openHandler = useCallback(() => {
-		setState(true)
-		if (firstCallback) {
-			firstCallback()
-		}
-	}, [])
+		setState(true);
+		onTrue && onTrue();
+	}, []);
 
-	const toggleHandler = () => {
-		if (cd.current) {
-			if (state) {
-				closeHandler()
-			} else {
-				openHandler()
-			}
-			cd.current = false
-			setTimeout(() => (cd.current = true), coolDown)
+	const toggleHandler = useCallback(() => {
+		if (delay.current) {
+			state ? closeHandler() : openHandler();
+			delay.current = false;
+			setTimeout(() => (delay.current = true), delayValue);
 		}
-	}
+	}, []);
 
 	return {
 		state,
 		toggleHandler,
 		openHandler,
 		closeHandler,
-	}
-}
+	};
+};
