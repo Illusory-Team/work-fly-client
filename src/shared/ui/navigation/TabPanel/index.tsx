@@ -1,11 +1,11 @@
 interface TabPanelProps {
-	children?: React.ReactNode
-	index: number
-	value: number
+	children?: React.ReactNode;
+	index: number;
+	value: number;
 }
 
 export const TabPanel = (props: TabPanelProps) => {
-	const { children, value, index, ...other } = props
+	const { children, value, index, ...other } = props;
 
 	return (
 		<div
@@ -17,5 +17,5 @@ export const TabPanel = (props: TabPanelProps) => {
 		>
 			{value === index && children}
 		</div>
-	)
-}
+	);
+};

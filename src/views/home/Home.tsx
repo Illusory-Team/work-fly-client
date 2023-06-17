@@ -42,7 +42,7 @@ export const HomeView: FC = () => {
 						id: '1',
 						value: 'member',
 					},
-					avatar: null,
+					avatar: '',
 					isOwner: true,
 					csrfToken: 'lololo',
 				},

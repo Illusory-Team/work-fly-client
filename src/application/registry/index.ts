@@ -1,1 +1,1 @@
-export { RootStyleRegistry } from "./RootStyleRegistry"
+export { RootStyleRegistry } from './RootStyleRegistry';
