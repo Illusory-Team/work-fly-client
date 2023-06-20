@@ -1,3 +1,5 @@
+import { EffectorNext } from '@effector/next';
+import { attachLogger } from 'effector-logger';
 import { Metadata } from 'next';
 import { cookies, headers } from 'next/headers';
 import { redirect } from 'next/navigation';
@@ -52,6 +54,8 @@ export const metadata: Metadata = {
 // 	}
 // }
 
+attachLogger();
+
 export default async function RootLayout({ children }: PropsWithChildren) {
 	// Пока нам это не надо
 
@@ -69,7 +73,9 @@ export default async function RootLayout({ children }: PropsWithChildren) {
 	return (
 		<html suppressHydrationWarning lang="en">
 			<body suppressHydrationWarning>
-				<Root>{children}</Root>
+				<EffectorNext>
+					<Root>{children}</Root>
+				</EffectorNext>
 				<div id="portal"></div>
 			</body>
 		</html>

@@ -1338,6 +1338,11 @@
   resolved "https://registry.npmjs.org/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
+"@effector/next@0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@effector/next/-/next-0.5.0.tgz#741fbd61ae10b86d6e1fffe20d01929433e5ae21"
+  integrity sha512-S8J07MMfuRUNt9xLZVp45OKjL3twYv/hhRctY8PqT9XGer4KxJSCAbQK/pC8QuZqL8N5yW+ZPKNeT1MlRaz0BA==
+
 "@emotion/babel-plugin@^11.10.5":
   version "11.10.5"
   resolved "https://registry.npmjs.org/@emotion/babel-plugin/-/babel-plugin-11.10.5.tgz"
@@ -6190,6 +6195,11 @@ detect-newline@^3.0.0:
   resolved "https://registry.npmjs.org/detect-newline/-/detect-newline-3.1.0.tgz"
   integrity sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA==
 
+detect-node@2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/detect-node/-/detect-node-2.0.4.tgz#014ee8f8f669c5c58023da64b8179c083a28c46c"
+  integrity sha512-ZIzRpLJrOj7jjP2miAtgqIfmzbxa4ZOr5jJc601zklsfEx9oTzmmj2nVpIPRpNlRTIh8lc1kyViIY7BWSGNmKw==
+
 detect-node@^2.0.4, detect-node@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/detect-node/-/detect-node-2.1.0.tgz"
@@ -6364,6 +6374,26 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
+
+effector-logger@0.14.0:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/effector-logger/-/effector-logger-0.14.0.tgz#9b38999ed5a9133217285cfd77a167be6ac0f188"
+  integrity sha512-Y8K6lH0rVrh5hGeqyN4fknMMkhYAO/z8VV35CVZo577T8U5A25l9H+684EILCecBbVXgF9DHw88x1YgIS7Hicg==
+  dependencies:
+    detect-node "2.0.4"
+    just-debounce-it "^1.1.0"
+
+effector-react@22.5.3:
+  version "22.5.3"
+  resolved "https://registry.yarnpkg.com/effector-react/-/effector-react-22.5.3.tgz#76da8ea811f73bdf3cd0f5b2477c9f5440bee358"
+  integrity sha512-JEFh+eERSYTu99h+Zba9g4a7JFHq0AKo4u9+ZvbceFiijSzzQl5ChPuRsI8Y9Ly2uobFANzPRvD+U3UXiDEcrQ==
+  dependencies:
+    use-sync-external-store "^1.0.0"
+
+effector@22.8.6:
+  version "22.8.6"
+  resolved "https://registry.yarnpkg.com/effector/-/effector-22.8.6.tgz#254af8966ba52f9abe2a9db703ec0e9d424bcb8e"
+  integrity sha512-Bkg/rlPs7J4dmOFGPLLcL7X0SZeA8WdRnyC2X4tGVo7i6M8oxYwtNOkEUact/zIT/MgqTGm9A8T40dPnr8oXmA==
 
 electron-to-chromium@^1.4.251:
   version "1.4.284"
@@ -9493,6 +9523,11 @@ junk@^3.1.0:
   version "3.1.0"
   resolved "https://registry.npmjs.org/junk/-/junk-3.1.0.tgz"
   integrity sha512-pBxcB3LFc8QVgdggvZWyeys+hnrNWg4OcZIU/1X59k5jQdLBlCsYGRQaz234SqoRLTCgMH00fY0xRJH+F9METQ==
+
+just-debounce-it@^1.1.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/just-debounce-it/-/just-debounce-it-1.5.0.tgz#2276448332dd5925e825ba3c524a71da707bf628"
+  integrity sha512-itSWJS5d2DTSCizVJ2Z0Djx/dGmUGfZe7WNfUfVP23+htGcIcPHbEjL4eB8ljojTs/+oYwLexImRRCP0A2WXjA==
 
 keyv@^4.0.0:
   version "4.5.2"
