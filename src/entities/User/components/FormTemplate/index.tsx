@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import { FC, PropsWithChildren, ReactNode } from 'react';
+
+import { classname } from '@/shared/package/classname';
 
 import styles from './FormTemplate.module.scss';
 
@@ -17,7 +18,7 @@ export const FormTemplate: FC<PropsWithChildren<LoginFormProps>> = ({
 	footer = null,
 	children,
 }) => {
-	const cl = classNames(styles.content, className);
+	const cl = classname(styles.content, className);
 
 	return (
 		<div className={cl}>

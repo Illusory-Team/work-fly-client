@@ -1,26 +1,20 @@
-import classNames from 'classnames';
 import { FC } from 'react';
 
-import { getRelativeTimeString } from '@/shared/helpers';
-import { INotification } from '@/shared/types';
-import { EntityHead } from '@/shared/ui/EntityHead';
+import { INotification } from '@/shared/api';
+import { getRelativeTimeString } from '@/shared/lib/helpers';
+import { classname } from '@/shared/package/classname';
+import { EntityHead } from '@/shared/ui';
 
 import styles from './NotificationCard.module.scss';
 
-interface NotificationCardProps extends INotification {
+interface NotificationCardProps {
+	data: INotification;
 	className?: string;
 }
 
-export const NotificationCard: FC<NotificationCardProps> = ({
-	title,
-	subTitle,
-	src,
-	priority,
-	date,
-	folder_name,
-	className = '',
-}) => {
-	const cl = classNames(styles.card, className);
+export const NotificationCard: FC<NotificationCardProps> = ({ data, className = '' }) => {
+	const cl = classname(styles.card, className);
+	const { date, folder_name, priority, src, subTitle, title } = data;
 
 	return (
 		<div className={cl}>

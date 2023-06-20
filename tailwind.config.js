@@ -1,7 +1,10 @@
 const plugin = require('tailwindcss/plugin');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./app/**/*.{js,ts,jsx,tsx,mdx}', './src/**/*.{js,ts,jsx,tsx}'],
+	content: ['./src/**/*.{js,ts,jsx,tsx}'],
+	corePlugins: {
+		preflight: false,
+	},
 	theme: {
 		extend: {
 			transitionTimingFunction: {

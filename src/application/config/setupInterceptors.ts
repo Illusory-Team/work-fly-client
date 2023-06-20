@@ -2,9 +2,7 @@ import { AxiosHeaders } from 'axios';
 
 import { setCurrentUser } from '@/entities/User/model/user.slice';
 
-import { AuthService } from '@/features/Auth/services';
-
-import { api } from '@/shared/api';
+import { api, authService } from '@/shared/api';
 import { LOGIN_PATH } from '@/shared/config/paths';
 
 export const setupInterceptors = (store: AppStore) => {
@@ -35,10 +33,10 @@ export const setupInterceptors = (store: AppStore) => {
 					originalConfig._retry = true;
 
 					try {
-						const response = await AuthService.refreshToken();
+						const response = await authService.refreshToken();
 
 						if (response) {
-							store.dispatch(setCurrentUser(response?.data));
+							store.dispatch(setCurrentUser(response.data));
 						}
 
 						return api(originalConfig);

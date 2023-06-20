@@ -53,20 +53,22 @@ export const metadata: Metadata = {
 // }
 
 export default async function RootLayout({ children }: PropsWithChildren) {
-	const headersList = headers();
-	const headerPathname = headersList.get('x-pathname') || '';
-	const cookie = cookies();
-	const refreshToken = cookie.get('refreshToken');
+	// Пока нам это не надо
 
-	if (headerPathname !== '/login' && headerPathname !== '/register') {
-		if (!refreshToken) {
-			redirect('/login');
-		}
-	}
+	// const headersList = headers();
+	// const headerPathname = headersList.get('x-pathname') || '';
+	// const cookie = cookies();
+	// const refreshToken = cookie.get('refreshToken');
+
+	// if (headerPathname !== '/login' && headerPathname !== '/register') {
+	// 	if (!refreshToken) {
+	// 		redirect('/login');
+	// 	}
+	// }
 
 	return (
-		<html lang="en">
-			<body>
+		<html suppressHydrationWarning lang="en">
+			<body suppressHydrationWarning>
 				<Root>{children}</Root>
 				<div id="portal"></div>
 			</body>

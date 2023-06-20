@@ -6,7 +6,7 @@ import SimpleBar from 'simplebar-react';
 
 import { CompanyDrawer } from '@/entities/Company';
 
-import { EntityHead } from '@/shared/ui/EntityHead';
+import { EntityHead } from '@/shared/ui/data-display/EntityHead';
 
 import { Header, Notifications, Sidebar, UserProfile } from '@/widgets/PageLayout/components';
 
@@ -38,7 +38,7 @@ export const PageLayout: FC<PropsWithChildren> = ({ children }) => {
 			{dialogQuery === 'company-manage' && (
 				<CompanyDrawer
 					closeHandler={closeCompanyManage}
-					companyHead={<EntityHead isChangeable={true} title="dsadsa" defaultAvatar="No Name" subTitle="dsadsad" />}
+					companyHead={<EntityHead isChangeable={true} title="dsadsa" alt="No Name" subTitle="dsadsad" />}
 				/>
 			)}
 			{isShowNotifications && <Notifications closeHandler={closeNotificationsDrawer} />}

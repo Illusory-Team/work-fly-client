@@ -9,6 +9,7 @@ export const useProfile = () => {
 		dispatch(openDrawer());
 	};
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const openProfileHandler = (id: string | number) => {
 		dispatch(openDrawer());
 	};

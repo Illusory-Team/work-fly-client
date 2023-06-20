@@ -4,7 +4,7 @@ import SimpleBar from 'simplebar-react';
 
 import { NotificationCard } from '@/entities/Notification';
 
-import { INotification } from '@/shared/types';
+import { INotification } from '@/shared/api';
 
 import styles from './NotificationList.module.scss';
 
@@ -18,7 +18,7 @@ export const NotificationList: FC<NotificationListProps> = ({ notifications }) =
 			<div className={styles.notificationList}>
 				{notifications?.length ? (
 					notifications.map(notification => (
-						<NotificationCard className={styles.notificationCard} key={notification.id} {...notification} />
+						<NotificationCard className={styles.notificationCard} key={notification.id} data={notification} />
 					))
 				) : (
 					<div className={styles.empty}>

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { FC, ReactNode } from 'react';
 
-import { Container } from '@/shared/ui/layouts/Container';
+import { Container } from '@/shared/ui';
 
 import { Header } from './components/Header';
 

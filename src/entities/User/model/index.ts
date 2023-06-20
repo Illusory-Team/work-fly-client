@@ -1,2 +1,2 @@
 export { userSelector } from './user.selector';
-export { userReducer } from './user.slice';
+export { userReducer, setCurrentUser, clearUserState } from './user.slice';

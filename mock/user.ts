@@ -1,4 +1,4 @@
-import { IUser } from '@/shared/types';
+import { IUser } from '@/shared/api';
 
 export const usersMock: IUser[] = [
 	{
@@ -14,7 +14,7 @@ export const usersMock: IUser[] = [
 			id: '1',
 			value: 'member',
 		},
-		avatar: null,
+		avatar: '',
 		isOwner: true,
 		csrfToken: 'lololo',
 	},
@@ -31,7 +31,7 @@ export const usersMock: IUser[] = [
 			id: '1',
 			value: 'member',
 		},
-		avatar: null,
+		avatar: '',
 		isOwner: false,
 		csrfToken: '123',
 	},
@@ -48,7 +48,7 @@ export const usersMock: IUser[] = [
 			id: '1',
 			value: 'member',
 		},
-		avatar: null,
+		avatar: '',
 		isOwner: false,
 		csrfToken: '123',
 	},
@@ -65,7 +65,7 @@ export const usersMock: IUser[] = [
 			id: '1',
 			value: 'member',
 		},
-		avatar: null,
+		avatar: '',
 		isOwner: false,
 		csrfToken: '123',
 	},

@@ -5,8 +5,8 @@ import { IUserTabs, ProfileTemplate, userSelector } from '@/entities/User';
 
 import { ChangePassword, ChangePersonalDetail } from '@/features/UserActions';
 
-import { useAppSelector } from '@/shared/hooks';
-import { Drawer } from '@/shared/ui/Drawer';
+import { useAppSelector } from '@/shared/lib/hooks';
+import { Drawer } from '@/shared/ui';
 
 export const UserProfile: FC = () => {
 	const { user, status } = useAppSelector(userSelector);
@@ -14,13 +14,14 @@ export const UserProfile: FC = () => {
 	const router = useRouter();
 	const closeHandler = () => router.back();
 
+	// FIX ME - мб есть ли вариант как-то по другому это реализовать, через условные составные компоненты
 	const tabs: IUserTabs[] = [
 		{ title: 'Personal Detail', content: <ChangePersonalDetail /> },
 		{ title: 'Password', content: <ChangePassword /> },
 	];
 
 	return (
-		<Drawer direction="right" isShow={true} closeHandler={closeHandler}>
+		<Drawer anchor="right" open={true} onClose={closeHandler}>
 			{/* TODO: сделать обработку в случае, если user === null*/}
 			{!!user ? (
 				<ProfileTemplate

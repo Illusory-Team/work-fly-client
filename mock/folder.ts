@@ -1,4 +1,4 @@
-import { IFolder } from '@/shared/types';
+import { IFolder } from '@/shared/api';
 
 import { usersMock } from './user';
 

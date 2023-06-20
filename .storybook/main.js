@@ -45,7 +45,7 @@ module.exports = {
           loader: 'sass-loader',
           options: {
             additionalData: `
-              @import "@/shared/styles/_mixins.scss";
+              @import "@/shared/lib/styles/_mixins.scss";
             `
           },
         },

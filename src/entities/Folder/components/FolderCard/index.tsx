@@ -1,11 +1,11 @@
-import classNames from 'classnames';
-import { FC, useMemo } from 'react';
+import { FC } from 'react';
 
-import { IFolder } from '@/shared/types';
-import { AvatarGroup, IAvatarGroupData } from '@/shared/ui/AvatarGroup';
-import { Icon } from '@/shared/ui/Icon';
+import { IFolder } from '@/shared/api';
+import { AVATAR2_URL } from '@/shared/lib/constants';
+import { Avatar, AvatarGroup, Icon, Typography } from '@/shared/ui';
 
 import styles from './FolderCard.module.scss';
+import { CardContentCustom, CardCustom } from './styles';
 
 interface FolderCardProps {
 	data: IFolder;
@@ -13,40 +13,33 @@ interface FolderCardProps {
 }
 
 export const FolderCard: FC<FolderCardProps> = ({ data, className = '' }) => {
-	const cl = classNames(styles.card, className);
-
-	const avatarGroupMembers = useMemo(() => {
-		return data.members.map(member => {
-			return {
-				id: member.id,
-				firstName: member.firstName,
-				lastName: member.lastName,
-				src: member.avatar,
-			} as IAvatarGroupData;
-		});
-	}, [data]);
-
 	return (
-		<div className={cl}>
-			<div className={styles.first} style={{ background: data?.color }}>
-				<Icon className={styles.icon} name={data.icon.name} />
-				<div className={styles.content}>
-					<h3>{data.folderName}</h3>
-					<div className={styles.wrapper}>
-						<p>{data.owner}</p>
-						<span>
-							<span>{data.tasks}</span> tasks
-						</span>
+		<CardCustom className={className}>
+			<CardContentCustom className={styles.content}>
+				<div className={styles.contentHead} style={{ background: data.color }}>
+					<Icon className={styles.icon} name={data.icon.name} />
+					<div className={styles.textContent}>
+						<Typography className={styles.head} variant="headline">
+							{data.folderName}
+						</Typography>
+						<Typography className={styles.subHead} variant="caption13_regular">
+							{data.owner} <span>{data.tasks}</span>
+						</Typography>
 					</div>
 				</div>
-			</div>
-			<div className={styles.second}>
-				<AvatarGroup size="xxs" title="members" data={avatarGroupMembers} />
-				<div className={styles.wrapper}>
-					<div className={styles.new}>2 new</div>
-					<div className={styles.alert}>2 alert</div>
+				<div className={styles.content}></div>
+				<div className={styles.contentFooter}>
+					<div className={styles.member}>
+						<Typography variant="caption13_regular">Members</Typography>
+						<AvatarGroup max={3} size="small">
+							<Avatar size="small" src={AVATAR2_URL} />
+							<Avatar size="small" src={AVATAR2_URL} />
+							<Avatar size="small" src={AVATAR2_URL} />
+							<Avatar size="small" src={AVATAR2_URL} />
+						</AvatarGroup>
+					</div>
 				</div>
-			</div>
-		</div>
+			</CardContentCustom>
+		</CardCustom>
 	);
 };

@@ -1,56 +1,37 @@
-.card {
-	background: var(--bg-secondary);
-	@apply w-60 h-40 rounded-xl inline-block;
+$ICON_WIDTH: 36px;
+$CONTENT_LEFT_PADDING: 11px;
+$TEXT_CONTENT_WIDTH: calc(100% - $ICON_WIDTH - $CONTENT_LEFT_PADDING);
 
-	.first {
-		@apply h-20 rounded-t-xl flex px-3 pt-6 pb-4 flex-1;
+.contentHead {
+	display: flex;
+	align-items: center;
+	height: 86px;
+	padding: 24px 12px 16px $CONTENT_LEFT_PADDING;
+}
 
-		.icon {
-			@apply text-5xl w-11 h-11;
-		}
+.textContent {
+	margin-left: 11px;
+	width: $TEXT_CONTENT_WIDTH;
+}
 
-		.content {
-			h3 {
-				@apply headline;
-			}
-		}
+.head {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 
-		.wrapper {
-			@apply flex caption-13-rg;
+.icon {
+	font-size: 32px;
+	width: $ICON_WIDTH;
+	height: 36px;
+}
 
-			p {
-				flex: 4;
-				@apply truncate;
-			}
+.contentFooter {
+	display: flex;
+	justify-content: space-between;
+}
 
-			span {
-				flex: 3;
-			}
-		}
-	}
-
-	.second {
-		@apply px-5 pt-4 pb-5 flex justify-between items-end;
-
-		.wrapper {
-			@apply flex;
-
-			.new {
-				background: var(--green-light);
-				color: var(--green-dark);
-				@apply mr-2 rounded-3xl;
-			}
-
-			.alert {
-				background: var(--pink-light);
-				color: var(--pink-xdark);
-				@apply rounded-3xl;
-			}
-
-			.new,
-			.alert {
-				@apply text-xs px-1;
-			}
-		}
-	}
+.member {
+	display: inline-flex;
+	flex-direction: column;
+	padding: 12px 16px 16px;
 }

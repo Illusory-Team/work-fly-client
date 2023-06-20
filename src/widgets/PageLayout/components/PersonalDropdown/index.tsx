@@ -1,16 +1,13 @@
-import cn from 'classnames';
 import { useRouter } from 'next/navigation';
 import { forwardRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { clearUserState } from '@/entities/User/model/user.slice';
+import { clearUserState } from '@/entities/User';
 
-import { AuthService } from '@/features/Auth/services';
-
+import { IUser, authService } from '@/shared/api';
 import { LOGIN_PATH } from '@/shared/config/paths';
-import { IUser } from '@/shared/types';
-import { EntityHead } from '@/shared/ui/EntityHead';
-import { Switch } from '@/shared/ui/inputs/Switch';
+import { classname } from '@/shared/package/classname';
+import { EntityHead, Switch } from '@/shared/ui';
 
 import { LinkItem } from './LinkItem';
 import styles from './PersonalDropdown.module.scss';
@@ -30,8 +27,9 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 		setIsVacation(prevState => (prevState === 'off' ? 'on' : 'off'));
 	};
 
+	// FIX ME - вынести в фичу юзера logout кнопку как ui
 	const onLogout = async () => {
-		await AuthService.logout();
+		await authService.logout();
 
 		dispatch(clearUserState());
 		await router.push(LOGIN_PATH);
@@ -39,13 +37,13 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 
 	return (
 		<div
-			className={cn(styles.dropdown, {
+			className={classname(styles.dropdown, {
 				[styles.visible]: isVisible,
 			})}
 			ref={ref}
 		>
 			<EntityHead
-				defaultAvatar={`${user?.firstName} ${user?.lastName}`}
+				alt={`${user?.firstName} ${user?.lastName}`}
 				title={`${user?.firstName} ${user?.lastName}`}
 				subTitle={user?.position?.value}
 				className="p-2 mb-1"
@@ -54,7 +52,7 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 			/>
 
 			<ul>
-				<li className={cn(styles.linkItem, styles.userVacationItem)}>
+				<li className={classname(styles.linkItem, styles.userVacationItem)}>
 					<div className={styles.userVacation}>
 						<span>Vacation status</span>
 						<div className={styles.switchWrap}>

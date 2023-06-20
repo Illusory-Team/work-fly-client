@@ -1,7 +1,6 @@
 import { FC } from 'react';
 
-import { Drawer } from '@/shared/ui/Drawer';
-import { Icon } from '@/shared/ui/Icon';
+import { Drawer, Icon } from '@/shared/ui';
 
 import styles from './NotificationDrawer.module.scss';
 
@@ -11,7 +10,7 @@ type NotificationDrawerProps = {
 
 export const NotificationDrawer: FC<PropsWithChildren<NotificationDrawerProps>> = ({ children, closeHandler }) => {
 	return (
-		<Drawer direction="right" size="m" isShow={true} closeHandler={closeHandler}>
+		<Drawer size="small" anchor="right" open={true} onClose={closeHandler}>
 			<div className={styles.header}>
 				<Icon onClick={closeHandler} className={styles.close} name="other_back" />
 			</div>
