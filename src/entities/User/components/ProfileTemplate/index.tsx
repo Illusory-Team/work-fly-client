@@ -51,7 +51,7 @@ export const ProfileTemplate: FC<UserDrawerProps> = ({
 						{/* FIX ME - вопрос с fullname так же будет зависеть от стора */}
 						<EntityHead
 							isChangeable={isChangeable}
-							src={data?.avatar}
+							src={data.avatar || ''}
 							title={`${data?.firstName} ${data?.lastName}`}
 							subTitle={data.position}
 							alt={data ? `${data.firstName} ${data.lastName}` : ''}

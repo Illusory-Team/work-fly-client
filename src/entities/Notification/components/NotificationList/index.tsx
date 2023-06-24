@@ -4,12 +4,12 @@ import SimpleBar from 'simplebar-react';
 
 import { NotificationCard } from '@/entities/Notification';
 
-import { INotification } from '@/shared/api';
+import { Notification } from '@/shared/api';
 
 import styles from './NotificationList.module.scss';
 
 interface NotificationListProps {
-	notifications: INotification[] | undefined;
+	notifications: Notification[] | undefined;
 }
 
 export const NotificationList: FC<NotificationListProps> = ({ notifications }) => {

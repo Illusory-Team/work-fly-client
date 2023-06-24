@@ -1,5 +1,6 @@
 'use client';
 
+import { useEvent } from 'effector-react';
 import { FC } from 'react';
 
 import { FolderCard } from '@/entities/Folder';
@@ -23,9 +24,10 @@ const mock: Folder = {
 
 export const HomeView: FC = () => {
 	// FIX ME - Пока что для проверок
+	const addFn = useEvent($profileApi.setProfile);
 
 	const addUser = async () => {
-		$profileApi.setProfile({
+		addFn({
 			id: '1',
 			email: 'zhook@gmail.com',
 			firstName: 'Dima',

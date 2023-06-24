@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { IUser } from '@/shared/api';
+import { UserRes } from '@/shared/api';
 
 import { usersMock } from '../../../mock/user';
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<IUser>) {
+export default function handler(req: NextApiRequest, res: NextApiResponse<UserRes>) {
 	const id = req.query.id as string;
 	const numId = Number(id) - 1;
 

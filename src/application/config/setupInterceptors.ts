@@ -5,12 +5,13 @@ import { $profile } from '@/entities/User';
 import { api, authService } from '@/shared/api';
 import { LOGIN_PATH } from '@/shared/config/paths';
 
-export const setupInterceptors = (store: AppStore) => {
+export const setupInterceptors = () => {
 	api.interceptors.request.use(
 		config => {
-			const { userReducer } = store.getState();
+			const user = $profile.getState();
 
-			const token = userReducer.user && userReducer.user.csrfToken;
+			// const token = user && user.csrfToken;
+			const token = null;
 
 			if (config.headers && token) {
 				(config.headers as AxiosHeaders).set('x-csrf-token', token);
@@ -36,7 +37,7 @@ export const setupInterceptors = (store: AppStore) => {
 						const response = await authService.refreshToken();
 
 						if (response) {
-							$profile.updates(response.data.user);
+							$profile.updates(response.data);
 						}
 
 						return api(originalConfig);
