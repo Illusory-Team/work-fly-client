@@ -1,9 +1,9 @@
-import type { IconProps } from '@/shared/ui';
+import type { IconNamesType } from '@/shared/ui';
 
 import { UserRes } from './User';
 
 export interface FolderAppearance {
-	icon: IconProps;
+	icon: IconNamesType;
 	color: string;
 }
 
@@ -20,7 +20,7 @@ export interface FolderRes {
 }
 
 export interface Folder extends Omit<FolderRes, '_count' | 'folderAppearance'> {
-	icon: string;
+	icon: IconNamesType;
 	color: string;
 	userCount: number;
 }

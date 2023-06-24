@@ -1,7 +1,7 @@
 import { AxiosInstance } from 'axios';
 
 import { fakeApi } from '../instance';
-import { IFolder } from '../types';
+import { Folder } from '../types';
 
 class FolderService {
 	api: AxiosInstance;
@@ -10,7 +10,7 @@ class FolderService {
 	}
 
 	async getOne(id: string) {
-		return await fakeApi<IFolder>(`folders/${id}`);
+		return await fakeApi<Folder>(`folders/${id}`);
 	}
 }
 

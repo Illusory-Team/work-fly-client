@@ -1,8 +1,8 @@
+import { useStore } from 'effector-react';
 import { FC, useState } from 'react';
 
-import { userSelector } from '@/entities/User';
+import { $profile } from '@/entities/User';
 
-import { useAppSelector } from '@/shared/lib/hooks';
 import { useOutsideClick } from '@/shared/package/react-hooks';
 import { Avatar, Button, Icon } from '@/shared/ui';
 
@@ -15,7 +15,7 @@ type HeaderProps = {
 };
 
 export const Header: FC<HeaderProps> = ({ notificationHandler }) => {
-	const { user } = useAppSelector(userSelector);
+	const user = useStore($profile);
 	const [isVisibleDropdown, setIsVisibleDropdown] = useState<boolean>(false);
 
 	const closeDropDown = () => {
@@ -45,13 +45,14 @@ export const Header: FC<HeaderProps> = ({ notificationHandler }) => {
 									<Icon name="other_notify" width={15} height={16} />
 								</Button>
 							</div>
-							<Avatar
-								onClick={toggleDropDownVisible}
-								size="small"
-								// FIX ME - в зависимости от стора будем править это место
-								alt={user ? `${user.firstName} ${user.lastName}` : undefined}
-								className={styles.headerAvatar}
-							/>
+							{user && (
+								<Avatar
+									onClick={toggleDropDownVisible}
+									size="small"
+									alt={user.fullName}
+									className={styles.headerAvatar}
+								/>
+							)}
 							{!!user && <PersonalDropdown isVisible={isVisibleDropdown} ref={ref} user={user} />}
 						</div>
 					</div>

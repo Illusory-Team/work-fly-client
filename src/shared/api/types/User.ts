@@ -4,11 +4,11 @@ export interface UserRes {
 	id: string;
 	email: string;
 	fullName: string;
-	phone: number;
-	birthday: string;
-	address: string;
-	description: string;
-	avatar: string;
+	phone: number | null;
+	birthday: string | null;
+	address: string | null;
+	description: string | null;
+	avatar: string | null;
 }
 
 export interface UserResWithPosition extends UserRes {
@@ -24,4 +24,5 @@ export interface User extends UserRes {
 	position: PositionValueType;
 	firstName: string;
 	lastName: string;
+	isOwner: boolean;
 }

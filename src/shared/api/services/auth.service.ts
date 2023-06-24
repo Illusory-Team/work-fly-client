@@ -8,7 +8,8 @@ import { errorCatch } from '@/shared/lib/helpers/errorCatch';
 import { logger } from '@/shared/lib/helpers/logger';
 
 import { fakeApi } from '../instance';
-import { IUserLogin, UserResponse } from '../types';
+import { userResponseMapper } from '../mappers';
+import { AuthLoginReq, User, UserResponse } from '../types';
 
 class AuthService {
 	api: AxiosInstance;
@@ -16,12 +17,12 @@ class AuthService {
 		this.api = fakeApi;
 	}
 
-	async login(loginData: IUserLogin) {
+	async login(loginData: AuthLoginReq): Promise<User | undefined> {
 		try {
 			const { data } = await this.api.post<UserResponse>('/auth/login', loginData);
 			this.api.defaults.headers.common['x-csrf-token'] = data.csrfToken;
 
-			return data;
+			return userResponseMapper(data);
 		} catch (error: unknown) {
 			if (axios.isAxiosError(error)) {
 				logger({ type: 'error', message: errorCatch(error) });
@@ -29,14 +30,16 @@ class AuthService {
 		}
 	}
 
-	async refreshToken(ctx?: NextPageContext): Promise<AxiosResponse<UserResponse> | undefined> {
+	async refreshToken(ctx?: NextPageContext): Promise<AxiosResponse<User> | undefined> {
 		if (!!ctx) {
 			const { req, res, asPath } = ctx;
 
 			try {
 				this.api.defaults.headers.cookie = req?.headers.cookie as string;
 
-				const response = await this.api.get<UserResponse>('/auth/refresh');
+				const response = await this.api.get<User>('/auth/refresh', {
+					transformResponse: [userResponseMapper],
+				});
 
 				if (response.headers['set-cookie']) {
 					const cookies = response.headers['set-cookie'];
@@ -65,7 +68,9 @@ class AuthService {
 			}
 		}
 
-		return await this.api.get<UserResponse>('/auth/refresh');
+		return await this.api.get<User>('/auth/refresh', {
+			transformResponse: [userResponseMapper],
+		});
 	}
 
 	async logout() {

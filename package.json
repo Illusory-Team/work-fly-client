@@ -40,7 +40,6 @@
     "@mui/material": "5.13.4",
     "@mui/x-date-pickers": "6.6.0",
     "@next/font": "13.0.7",
-    "@reduxjs/toolkit": "1.9.1",
     "axios": "1.2.2",
     "cookies-next": "2.1.1",
     "effector": "22.8.6",
@@ -51,7 +50,6 @@
     "react-dom": "18.2.0",
     "react-hook-form": "7.41.2",
     "react-query": "3.39.2",
-    "react-redux": "8.0.5",
     "react-transition-group": "4.4.5",
     "simplebar-react": "3.2.1"
   },

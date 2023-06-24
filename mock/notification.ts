@@ -1,6 +1,6 @@
-import { INotification } from '@/shared/api';
+import { Notification } from '@/shared/api';
 
-export const notificationMock: INotification[] = [
+export const notificationMock: Notification[] = [
 	{
 		id: '1',
 		title: 'New task assigned to you',
