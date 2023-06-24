@@ -1,36 +1,27 @@
-type PositionValueType = 'owner' | 'member' | 'manager';
+import { PositionValueType, UserPosition } from './Position';
 
-export type UserPositionType = {
+export interface UserRes {
 	id: string;
-	value: PositionValueType;
-};
-
-export interface IUser {
-	id: Nullable<string>;
 	email: string;
-	firstName: string;
-	lastName: string;
-	phone: Nullable<number>;
-	birthday: Nullable<string>;
-	address: Nullable<string>;
-	description: Nullable<string>;
-	position?: UserPositionType;
+	fullName: string;
+	phone: number;
+	birthday: string;
+	address: string;
+	description: string;
 	avatar: string;
-	isOwner: boolean;
-	csrfToken: string;
+}
+
+export interface UserResWithPosition extends UserRes {
+	position: UserPosition;
 }
 
 export interface UserResponse {
+	user: UserRes;
 	csrfToken: string;
-	user: IUser;
 }
 
-export interface IUserLogin {
-	email: string;
-	password: string;
-}
-
-export interface IUserRegistration {
-	email: string;
-	phone: string;
+export interface User extends UserRes {
+	position: PositionValueType;
+	firstName: string;
+	lastName: string;
 }

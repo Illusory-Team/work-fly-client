@@ -1,15 +1,26 @@
 import type { IconProps } from '@/shared/ui';
 
-import { IUser } from './User';
+import { UserRes } from './User';
 
-type IconNameType = Pick<IconProps, 'name'>;
-
-export interface IFolder {
-	id: string;
-	members: IUser[];
-	tasks: number;
-	folderName: string;
-	icon: IconNameType;
-	owner: string;
+export interface FolderAppearance {
+	icon: IconProps;
 	color: string;
+}
+
+type FolderUsers = Pick<UserRes, 'id' | 'fullName' | 'avatar'>;
+
+export interface FolderRes {
+	id: string;
+	name: string;
+	folderType: string;
+	folderAppearance: FolderAppearance;
+	owner: FolderUsers;
+	users: FolderUsers[];
+	_count: number;
+}
+
+export interface Folder extends Omit<FolderRes, '_count' | 'folderAppearance'> {
+	icon: string;
+	color: string;
+	userCount: number;
 }
