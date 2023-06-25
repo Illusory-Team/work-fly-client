@@ -9,5 +9,5 @@ export const useThrottleCallback = (callback: () => void, delayValue: number) =>
 			delay.current = false;
 			setTimeout(() => (delay.current = true), delayValue);
 		}
-	}, []);
+	}, [callback]);
 };

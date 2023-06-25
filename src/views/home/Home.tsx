@@ -24,10 +24,10 @@ const mock: Folder = {
 
 export const HomeView: FC = () => {
 	// FIX ME - Пока что для проверок
-	const addFn = useEvent($profileApi.setProfile);
+	const addUserEvent = useEvent($profileApi.setProfile);
 
-	const addUser = async () => {
-		addFn({
+	const addUser = () => {
+		addUserEvent({
 			id: '1',
 			email: 'zhook@gmail.com',
 			firstName: 'Dima',

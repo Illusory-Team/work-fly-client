@@ -9,7 +9,7 @@ import { Notification } from '@/shared/api';
 import styles from './NotificationList.module.scss';
 
 interface NotificationListProps {
-	notifications: Notification[] | undefined;
+	notifications?: Notification[];
 }
 
 export const NotificationList: FC<NotificationListProps> = ({ notifications }) => {
