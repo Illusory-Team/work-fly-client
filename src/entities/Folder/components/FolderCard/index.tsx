@@ -13,17 +13,19 @@ interface FolderCardProps {
 }
 
 export const FolderCard: FC<FolderCardProps> = ({ data, className = '' }) => {
+	const { color, icon, name, owner, userCount } = data;
+
 	return (
 		<CardCustom className={className}>
 			<CardContentCustom className={styles.content}>
-				<div className={styles.contentHead} style={{ background: data.color }}>
-					<Icon className={styles.icon} name={data.icon} />
+				<div className={styles.contentHead} style={{ background: color }}>
+					<Icon className={styles.icon} name={icon} />
 					<div className={styles.textContent}>
 						<Typography className={styles.head} variant="headline">
-							{data.name}
+							{name}
 						</Typography>
 						<Typography className={styles.subHead} variant="caption13_regular">
-							{data.owner.fullName} <span>{data.userCount}</span>
+							{owner.fullName} <span>{userCount}</span>
 						</Typography>
 					</div>
 				</div>
