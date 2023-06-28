@@ -1,15 +1,15 @@
 import type { IconNamesType } from '@/shared/ui';
 
-import { UserRes } from './User';
+import { UserResponse } from './User';
 
 export interface FolderAppearance {
 	icon: IconNamesType;
 	color: string;
 }
 
-type FolderUsers = Pick<UserRes, 'id' | 'fullName' | 'avatar'>;
+type FolderUsers = Pick<UserResponse, 'id' | 'fullName' | 'avatar'>;
 
-export interface FolderRes {
+export interface FolderResponse {
 	id: string;
 	name: string;
 	folderType: string;
@@ -19,7 +19,7 @@ export interface FolderRes {
 	_count: number;
 }
 
-export interface Folder extends Omit<FolderRes, '_count' | 'folderAppearance'> {
+export interface Folder extends Omit<FolderResponse, '_count' | 'folderAppearance'> {
 	icon: IconNamesType;
 	color: string;
 	userCount: number;

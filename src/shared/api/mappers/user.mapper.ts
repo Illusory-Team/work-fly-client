@@ -1,6 +1,6 @@
-import { User, UserRes, UserResponse } from '../types';
+import { AuthResponse, User, UserResponse } from '../types';
 
-export const userMapper = (data: UserRes): User => {
+export const userMapper = (data: UserResponse): User => {
 	const [firstName, lastName] = data.fullName.split(' ');
 
 	return {
@@ -12,7 +12,7 @@ export const userMapper = (data: UserRes): User => {
 	};
 };
 
-export const userResponseMapper = (data: UserResponse): User => {
+export const userResponseMapper = (data: AuthResponse): User => {
 	const user = userMapper(data.user);
 
 	return user;

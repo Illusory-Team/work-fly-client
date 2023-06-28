@@ -9,7 +9,7 @@ import { logger } from '@/shared/lib/helpers/logger';
 
 import { fakeApi } from '../instance';
 import { userResponseMapper } from '../mappers';
-import { AuthLoginReq, User, UserResponse } from '../types';
+import { AuthLoginRequest, AuthResponse, User } from '../types';
 
 class AuthService {
 	api: AxiosInstance;
@@ -17,9 +17,9 @@ class AuthService {
 		this.api = fakeApi;
 	}
 
-	async login(loginData: AuthLoginReq): Promise<User | undefined> {
+	async login(loginData: AuthLoginRequest): Promise<User | undefined> {
 		try {
-			const { data } = await this.api.post<UserResponse>('/auth/login', loginData);
+			const { data } = await this.api.post<AuthResponse>('/auth/login', loginData);
 			this.api.defaults.headers.common['x-csrf-token'] = data.csrfToken;
 
 			return userResponseMapper(data);
@@ -68,7 +68,7 @@ class AuthService {
 			}
 		}
 
-		return await this.api.get<User>('/auth/refresh', {
+		return this.api.get<User>('/auth/refresh', {
 			transformResponse: [userResponseMapper],
 		});
 	}

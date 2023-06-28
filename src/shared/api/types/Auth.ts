@@ -1,16 +1,16 @@
-import { UserResWithPosition } from './User';
+import { UserResponseWithPosition } from './User';
 
-export interface AuthRegistrationReq {
+export interface AuthRegistrationRequest {
 	email: string;
 	phone: string;
 }
 
-export interface AuthLoginReq {
+export interface AuthLoginRequest {
 	email: string;
 	password: string;
 }
 
-export interface AuthRes {
-	user: UserResWithPosition;
+export interface AuthResponse {
+	user: UserResponseWithPosition;
 	csrfToken: string;
 }

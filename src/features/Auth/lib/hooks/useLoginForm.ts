@@ -7,13 +7,13 @@ import { useMutation } from 'react-query';
 
 import { $profileApi } from '@/entities/User';
 
-import { AuthLoginReq, ErrorResponse, authService } from '@/shared/api';
+import { AuthLoginRequest, ErrorResponse, authService } from '@/shared/api';
 
 export const useLoginForm = () => {
-	const { setError, control, handleSubmit } = useForm<AuthLoginReq>({ mode: 'onBlur' });
+	const { setError, control, handleSubmit } = useForm<AuthLoginRequest>({ mode: 'onBlur' });
 	const router = useRouter();
 
-	const { mutateAsync } = useMutation('login-user', (data: AuthLoginReq) => authService.login(data), {
+	const { mutateAsync } = useMutation('login-user', (data: AuthLoginRequest) => authService.login(data), {
 		onSuccess(user) {
 			if (user) {
 				$profileApi.setProfile(user);
@@ -21,7 +21,7 @@ export const useLoginForm = () => {
 		},
 	});
 
-	const submitHandler = handleSubmit(async (data: AuthLoginReq) => {
+	const submitHandler = handleSubmit(async (data: AuthLoginRequest) => {
 		try {
 			await mutateAsync(data);
 			await router.push('/');

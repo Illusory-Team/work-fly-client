@@ -45,7 +45,7 @@ export const Header: FC<HeaderProps> = ({ notificationHandler }) => {
 									<Icon name="other_notify" width={15} height={16} />
 								</Button>
 							</div>
-							{user && (
+							{!!user && (
 								<Avatar
 									onClick={toggleDropDownVisible}
 									size="small"
