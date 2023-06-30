@@ -1,6 +1,6 @@
 import { classname } from './index';
 
-describe('test classname helpers', () => {
+describe('test classname package', () => {
 	it('string params', () => {
 		let classes = classname('first', 'second', 'third');
 		expect(classes).toBe('first second third');
@@ -40,5 +40,10 @@ describe('test classname helpers', () => {
 	it('null, undefined property', () => {
 		const classes = classname(null, undefined, false, 'first');
 		expect(classes).toBe('first');
+	});
+
+	it('array arguments', () => {
+		const classes = classname('first', ['second', 'third']);
+		expect(classes).toBe('first second third');
 	});
 });

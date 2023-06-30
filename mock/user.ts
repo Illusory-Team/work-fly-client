@@ -1,72 +1,44 @@
-import { IUser } from '@/shared/api';
+import { UserRes } from '@/shared/api';
 
-export const usersMock: IUser[] = [
+export const usersMock: UserRes[] = [
 	{
 		id: '1',
 		email: 'zhook@gmail.com',
-		firstName: 'Dima',
-		lastName: 'Kavoon',
+		fullName: 'Dima Kavoon',
 		phone: 984545445545,
 		birthday: null,
 		address: null,
 		description: '',
-		position: {
-			id: '1',
-			value: 'member',
-		},
 		avatar: '',
-		isOwner: true,
-		csrfToken: 'lololo',
 	},
 	{
 		id: '2',
 		email: 'zhookov@gmail.com',
-		firstName: 'Marlen',
-		lastName: 'Karimov',
+		fullName: 'Dima Kavoon',
 		phone: 984545445545,
 		birthday: null,
 		address: null,
 		description: 'I Matros',
-		position: {
-			id: '1',
-			value: 'member',
-		},
 		avatar: '',
-		isOwner: false,
-		csrfToken: '123',
 	},
 	{
 		id: '3',
 		email: 'zhookov@gmail.com',
-		firstName: 'Marlen',
-		lastName: 'Karimov',
+		fullName: 'Dima Kavoon',
 		phone: 984545445545,
 		birthday: null,
 		address: null,
 		description: 'I Matros',
-		position: {
-			id: '1',
-			value: 'member',
-		},
 		avatar: '',
-		isOwner: false,
-		csrfToken: '123',
 	},
 	{
 		id: '4',
 		email: 'zhookov@gmail.com',
-		firstName: 'Marlen',
-		lastName: 'Karimov',
+		fullName: 'Dima Kavoon',
 		phone: 984545445545,
 		birthday: null,
 		address: null,
 		description: 'I Matros',
-		position: {
-			id: '1',
-			value: 'member',
-		},
 		avatar: '',
-		isOwner: false,
-		csrfToken: '123',
 	},
 ];

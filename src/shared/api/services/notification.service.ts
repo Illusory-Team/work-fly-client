@@ -1,7 +1,7 @@
 import { AxiosInstance } from 'axios';
 
 import { fakeApi } from '../instance';
-import { INotification } from '../types';
+import { Notification } from '../types';
 
 class NotificationService {
 	api: AxiosInstance;
@@ -10,7 +10,7 @@ class NotificationService {
 	}
 
 	async getNotification() {
-		const { data } = await this.api.get<INotification[]>('/api/notifications');
+		const { data } = await this.api.get<Notification[]>('/api/notifications');
 
 		return data;
 	}

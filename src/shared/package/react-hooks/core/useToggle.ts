@@ -1,4 +1,6 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
+
+import { useThrottleCallback } from './useThrottleCallback';
 
 export const useToggle = (
 	init = false,
@@ -7,7 +9,6 @@ export const useToggle = (
 	onFalse: (() => void) | null = null,
 ) => {
 	const [state, setState] = useState(init);
-	const delay = useRef(true);
 
 	const closeHandler = useCallback(() => {
 		setState(false);
@@ -19,13 +20,9 @@ export const useToggle = (
 		onTrue && onTrue();
 	}, []);
 
-	const toggleHandler = useCallback(() => {
-		if (delay.current) {
-			state ? closeHandler() : openHandler();
-			delay.current = false;
-			setTimeout(() => (delay.current = true), delayValue);
-		}
-	}, []);
+	const toggleHandler = useThrottleCallback(() => {
+		state ? closeHandler() : openHandler();
+	}, delayValue);
 
 	return {
 		state,

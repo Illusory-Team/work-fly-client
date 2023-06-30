@@ -1,15 +1,11 @@
-import { FC } from 'react';
-import { useDispatch } from 'react-redux';
+import { FC, useState } from 'react';
 
-import { useAppSelector } from '@/shared/lib/hooks';
-import { closeDrawer } from '@/shared/store/drawerController';
 import { Drawer } from '@/shared/ui';
 
 export const AddNotificationDrawer: FC = () => {
-	// FIX ME - а точно ли будем стейт менеджер для этого юзать?
-	const isShow = useAppSelector(state => state.drawerRootController.isOpenDrawer);
-	const dispatch = useDispatch();
-	const closeHandler = () => dispatch(closeDrawer());
+	const [isShow, setIsShow] = useState(false);
+
+	const closeHandler = () => setIsShow(false);
 
 	return (
 		<Drawer open={isShow} onClose={closeHandler}>

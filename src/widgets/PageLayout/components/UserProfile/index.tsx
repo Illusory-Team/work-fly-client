@@ -1,20 +1,19 @@
+import { useStore } from 'effector-react';
 import { useRouter } from 'next/navigation';
 import { FC } from 'react';
 
-import { IUserTabs, ProfileTemplate, userSelector } from '@/entities/User';
+import { $profile, IUserTabs, ProfileTemplate } from '@/entities/User';
 
 import { ChangePassword, ChangePersonalDetail } from '@/features/UserActions';
 
-import { useAppSelector } from '@/shared/lib/hooks';
 import { Drawer } from '@/shared/ui';
 
 export const UserProfile: FC = () => {
-	const { user, status } = useAppSelector(userSelector);
+	const user = useStore($profile);
 
 	const router = useRouter();
 	const closeHandler = () => router.back();
 
-	// FIX ME - мб есть ли вариант как-то по другому это реализовать, через условные составные компоненты
 	const tabs: IUserTabs[] = [
 		{ title: 'Personal Detail', content: <ChangePersonalDetail /> },
 		{ title: 'Password', content: <ChangePassword /> },

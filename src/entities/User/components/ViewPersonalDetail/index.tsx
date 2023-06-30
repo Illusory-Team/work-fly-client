@@ -1,13 +1,13 @@
 import { FC } from 'react';
 
-import { IUser } from '@/shared/api';
+import { User } from '@/shared/api';
 
 import { DescribedText } from '../DescribedText';
 
 import styles from './ViewPersonalDetail.module.scss';
 
 interface ViewPersonalDetailProps {
-	user: IUser;
+	user: User;
 	isLoading: boolean;
 }
 

@@ -1,10 +1,7 @@
 import { useRouter } from 'next/navigation';
 import { forwardRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
 
-import { clearUserState } from '@/entities/User';
-
-import { IUser, authService } from '@/shared/api';
+import { User, authService } from '@/shared/api';
 import { LOGIN_PATH } from '@/shared/config/paths';
 import { classname } from '@/shared/package/classname';
 import { EntityHead, Switch } from '@/shared/ui';
@@ -13,7 +10,7 @@ import { LinkItem } from './LinkItem';
 import styles from './PersonalDropdown.module.scss';
 
 type PersonalDropdownProps = {
-	user: IUser;
+	user: User;
 	isVisible: boolean;
 };
 
@@ -21,7 +18,6 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 	const [isVacation, setIsVacation] = useState<'on' | 'off'>('off');
 
 	const router = useRouter();
-	const dispatch = useDispatch();
 
 	const toggleSwitch = () => {
 		setIsVacation(prevState => (prevState === 'off' ? 'on' : 'off'));
@@ -31,7 +27,6 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 	const onLogout = async () => {
 		await authService.logout();
 
-		dispatch(clearUserState());
 		await router.push(LOGIN_PATH);
 	};
 
@@ -43,9 +38,9 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 			ref={ref}
 		>
 			<EntityHead
-				alt={`${user?.firstName} ${user?.lastName}`}
-				title={`${user?.firstName} ${user?.lastName}`}
-				subTitle={user?.position?.value}
+				alt={user.fullName}
+				title={user.fullName}
+				subTitle={user.position}
 				className="p-2 mb-1"
 				classNameAvatar={styles.userAvatar}
 				classNameText={styles.userTitle}
@@ -62,8 +57,8 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 					</div>
 				</li>
 				<LinkItem title="Profile" href="/?dialog=profile" />
-				{!!user && user?.isOwner && <LinkItem title="Admin settings" href="/?dialog=company-manage" />}
-				{!!user && user?.isOwner && <LinkItem title="Archive" href="/archive" />}
+				{!!user && user.isOwner && <LinkItem title="Admin settings" href="/?dialog=company-manage" />}
+				{!!user && user.isOwner && <LinkItem title="Archive" href="/archive" />}
 				<LinkItem title="Sign out" onClick={onLogout} className={styles.signOut} />
 			</ul>
 		</div>

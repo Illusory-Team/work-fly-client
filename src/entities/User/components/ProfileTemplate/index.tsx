@@ -2,7 +2,7 @@
 
 import { FC, ReactNode, SyntheticEvent, useState } from 'react';
 
-import { IUser } from '@/shared/api';
+import { User } from '@/shared/api';
 import { DialogContent, EntityHead, Icon, Tab, TabPanel, Tabs } from '@/shared/ui';
 
 import { IUserTabs } from '../../types';
@@ -10,7 +10,7 @@ import { IUserTabs } from '../../types';
 import styles from './ProfileTemplate.module.scss';
 
 interface UserDrawerProps {
-	data: IUser;
+	data: User;
 	isLoading?: boolean;
 	error?: string;
 	status: ReactNode;
@@ -51,9 +51,9 @@ export const ProfileTemplate: FC<UserDrawerProps> = ({
 						{/* FIX ME - вопрос с fullname так же будет зависеть от стора */}
 						<EntityHead
 							isChangeable={isChangeable}
-							src={data?.avatar}
+							src={data.avatar || ''}
 							title={`${data?.firstName} ${data?.lastName}`}
-							subTitle={data?.position?.value}
+							subTitle={data.position}
 							alt={data ? `${data.firstName} ${data.lastName}` : ''}
 						/>
 						<h4>ID: {data.id}</h4>

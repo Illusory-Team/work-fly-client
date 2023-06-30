@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { INotification } from '@/shared/api';
+import { Notification } from '@/shared/api';
 import { getRelativeTimeString } from '@/shared/lib/helpers';
 import { classname } from '@/shared/package/classname';
 import { EntityHead } from '@/shared/ui';
@@ -8,7 +8,7 @@ import { EntityHead } from '@/shared/ui';
 import styles from './NotificationCard.module.scss';
 
 interface NotificationCardProps {
-	data: INotification;
+	data: Notification;
 	className?: string;
 }
 
