@@ -33,7 +33,7 @@ export const HomeView: FC = () => {
 			firstName: 'Dima',
 			lastName: 'Kavoon',
 			fullName: 'Dima Kavoon',
-			phone: null,
+			phone: 999999999,
 			birthday: null,
 			address: null,
 			avatar: '',

@@ -1,6 +1,6 @@
-import { UserRes } from '@/shared/api';
+import { UserResponse } from '@/shared/api';
 
-export const usersMock: UserRes[] = [
+export const usersMock: UserResponse[] = [
 	{
 		id: '1',
 		email: 'zhook@gmail.com',
