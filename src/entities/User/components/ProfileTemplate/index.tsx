@@ -1,17 +1,16 @@
-import cn from 'classnames';
-import { FC, ReactNode, useState } from 'react';
+'use client';
 
-import { IUser } from '@/shared/types';
-import { DialogContent } from '@/shared/ui/DialogContent';
-import { EntityHead } from '@/shared/ui/EntityHead';
-import { Icon } from '@/shared/ui/Icon';
+import { FC, ReactNode, SyntheticEvent, useState } from 'react';
+
+import { User } from '@/shared/api';
+import { DialogContent, EntityHead, Icon, Tab, TabPanel, Tabs } from '@/shared/ui';
 
 import { IUserTabs } from '../../types';
 
 import styles from './ProfileTemplate.module.scss';
 
 interface UserDrawerProps {
-	data: IUser;
+	data: User;
 	isLoading?: boolean;
 	error?: string;
 	status: ReactNode;
@@ -30,7 +29,11 @@ export const ProfileTemplate: FC<UserDrawerProps> = ({
 	closeHandler,
 	isChangeable = false,
 }) => {
-	const [selectTab, setSelectTab] = useState(0);
+	const [selectTab, setSelectTab] = useState(1);
+
+	const handleChange = (_: SyntheticEvent, newValue: number) => {
+		setSelectTab(newValue);
+	};
 
 	if (error) return <div>error</div>;
 
@@ -45,32 +48,36 @@ export const ProfileTemplate: FC<UserDrawerProps> = ({
 						</div>
 					</div>
 					<div className={styles.second}>
+						{/* FIX ME - вопрос с fullname так же будет зависеть от стора */}
 						<EntityHead
 							isChangeable={isChangeable}
-							src={data?.avatar}
+							src={data.avatar || ''}
 							title={`${data?.firstName} ${data?.lastName}`}
-							subTitle={data?.position?.value}
-							defaultAvatar={`${data?.firstName} ${data?.lastName}`}
+							subTitle={data.position}
+							alt={data ? `${data.firstName} ${data.lastName}` : ''}
 						/>
 						<h4>ID: {data.id}</h4>
 					</div>
 					<div className={styles.third}>
-						{tabs.map((tab, index) => (
-							<h4
-								onClick={() => setSelectTab(index)}
-								className={cn(styles.tab, {
-									[styles.active]: selectTab === index,
-								})}
-								key={tab.title}
-							>
-								{tab.title}
-							</h4>
-						))}
+						<Tabs value={selectTab} onChange={handleChange}>
+							<Tab value={1} label="personal detail" />
+							<Tab value={2} label="password" />
+						</Tabs>
 					</div>
 				</>
 			}
 		>
-			<div className={styles.body}>{isLoading ? <div>loading</div> : tabs[selectTab].content}</div>
+			<div className={styles.body}>
+				{isLoading ? (
+					<div>loading</div>
+				) : (
+					tabs.map((tab, i) => (
+						<TabPanel key={i} value={selectTab} index={i + 1}>
+							{tab.content}
+						</TabPanel>
+					))
+				)}
+			</div>
 		</DialogContent>
 	);
 };

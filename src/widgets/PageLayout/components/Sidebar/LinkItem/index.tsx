@@ -1,25 +1,25 @@
-import cn from 'classnames';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { FC } from 'react';
 
-import { Icon } from '@/shared/ui/Icon';
+import { classname } from '@/shared/package/classname';
+import { Icon } from '@/shared/ui';
 
-import { LinkItemType } from '../../../const/link-list';
+import { LinkItemType } from '../../../constants/link-list';
 
 import styles from './LinkItem.module.scss';
 
 type LinkItemProps = LinkItemType;
 
 export const LinkItem: FC<LinkItemProps> = ({ text, to, icon, count }) => {
-	const router = useRouter();
+	const pathname = usePathname();
 
 	return (
 		<li className={styles.linkItem}>
 			<Link
 				href={to}
-				className={cn(styles.link, {
-					[styles.activeLink]: router.pathname === to,
+				className={classname(styles.link, {
+					[styles.activeLink]: pathname === to,
 				})}
 			>
 				<div className={styles.textContent}>

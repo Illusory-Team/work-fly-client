@@ -1,1 +1,3 @@
-export { api, fakeApi } from './axios';
+export { api, fakeApi } from './instance';
+export * from './services';
+export * from './types';

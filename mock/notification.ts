@@ -1,12 +1,12 @@
-import { INotification } from '@/shared/types';
+import { Notification } from '@/shared/api';
 
-export const notificationMock: INotification[] = [
+export const notificationMock: Notification[] = [
 	{
 		id: '1',
 		title: 'New task assigned to you',
 		subTitle: 'This is an extreme level of anxiety and will commit autolaunch of the app with a message.',
 		date: 1675448521413,
-		src: '/avatar.jpg',
+		src: '/images/avatar.jpg',
 		priority: null,
 		folder_name: 'Folder Name',
 		isRead: false,
@@ -16,7 +16,7 @@ export const notificationMock: INotification[] = [
 		title: 'New task assigned to you',
 		subTitle: 'This is an extreme level of anxiety and will commit autolaunch of the app with a message.',
 		date: 1675440649873,
-		src: '/avatar.jpg',
+		src: '/images/avatar.jpg',
 		priority: null,
 		folder_name: 'Folder Name',
 		isRead: false,
@@ -26,7 +26,7 @@ export const notificationMock: INotification[] = [
 		title: 'New task assigned to you',
 		subTitle: 'This is an extreme level of anxiety and will commit autolaunch of the app with a message.',
 		date: 1675440649873,
-		src: '/avatar.jpg',
+		src: '/images/avatar.jpg',
 		priority: null,
 		folder_name: 'Folder Name',
 		isRead: true,
@@ -36,7 +36,7 @@ export const notificationMock: INotification[] = [
 		title: 'New task assigned to you',
 		subTitle: 'This is an extreme level of anxiety and will commit autolaunch of the app with a message.',
 		date: 1675440640000,
-		src: '/avatar.jpg',
+		src: '/images/avatar.jpg',
 		priority: null,
 		folder_name: 'Folder Name',
 		isRead: true,
@@ -46,7 +46,7 @@ export const notificationMock: INotification[] = [
 		title: 'New task assigned to you',
 		subTitle: 'This is an extreme level of anxiety and will commit autolaunch of the app with a message.',
 		date: 1675440640000,
-		src: '/avatar.jpg',
+		src: '/images/avatar.jpg',
 		priority: null,
 		folder_name: 'Folder Name',
 		isRead: true,
@@ -56,7 +56,7 @@ export const notificationMock: INotification[] = [
 		title: 'New task assigned to you',
 		subTitle: 'This is an extreme level of anxiety and will commit autolaunch of the app with a message.',
 		date: 1675440640000,
-		src: '/avatar.jpg',
+		src: '/images/avatar.jpg',
 		priority: null,
 		folder_name: 'Folder Name',
 		isRead: true,

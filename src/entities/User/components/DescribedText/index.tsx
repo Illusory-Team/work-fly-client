@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import { FC, HTMLAttributes, PropsWithChildren } from 'react';
+
+import { classname } from '@/shared/package/classname';
 
 import styles from './DescribedText.module.scss';
 
@@ -14,7 +15,7 @@ export const DescribedText: FC<PropsWithChildren<DescribedTextProps>> = ({
 	children,
 	...props
 }) => {
-	const cl = classNames(styles.container, className);
+	const cl = classname(styles.container, className);
 
 	return (
 		<div className={cl} {...props}>

@@ -1,15 +1,15 @@
-import { useRouter } from 'next/router';
+import { useStore } from 'effector-react';
+import { useRouter } from 'next/navigation';
 import { FC } from 'react';
 
-import { IUserTabs, ProfileTemplate, userSelector } from '@/entities/User';
+import { $profile, IUserTabs, ProfileTemplate } from '@/entities/User';
 
 import { ChangePassword, ChangePersonalDetail } from '@/features/UserActions';
 
-import { useAppSelector } from '@/shared/hooks';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Drawer } from '@/shared/ui';
 
 export const UserProfile: FC = () => {
-	const { user, status } = useAppSelector(userSelector);
+	const user = useStore($profile);
 
 	const router = useRouter();
 	const closeHandler = () => router.back();
@@ -20,7 +20,7 @@ export const UserProfile: FC = () => {
 	];
 
 	return (
-		<Drawer direction="right" isShow={true} closeHandler={closeHandler}>
+		<Drawer anchor="right" open={true} onClose={closeHandler}>
 			{/* TODO: сделать обработку в случае, если user === null*/}
 			{!!user ? (
 				<ProfileTemplate

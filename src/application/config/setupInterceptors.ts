@@ -1,18 +1,17 @@
 import { AxiosHeaders } from 'axios';
 
-import { setCurrentUser } from '@/entities/User/model/user.slice';
+import { $profile } from '@/entities/User';
 
-import { AuthService } from '@/features/Auth/services';
-
-import { api } from '@/shared/api';
+import { api, authService } from '@/shared/api';
 import { LOGIN_PATH } from '@/shared/config/paths';
 
-export const setupInterceptors = (store: AppStore) => {
+export const setupInterceptors = () => {
 	api.interceptors.request.use(
 		config => {
-			const { userReducer } = store.getState();
+			const user = $profile.getState();
 
-			const token = userReducer.user && userReducer.user.csrfToken;
+			// const token = user && user.csrfToken;
+			const token = null;
 
 			if (config.headers && token) {
 				(config.headers as AxiosHeaders).set('x-csrf-token', token);
@@ -35,10 +34,10 @@ export const setupInterceptors = (store: AppStore) => {
 					originalConfig._retry = true;
 
 					try {
-						const response = await AuthService.refreshToken();
+						const response = await authService.refreshToken();
 
 						if (response) {
-							store.dispatch(setCurrentUser(response?.data));
+							$profile.updates(response.data);
 						}
 
 						return api(originalConfig);

@@ -1,12 +1,14 @@
+'use client';
+
 import Link from 'next/link';
 import { FC } from 'react';
+import { Controller } from 'react-hook-form';
 
 import { FormTemplate } from '@/entities/User';
 
-import { Button } from '@/shared/ui/Button';
-import { TextField } from '@/shared/ui/inputs/TextField';
+import { Button, FormControl, InputLabel, TextField } from '@/shared/ui';
 
-import { useLoginForm } from '../../hooks';
+import { useLoginForm } from '../../lib';
 
 import styles from './LoginForm.module.scss';
 
@@ -15,7 +17,7 @@ interface LoginFormProps {
 }
 
 export const LoginForm: FC<LoginFormProps> = ({ className }) => {
-	const { submitHandler, getEmailInputProps, getPasswordInputProps } = useLoginForm();
+	const { submitHandler, control } = useLoginForm();
 
 	return (
 		<FormTemplate
@@ -35,9 +37,25 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
 			}
 		>
 			<form className={styles.form} onSubmit={submitHandler}>
-				<TextField {...getEmailInputProps} className={styles.input} />
-				<TextField {...getPasswordInputProps} className={styles.input} />
-				<Button className="mt-10 w-full">Sign in</Button>
+				<FormControl className={styles.control}>
+					<InputLabel>E-mail or phone number</InputLabel>
+					<Controller
+						control={control}
+						name="email"
+						render={({ field }) => <TextField {...field} className={styles.input} />}
+					/>
+				</FormControl>
+				<FormControl className={styles.control}>
+					<InputLabel>Password</InputLabel>
+					<Controller
+						control={control}
+						name="password"
+						render={({ field }) => <TextField {...field} className={styles.input} />}
+					/>
+				</FormControl>
+				<Button className={styles.button} type="submit">
+					Sign in
+				</Button>
 			</form>
 		</FormTemplate>
 	);

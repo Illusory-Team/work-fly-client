@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { Icon } from '@/shared/ui/Icon';
+import { Icon } from '@/shared/ui';
 
-import { linkList, teamManageLinks } from '../../const/link-list';
+import { linkList, teamManageLinks } from '../../constants';
 
 import { LinkItem } from './LinkItem';
 import styles from './Sidebar.module.scss';

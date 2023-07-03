@@ -18,28 +18,37 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "types": ["cypress", "node"],
-		"baseUrl": "./src",
-		"paths": {
-			"~/*": ["/*"],
-			"@/app/*": ["application/*"],
-			"@/processes/*": ["processes/*"],
-			"@/views/*": ["views/*"],
-			"@/widgets/*": ["widgets/*"],
-			"@/features/*": ["features/*"],
-			"@/entities/*": ["entities/*"],
-			"@/shared/*": ["shared/*"],
-			"@/layouts/*": ["layouts/*"],
+    "types": [
+      "cypress",
+      "node"
+    ],
+    "baseUrl": "./src",
+    "paths": {
+      "~/*": ["/*"],
+      "@/app/*": ["application/*"],
+      "@/processes/*": ["processes/*"],
+      "@/views/*": ["views/*"],
+      "@/widgets/*": ["widgets/*"],
+      "@/features/*": ["features/*"],
+      "@/entities/*": ["entities/*"],
+      "@/shared/*": ["shared/*"],
+      "@/layouts/*": ["layouts/*"],
       "@test-utils": ["../test/utils/test-utils.tsx"]
-		}
-	},
-	"include": [
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "node_modules/cypress/types/cypress-global-vars.d.ts"
+    "node_modules/cypress/types/cypress-global-vars.d.ts",
+    ".next/types/**/*.ts"
   ],
-	"exclude": [
+  "exclude": [
     "node_modules",
     "**/*.spec.ts",
     "**/*.test.ts",
