@@ -6,8 +6,4 @@ export { useDebounce } from './useDebounce';
 export { useCopyToClipboard } from './useCopyToClickboard';
 export { useElementSize } from './useElementSize';
 export { useToggle } from './useToggle';
-export { useThrottleCallback } from './useThrottleCallback';
-export { useImageChange } from './useImageChange';
 export { useInput } from './useInput';
-export { useIntersectionObserver } from './useIntersectionObserver';
-export { useLockedBody } from './useLockedBody';

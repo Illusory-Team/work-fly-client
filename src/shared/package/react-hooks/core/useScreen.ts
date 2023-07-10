@@ -20,10 +20,8 @@ export const useScreen = () => {
 
 	useEventListener('resize', handleSize);
 
-	// Set size at the first client-side load
 	useIsomorphicLayoutEffect(() => {
 		handleSize();
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return screen;

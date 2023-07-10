@@ -4,7 +4,9 @@ export const useImageChange = (initial: null | string = null, callback: (() => v
 	const [image, setImage] = useState<null | string>(initial);
 
 	const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-		callback && callback();
+		if (callback) {
+			callback();
+		}
 		const files = e.target.files;
 		if (files?.length) {
 			const file = files[0];
