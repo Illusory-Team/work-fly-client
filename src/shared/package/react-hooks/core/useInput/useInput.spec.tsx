@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react';
+import { fireEvent, render, renderHook, screen } from '@testing-library/react';
 
 import { useInput } from './index';
 
@@ -14,6 +14,16 @@ describe('useInput hook testing', () => {
 		const value = 'I string';
 
 		const { result } = renderHook(() => useInput(value));
+		expect(result.current.value).toBe(value);
+	});
+
+	it('Should change value', () => {
+		const value = 'I string';
+		const { result } = renderHook(() => useInput());
+		render(<input {...result.current} />);
+		const input = screen.getByRole('textbox');
+		expect(result.current.value).toBe('');
+		fireEvent.change(input, { target: { value } });
 		expect(result.current.value).toBe(value);
 	});
 });

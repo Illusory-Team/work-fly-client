@@ -36,10 +36,9 @@ describe('useToggle hook testing', () => {
 		expect(state).toBe(true);
 	});
 
-	it('Should throttle time working and callbacks works', () => {
+	it('Should throttle time working and fnToTrue callback activate', () => {
 		const fnToTrue = jest.fn();
 		const fnToFalse = jest.fn();
-		jest.useFakeTimers();
 		const { result } = renderHook(() => useToggle(false, 1000, fnToTrue, fnToFalse));
 		const { toggle } = result.current;
 		act(() => {
@@ -50,5 +49,20 @@ describe('useToggle hook testing', () => {
 			toggle();
 		});
 		expect(fnToFalse).toHaveBeenCalledTimes(0);
+	});
+
+	it('Should throttle time working and fnToFalse callback activate', () => {
+		const fnToTrue = jest.fn();
+		const fnToFalse = jest.fn();
+		const { result } = renderHook(() => useToggle(true, 1000, fnToTrue, fnToFalse));
+		const { toggle } = result.current;
+		act(() => {
+			toggle();
+		});
+		expect(fnToFalse).toHaveBeenCalledTimes(1);
+		act(() => {
+			toggle();
+		});
+		expect(fnToTrue).toHaveBeenCalledTimes(0);
 	});
 });

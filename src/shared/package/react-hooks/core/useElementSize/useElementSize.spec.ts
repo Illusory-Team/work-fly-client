@@ -51,21 +51,18 @@ describe('useElementSize hook testing', () => {
 		const { result, rerender } = setupHook();
 		const [setRef] = result.current;
 
-		/* 1 */
 		act(() => {
 			setRef(dom);
 			resizeElement(dom, 'height', height_1);
 		});
 		expect(result.current[1].height).toEqual(height_1);
 
-		/* 2 */
 		act(() => {
 			resizeElement(dom, 'height', height_2);
 		});
 		rerender();
 		expect(result.current[1].height).toEqual(height_2);
 
-		/* 3 */
 		act(() => {
 			resizeElement(dom, 'height', height_3);
 		});
@@ -81,21 +78,18 @@ describe('useElementSize hook testing', () => {
 		const { result, rerender } = setupHook();
 		const [setRef] = result.current;
 
-		/* 1 */
 		act(() => {
 			setRef(dom);
 			resizeElement(dom, 'width', width_1);
 		});
 		expect(result.current[1].width).toEqual(width_1);
 
-		/* 2 */
 		act(() => {
 			resizeElement(dom, 'width', width_2);
 		});
 		rerender();
 		expect(result.current[1].width).toEqual(width_2);
 
-		/* 3 */
 		act(() => {
 			resizeElement(dom, 'width', width_3);
 		});

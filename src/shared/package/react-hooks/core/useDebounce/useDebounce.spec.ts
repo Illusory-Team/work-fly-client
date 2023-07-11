@@ -8,7 +8,7 @@ describe('useDebounce hook testing', () => {
 		jest.useFakeTimers();
 		const {
 			result: { current: callback },
-		} = renderHook(() => useDebounce(fn, 1000));
+		} = renderHook(() => useDebounce(fn, 200));
 		callback();
 
 		expect(fn).toHaveBeenCalledTimes(0);
@@ -20,7 +20,7 @@ describe('useDebounce hook testing', () => {
 		expect(fn).toHaveBeenCalledTimes(1);
 	});
 
-	it('Should does not activate callback in 2000ms', () => {
+	it('Should does not activate callback in 1000ms, callback activate before 1000ms', () => {
 		const fn = jest.fn();
 		jest.useFakeTimers();
 		const {
