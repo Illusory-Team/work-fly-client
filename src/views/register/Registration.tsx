@@ -1,13 +1,16 @@
-import Link from 'next/link';
-import React from 'react';
+'use client';
 
-import { LoginForm } from '@/features/Auth';
+import Link from 'next/link';
+
+import { LoginForm, useAuthRedirect } from '@/features/Auth';
 
 import { LOGIN_PATH } from '@/shared/config/paths';
 
 import { AuthLayout } from '@/widgets/AuthLayout';
 
 export const RegistrationView = () => {
+	useAuthRedirect();
+
 	return (
 		<>
 			<AuthLayout

@@ -1,12 +1,16 @@
+'use client';
+
 import Link from 'next/link';
 
-import { LoginForm } from '@/features/Auth';
+import { LoginForm, useAuthRedirect } from '@/features/Auth';
 
 import { REGISTER_PATH } from '@/shared/config/paths';
 
 import { AuthLayout } from '@/widgets/AuthLayout';
 
 export const LoginView = () => {
+	useAuthRedirect();
+
 	return (
 		<>
 			<AuthLayout
