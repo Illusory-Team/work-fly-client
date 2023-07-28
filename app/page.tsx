@@ -1,4 +1,4 @@
-import { HomeView } from '@/views/home/Home';
+import { HomeView } from '@/views/home';
 
 const Home = async () => {
 	return (
