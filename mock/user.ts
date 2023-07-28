@@ -10,6 +10,10 @@ export const usersMock: UserResponse[] = [
 		address: null,
 		description: '',
 		avatar: '',
+		position: {
+			id: '1',
+			value: 'member',
+		},
 	},
 	{
 		id: '2',
@@ -20,6 +24,10 @@ export const usersMock: UserResponse[] = [
 		address: null,
 		description: 'I Matros',
 		avatar: '',
+		position: {
+			id: '1',
+			value: 'member',
+		},
 	},
 	{
 		id: '3',
@@ -30,6 +38,10 @@ export const usersMock: UserResponse[] = [
 		address: null,
 		description: 'I Matros',
 		avatar: '',
+		position: {
+			id: '1',
+			value: 'member',
+		},
 	},
 	{
 		id: '4',
@@ -40,5 +52,9 @@ export const usersMock: UserResponse[] = [
 		address: null,
 		description: 'I Matros',
 		avatar: '',
+		position: {
+			id: '1',
+			value: 'member',
+		},
 	},
 ];
