@@ -7,7 +7,6 @@ export const userMapper = (data: UserResponse): User => {
 		...data,
 		firstName,
 		lastName,
-		position: 'member',
 		isOwner: false,
 	};
 };

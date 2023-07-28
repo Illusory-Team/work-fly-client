@@ -15,7 +15,7 @@ type HeaderProps = {
 };
 
 export const Header: FC<HeaderProps> = ({ notificationHandler }) => {
-	const user = useStore($profile);
+	const { user } = useStore($profile);
 	const [isVisibleDropdown, setIsVisibleDropdown] = useState<boolean>(false);
 
 	const closeDropDown = () => {

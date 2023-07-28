@@ -1,4 +1,4 @@
-import { PositionValueType, UserPosition } from './Position';
+import { UserPosition } from './Position';
 
 export interface UserResponse {
 	id: string;
@@ -9,6 +9,7 @@ export interface UserResponse {
 	address: string | null;
 	description: string | null;
 	avatar: string | null;
+	position: UserPosition;
 }
 
 export interface UserResponseWithPosition extends UserResponse {
@@ -16,8 +17,15 @@ export interface UserResponseWithPosition extends UserResponse {
 }
 
 export interface User extends UserResponse {
-	position: PositionValueType;
+	position: UserPosition;
 	firstName: string;
 	lastName: string;
 	isOwner: boolean;
+}
+
+export interface UserStore {
+	user: Nullable<User>;
+	isLoading: boolean;
+	isAuthenticated: boolean;
+	error: null | string;
 }
