@@ -1,13 +1,13 @@
 /* eslint-disable no-console */
 import { useState } from 'react';
 
-type CopiedValueType = string | null;
-type CopyFnType = (text: string) => Promise<boolean>;
+type CopiedValue = string | null;
+type CopyFn = (text: string) => Promise<boolean>;
 
-export const useCopyToClipboard = (): [CopiedValueType, CopyFnType] => {
-	const [copiedText, setCopiedText] = useState<CopiedValueType>(null);
+export const useCopyToClipboard = (): [CopiedValue, CopyFn] => {
+	const [copiedText, setCopiedText] = useState<CopiedValue>(null);
 
-	const copy: CopyFnType = async text => {
+	const copy: CopyFn = async text => {
 		if (!navigator?.clipboard) {
 			console.warn('Clipboard not supported');
 			return false;
