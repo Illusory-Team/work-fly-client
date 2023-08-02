@@ -2,15 +2,13 @@
 
 import Link from 'next/link';
 
-import { LoginForm, useAuthRedirect } from '@/features/Auth';
+import { LoginForm, withAuthCheck } from '@/features/Auth';
 
 import { REGISTER_PATH } from '@/shared/config/paths';
 
 import { AuthLayout } from '@/widgets/AuthLayout';
 
-export const LoginView = () => {
-	useAuthRedirect();
-
+const LoginView = () => {
 	return (
 		<>
 			<AuthLayout
@@ -29,3 +27,5 @@ export const LoginView = () => {
 		</>
 	);
 };
+
+export default withAuthCheck(LoginView);

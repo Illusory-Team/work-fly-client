@@ -2,45 +2,46 @@
 
 import { Box, CircularProgress } from '@mui/material';
 import { useEvent, useStore } from 'effector-react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { FC, useCallback, useEffect } from 'react';
 
 import { $profile, getUser } from '@/entities/User';
 
 import { authService } from '@/shared/api';
-import { LOGIN_PATH } from '@/shared/config/paths';
+import { LOGIN_PATH, REGISTER_PATH } from '@/shared/config/paths';
 
-export const withAuth = <P extends object>(WrappedComponent: FC<P>) => {
+export const withAuthCheck = <P extends object>(WrappedComponent: FC<P>) => {
 	const displayName = WrappedComponent.displayName || WrappedComponent.name || 'Component';
 
 	const ComponentWithAuth = (props: P) => {
 		const router = useRouter();
+		const pathname = usePathname();
 
 		const { isAuthenticated } = useStore($profile);
 		const isLoading = useStore(getUser.pending);
 
 		const getUserEvent = useEvent(getUser);
 
-		const checkAuth = useCallback(() => {
-			const loadUser = async () => {
-				const token = await authService.refreshToken();
+		const loadUser = useCallback(async () => {
+			const token = await authService.refreshToken();
 
-				if (!token) {
-					router.push(LOGIN_PATH);
-					return;
-				}
+			if (!token) {
+				router.push(LOGIN_PATH);
+				return;
+			}
 
-				await getUserEvent();
-			};
+			await getUserEvent();
+		}, []);
 
+		useEffect(() => {
 			if (!isAuthenticated) {
 				loadUser();
 			}
-		}, [isAuthenticated]);
 
-		useEffect(() => {
-			checkAuth();
-		}, [checkAuth]);
+			if (isAuthenticated && (pathname === LOGIN_PATH || pathname === REGISTER_PATH)) {
+				router.push('/');
+			}
+		}, [isAuthenticated, loadUser]);
 
 		if (isLoading || !isAuthenticated) {
 			return (
@@ -53,7 +54,7 @@ export const withAuth = <P extends object>(WrappedComponent: FC<P>) => {
 		return <WrappedComponent {...(props as P)} />;
 	};
 
-	ComponentWithAuth.displayName = `withAuth(${displayName})`;
+	ComponentWithAuth.displayName = `withAuthCheck(${displayName})`;
 
 	return ComponentWithAuth;
 };

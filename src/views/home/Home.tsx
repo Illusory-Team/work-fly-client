@@ -5,7 +5,7 @@ import { FC } from 'react';
 
 import { $profile } from '@/entities/User';
 
-import { withAuth } from '@/features/Auth/lib';
+import { withAuthCheck } from '@/features/Auth/lib';
 
 import { PageLayout } from '@/widgets/PageLayout';
 
@@ -19,4 +19,4 @@ const HomeView: FC = () => {
 	);
 };
 
-export default withAuth(HomeView);
+export default withAuthCheck(HomeView);

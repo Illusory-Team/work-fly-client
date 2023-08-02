@@ -1,6 +1,6 @@
 import { Metadata, NextPage } from 'next';
 
-import { LoginView } from '@/views/login/Login';
+import { LoginView } from '@/views/login';
 
 export const metadata: Metadata = {
 	title: 'Work Fly | Login',
