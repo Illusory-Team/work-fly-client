@@ -12,5 +12,9 @@ export interface AuthLoginRequest {
 
 export interface AuthResponse {
 	user: UserResponseWithPosition;
-	csrfToken: string;
+	accessToken: string;
+}
+
+export interface AccessTokenResponse {
+	accessToken: string;
 }

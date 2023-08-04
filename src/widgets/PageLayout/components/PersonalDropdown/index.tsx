@@ -40,7 +40,7 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 			<EntityHead
 				alt={user.fullName}
 				title={user.fullName}
-				subTitle={user.position}
+				subTitle={user.position.value}
 				className="p-2 mb-1"
 				classNameAvatar={styles.userAvatar}
 				classNameText={styles.userTitle}

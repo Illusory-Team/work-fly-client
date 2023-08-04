@@ -5,11 +5,16 @@ import { User } from '@/shared/api';
 import { $otherUserId, $profile, $profileReadonly } from './user.store';
 
 export const $profileApi = createApi($profile, {
-	setProfile(_, payload: User) {
-		return payload;
+	setProfile(store, payload: User) {
+		store.user = payload;
+		store.isAuthenticated = true;
 	},
-	removeProfile() {
-		return null;
+	removeProfile(store) {
+		store.user = null;
+		store.isAuthenticated = false;
+	},
+	stopLoad(store) {
+		store.isLoading = false;
 	},
 });
 

@@ -1,15 +1,28 @@
-import { AxiosInstance } from 'axios';
+import { AxiosError, AxiosInstance } from 'axios';
 
-import { fakeApi } from '../instance';
+import { User } from '@/shared/api';
+import { userMapper } from '@/shared/api/mappers';
+import { logger } from '@/shared/lib/helpers/logger';
+
+import { api } from '../instance';
 
 class UserService {
 	api: AxiosInstance;
 	constructor() {
-		this.api = fakeApi;
+		this.api = api;
 	}
 
 	async getUserProfile() {
-		return await this.api.get('/users');
+		try {
+			const response = await this.api.get<User>('/users/me');
+
+			if (response) {
+				return userMapper(response.data);
+			}
+		} catch (err) {
+			const error = err as AxiosError;
+			logger({ type: 'error', message: error.message });
+		}
 	}
 }
 

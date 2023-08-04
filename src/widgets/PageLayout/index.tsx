@@ -21,8 +21,8 @@ export const PageLayout: FC<PropsWithChildren> = ({ children }) => {
 	const openNotificationsDrawer = () => setIsShowNotifications(true);
 
 	const closeCompanyManage = () => router.back();
-
 	const dialogQuery = query.get('dialog');
+
 	return (
 		<>
 			<main className={styles.pageLayout}>

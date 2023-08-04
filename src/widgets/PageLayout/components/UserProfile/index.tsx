@@ -9,7 +9,7 @@ import { ChangePassword, ChangePersonalDetail } from '@/features/UserActions';
 import { Drawer } from '@/shared/ui';
 
 export const UserProfile: FC = () => {
-	const user = useStore($profile);
+	const { user } = useStore($profile);
 
 	const router = useRouter();
 	const closeHandler = () => router.back();
