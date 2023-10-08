@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { FC } from 'react';
 import SimpleBar from 'simplebar-react';
 
@@ -22,7 +21,7 @@ export const NotificationList: FC<NotificationListProps> = ({ notifications }) =
 					))
 				) : (
 					<div className={styles.empty}>
-						<Image src="/guy_and_a_cat.png" alt="" width={200} height={248} />
+						<img src="/images/illustrations/guy_and_a_cat.png" alt="" width={200} height={248} />
 						<h2>
 							There aren’t any <br />
 							notifications

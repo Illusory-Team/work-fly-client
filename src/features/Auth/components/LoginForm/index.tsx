@@ -1,8 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { FC } from 'react';
 import { Controller } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 import { FormTemplate } from '@/entities/User';
 
@@ -27,10 +27,10 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
 			footer={
 				<>
 					You have a code?{' '}
-					<Link className="font-bold" href="/code-join">
+					<Link className="font-bold" to="/code-join">
 						Join your team
 					</Link>
-					<Link href="/forgot-password" className="text-center block mt-7 font-bold">
+					<Link to="/forgot-password" className="text-center block mt-7 font-bold">
 						Forgot your password?
 					</Link>
 				</>

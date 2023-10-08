@@ -9,7 +9,7 @@ import { withAuthCheck } from '@/features/Auth/lib';
 
 import { PageLayout } from '@/widgets/PageLayout';
 
-const HomeView: FC = () => {
+const HomePage: FC = () => {
 	const { user } = useStore($profile);
 
 	return (
@@ -19,4 +19,4 @@ const HomeView: FC = () => {
 	);
 };
 
-export default withAuthCheck(HomeView);
+export default withAuthCheck(HomePage);

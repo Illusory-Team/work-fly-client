@@ -1,5 +1,4 @@
 import { useStore } from 'effector-react';
-import { useRouter } from 'next/navigation';
 import { FC } from 'react';
 
 import { $profile, IUserTabs, ProfileTemplate } from '@/entities/User';
@@ -7,12 +6,13 @@ import { $profile, IUserTabs, ProfileTemplate } from '@/entities/User';
 import { ChangePassword, ChangePersonalDetail } from '@/features/UserActions';
 
 import { Drawer } from '@/shared/ui';
+import { useNavigate } from 'react-router-dom';
 
 export const UserProfile: FC = () => {
 	const { user } = useStore($profile);
 
-	const router = useRouter();
-	const closeHandler = () => router.back();
+	const router = useNavigate();
+	const closeHandler = () => router(-1);
 
 	const tabs: IUserTabs[] = [
 		{ title: 'Personal Detail', content: <ChangePersonalDetail /> },

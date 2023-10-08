@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 import { LoginForm } from '@/features/Auth';
 
@@ -8,7 +8,7 @@ import { LOGIN_PATH } from '@/shared/config/paths';
 
 import { AuthLayout } from '@/widgets/AuthLayout';
 
-export const RegistrationView = () => {
+const RegistrationPage = () => {
 	return (
 		<>
 			<AuthLayout
@@ -18,7 +18,7 @@ export const RegistrationView = () => {
 				subTitle={
 					<>
 						Already have an account?
-						<Link href={LOGIN_PATH} className="font-bold">
+						<Link to={LOGIN_PATH} className="font-bold">
 							Login
 						</Link>
 					</>
@@ -27,3 +27,5 @@ export const RegistrationView = () => {
 		</>
 	);
 };
+
+export default RegistrationPage;

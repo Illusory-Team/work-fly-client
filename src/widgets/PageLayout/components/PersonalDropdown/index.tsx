@@ -1,5 +1,5 @@
-import { useRouter } from 'next/navigation';
 import { forwardRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { User, authService } from '@/shared/api';
 import { LOGIN_PATH } from '@/shared/config/paths';
@@ -17,7 +17,7 @@ type PersonalDropdownProps = {
 export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps>(({ isVisible, user }, ref) => {
 	const [isVacation, setIsVacation] = useState<'on' | 'off'>('off');
 
-	const router = useRouter();
+	const navigate = useNavigate();
 
 	const toggleSwitch = () => {
 		setIsVacation(prevState => (prevState === 'off' ? 'on' : 'off'));
@@ -27,7 +27,7 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 	const onLogout = async () => {
 		await authService.logout();
 
-		await router.push(LOGIN_PATH);
+		await navigate(LOGIN_PATH);
 	};
 
 	return (
