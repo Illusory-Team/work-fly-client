@@ -2,6 +2,7 @@
 
 import { FC, PropsWithChildren } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -12,5 +13,10 @@ const queryClient = new QueryClient({
 });
 
 export const QueryProvider: FC<PropsWithChildren> = ({ children }) => {
-	return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
+	return (
+		<QueryClientProvider client={queryClient}>
+			{children}
+			<ReactQueryDevtools initialIsOpen={false} />
+		</QueryClientProvider>
+	);
 };

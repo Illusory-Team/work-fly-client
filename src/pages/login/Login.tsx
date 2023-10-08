@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 import { LoginForm, withAuthCheck } from '@/features/Auth';
 
@@ -8,7 +8,7 @@ import { REGISTER_PATH } from '@/shared/config/paths';
 
 import { AuthLayout } from '@/widgets/AuthLayout';
 
-const LoginView = () => {
+const LoginPage = () => {
 	return (
 		<>
 			<AuthLayout
@@ -18,7 +18,7 @@ const LoginView = () => {
 				subTitle={
 					<>
 						Have no account?{' '}
-						<Link href={REGISTER_PATH} className="font-bold">
+						<Link to={REGISTER_PATH} className="font-bold">
 							Registration
 						</Link>
 					</>
@@ -28,4 +28,4 @@ const LoginView = () => {
 	);
 };
 
-export default withAuthCheck(LoginView);
+export default withAuthCheck(LoginPage);

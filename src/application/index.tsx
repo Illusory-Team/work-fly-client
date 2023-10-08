@@ -1,15 +1,16 @@
-'use client';
-
 import { FC } from 'react';
-import { ReactQueryDevtools } from 'react-query/devtools';
+import { RouterProvider } from 'react-router';
+import 'simplebar-react/dist/simplebar.min.css';
+
+import { routes } from '@/app/routing/routes';
 
 import { AppProvider } from './providers';
+import './styles/index.scss';
 
-export const Root: FC<PropsWithChildren> = ({ children }) => {
+export const App: FC = () => {
 	return (
 		<AppProvider>
-			{children}
-			<ReactQueryDevtools initialIsOpen={false} />
+			<RouterProvider router={routes} />
 		</AppProvider>
 	);
 };

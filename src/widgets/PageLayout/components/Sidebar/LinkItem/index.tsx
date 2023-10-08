@@ -1,6 +1,5 @@
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { FC } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 import { classname } from '@/shared/package/classname';
 import { Icon } from '@/shared/ui';
@@ -12,12 +11,12 @@ import styles from './LinkItem.module.scss';
 type LinkItemProps = LinkItemType;
 
 export const LinkItem: FC<LinkItemProps> = ({ text, to, icon, count }) => {
-	const pathname = usePathname();
+	const { pathname } = useLocation();
 
 	return (
 		<li className={styles.linkItem}>
 			<Link
-				href={to}
+				to={to}
 				className={classname(styles.link, {
 					[styles.activeLink]: pathname === to,
 				})}

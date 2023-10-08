@@ -13,17 +13,17 @@ export default ({ mode }: any) => {
 
 		plugins: [
 			react(),
-			{
-				name: 'index.html',
-				configureServer(server) {
-					server.middlewares.use((req, res, next) => {
-						if (req.url === '/') {
-							req.url = './public/index.html';
-						}
-						next();
-					});
-				},
-			},
+			// {
+			// 	name: 'index.html',
+			// 	configureServer(server) {
+			// 		server.middlewares.use((req, res, next) => {
+			// 			if (req.url === '/') {
+			// 				req.url = './public/index.html';
+			// 			}
+			// 			next();
+			// 		});
+			// 	},
+			// },
 			visualizer({
 				template: 'treemap',
 				filename: 'analyse.html',
@@ -36,7 +36,7 @@ export default ({ mode }: any) => {
 			alias: {
 				'@/': path.resolve(__dirname, './src'),
 				'@/app': path.resolve(__dirname, './src/application'),
-				'@/views': path.resolve(__dirname, './src/views'),
+				'@/pages': path.resolve(__dirname, './src/pages'),
 				'@/widgets': path.resolve(__dirname, './src/widgets'),
 				'@/features': path.resolve(__dirname, './src/features'),
 				'@/entities': path.resolve(__dirname, './src/entities'),
@@ -52,9 +52,11 @@ export default ({ mode }: any) => {
 		},
 		server: {
 			proxy: {
-				'/api/*': {
-					target: process.env.API_URL,
+				'/api': {
+					target: process.env.VITE_API_URL,
+					secure: false,
 					changeOrigin: true,
+					rewrite: path => path.replace(/^\/api/, ''),
 				},
 			},
 		},

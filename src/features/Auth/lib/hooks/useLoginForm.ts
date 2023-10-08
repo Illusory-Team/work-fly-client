@@ -1,17 +1,15 @@
-'use client';
-
 import { AxiosError } from 'axios';
-import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 
 import { $profileApi } from '@/entities/User';
 
 import { AuthLoginRequest, ErrorResponse, authService } from '@/shared/api';
+import { useNavigate } from 'react-router-dom';
 
 export const useLoginForm = () => {
 	const { setError, control, handleSubmit } = useForm<AuthLoginRequest>({ mode: 'onBlur' });
-	const router = useRouter();
+	const navigate = useNavigate();
 
 	const { mutateAsync } = useMutation('login-user', (data: AuthLoginRequest) => authService.login(data), {
 		onSuccess(user) {
@@ -24,7 +22,7 @@ export const useLoginForm = () => {
 	const submitHandler = handleSubmit(async (data: AuthLoginRequest) => {
 		try {
 			await mutateAsync(data);
-			await router.push('/');
+			await navigate('/');
 		} catch (error) {
 			const errorMessage = (error as AxiosError<ErrorResponse>).response?.data.message;
 			if (errorMessage) {

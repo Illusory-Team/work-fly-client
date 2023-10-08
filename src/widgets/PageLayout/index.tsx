@@ -1,7 +1,5 @@
-'use client';
-
-import { useRouter, useSearchParams } from 'next/navigation';
 import { FC, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import SimpleBar from 'simplebar-react';
 
 import { CompanyDrawer } from '@/entities/Company';
@@ -13,14 +11,14 @@ import { Header, Notifications, Sidebar, UserProfile } from '@/widgets/PageLayou
 import styles from './PageLayout.module.scss';
 
 export const PageLayout: FC<PropsWithChildren> = ({ children }) => {
-	const query = useSearchParams();
-	const router = useRouter();
+	const [query] = useSearchParams();
+	const navigate = useNavigate();
 	const [isShowNotifications, setIsShowNotifications] = useState<boolean>(false);
 
 	const closeNotificationsDrawer = () => setIsShowNotifications(false);
 	const openNotificationsDrawer = () => setIsShowNotifications(true);
 
-	const closeCompanyManage = () => router.back();
+	const closeCompanyManage = () => navigate(-1);
 	const dialogQuery = query.get('dialog');
 
 	return (

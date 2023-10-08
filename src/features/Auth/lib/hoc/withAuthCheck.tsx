@@ -2,8 +2,8 @@
 
 import { Box, CircularProgress } from '@mui/material';
 import { useEvent, useStore } from 'effector-react';
-import { usePathname, useRouter } from 'next/navigation';
 import { FC, useCallback, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { $profile, getUser } from '@/entities/User';
 
@@ -14,8 +14,8 @@ export const withAuthCheck = <P extends object>(WrappedComponent: FC<P>) => {
 	const displayName = WrappedComponent.displayName || WrappedComponent.name || 'Component';
 
 	const ComponentWithAuth = (props: P) => {
-		const router = useRouter();
-		const pathname = usePathname();
+		const navigate = useNavigate();
+		const { pathname } = useLocation();
 
 		const { isAuthenticated } = useStore($profile);
 		const isLoading = useStore(getUser.pending);
@@ -26,7 +26,7 @@ export const withAuthCheck = <P extends object>(WrappedComponent: FC<P>) => {
 			const token = await authService.refreshToken();
 
 			if (!token) {
-				router.push(LOGIN_PATH);
+				navigate('/login');
 				return;
 			}
 
@@ -39,11 +39,11 @@ export const withAuthCheck = <P extends object>(WrappedComponent: FC<P>) => {
 			}
 
 			if (isAuthenticated && (pathname === LOGIN_PATH || pathname === REGISTER_PATH)) {
-				router.push('/');
+				navigate('/');
 			}
 		}, [isAuthenticated, loadUser]);
 
-		if (isLoading || !isAuthenticated) {
+		if (isLoading && !isAuthenticated) {
 			return (
 				<Box display="flex" justifyContent="center" alignItems="center" height="100vh">
 					<CircularProgress />
