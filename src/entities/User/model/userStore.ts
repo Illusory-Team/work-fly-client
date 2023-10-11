@@ -3,6 +3,7 @@ import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
 import { User, authService, userService } from '@/shared/api';
+import { userMapper } from '@/shared/api/mappers';
 import { logger } from '@/shared/lib/helpers/logger';
 
 type UserState = {
@@ -34,7 +35,7 @@ export const useUserStore = create(
 				if (!!response) {
 					setState(state => {
 						state.isAuthenticated = true;
-						state.user = response;
+						state.user = userMapper(response.data);
 						state.error = null;
 					});
 				}
