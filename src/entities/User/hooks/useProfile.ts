@@ -1,13 +1,15 @@
-import { setProfileDrawerEvent } from '../model';
+import { useState } from 'react';
 
 export const useProfile = () => {
+	const [profileDrawer, setProfileDrawer] = useState(false);
+
 	const openOwnProfileHandler = () => {
-		setProfileDrawerEvent(true);
+		setProfileDrawer(true);
 	};
 
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const openProfileHandler = (id: string | number) => {
-		setProfileDrawerEvent(true);
+		setProfileDrawer(true);
 	};
 
 	return {

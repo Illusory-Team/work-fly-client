@@ -28,7 +28,7 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 
 	// FIX ME - вынести в фичу юзера logout кнопку как ui
 	const onLogout = async () => {
-		await authService.logout();
+		await logout();
 
 		await navigate(LOGIN_PATH);
 	};
