@@ -2,7 +2,7 @@ import { Box, CircularProgress } from '@mui/material';
 import { FC, useCallback, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { useUserStore } from '@/entities/User/model/userStore';
+import { useUserStore } from '@/entities/User';
 
 import { authService } from '@/shared/api';
 import { LOGIN_PATH, REGISTER_PATH } from '@/shared/config/paths';
