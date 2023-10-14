@@ -1,10 +1,4 @@
-const nextJest = require('next/jest');
-
-const createJestConfig = nextJest({
-	dir: './',
-});
-
-const customJestConfig = {
+module.exports = {
 	moduleDirectories: ['node_modules', '<rootDir>/', '<rootDir>/utils'],
 	moduleNameMapper: {
 		'^@/shared(.*)$': '<rootDir>/src/shared$1',
@@ -13,7 +7,7 @@ const customJestConfig = {
 		'^@/widgets(.*)$': '<rootDir>/src/widgets$1',
 		'^@/views(.*)$': '<rootDir>/src/views$1',
 		'^@/processes(.*)$': '<rootDir>/src/processes$1',
-		'^@/app(.*)$': '<rootDir>/src/application$1',
+		'^@/app(.*)$': '<rootDir>/src/app',
 		'^@test-utils': '<rootDir>/test/utils/test-utils.tsx',
 	},
 
@@ -22,5 +16,3 @@ const customJestConfig = {
 	modulePathIgnorePatterns: ['node_modules', '<rootDir>/test/utils'],
 	verbose: true,
 };
-
-module.exports = createJestConfig(customJestConfig);

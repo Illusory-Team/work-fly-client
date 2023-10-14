@@ -35,7 +35,7 @@ export default ({ mode }: any) => {
 		resolve: {
 			alias: {
 				'@/': path.resolve(__dirname, './src'),
-				'@/app': path.resolve(__dirname, './src/application'),
+				'@/app': path.resolve(__dirname, './src/app'),
 				'@/pages': path.resolve(__dirname, './src/pages'),
 				'@/widgets': path.resolve(__dirname, './src/widgets'),
 				'@/features': path.resolve(__dirname, './src/features'),
