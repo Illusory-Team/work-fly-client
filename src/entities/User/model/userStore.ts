@@ -2,7 +2,7 @@ import { AxiosError } from 'axios';
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
-import { User, authService, userService } from '@/shared/api';
+import { User, userService } from '@/shared/api';
 import { userMapper } from '@/shared/api/mappers';
 import { logger } from '@/shared/lib/helpers/logger';
 
@@ -14,7 +14,6 @@ type UserState = {
 	getUser: () => void;
 	clearUser: () => void;
 	setUser: (user: User) => void;
-	logout: () => void;
 	setLoading: (value: boolean) => void;
 };
 
@@ -64,19 +63,6 @@ export const useUserStore = create(
 				state.user = user;
 				state.isAuthenticated = true;
 			});
-		},
-		logout: async () => {
-			try {
-				await authService.logout();
-
-				setState(state => {
-					state.user = null;
-					state.isAuthenticated = false;
-				});
-			} catch (err) {
-				const error = err as AxiosError;
-				logger({ type: 'error', message: error.message });
-			}
 		},
 		setLoading: value => {
 			setState(state => {

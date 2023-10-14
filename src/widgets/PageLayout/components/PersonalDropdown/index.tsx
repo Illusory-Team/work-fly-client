@@ -1,7 +1,7 @@
 import { forwardRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { useUserStore } from '@/entities/User';
+import { useAuthStore } from '@/entities/Auth';
 
 import { User } from '@/shared/api';
 import { LOGIN_PATH } from '@/shared/config/paths';
@@ -18,7 +18,7 @@ type PersonalDropdownProps = {
 
 export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps>(({ isVisible, user }, ref) => {
 	const [isVacation, setIsVacation] = useState<'on' | 'off'>('off');
-	const logout = useUserStore(state => state.logout);
+	const logout = useAuthStore(state => state.logout);
 
 	const navigate = useNavigate();
 
