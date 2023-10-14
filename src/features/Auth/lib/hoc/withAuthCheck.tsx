@@ -1,4 +1,3 @@
-import { Box, CircularProgress } from '@mui/material';
 import { FC, useCallback, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -6,6 +5,7 @@ import { useUserStore } from '@/entities/User';
 
 import { authService } from '@/shared/api';
 import { LOGIN_PATH, REGISTER_PATH } from '@/shared/config/paths';
+import { Spinner } from '@/shared/ui';
 
 export const withAuthCheck = <P extends object>(WrappedComponent: FC<P>) => {
 	const displayName = WrappedComponent.displayName || WrappedComponent.name || 'Component';
@@ -40,11 +40,7 @@ export const withAuthCheck = <P extends object>(WrappedComponent: FC<P>) => {
 		}, [isAuthenticated, loadUser]);
 
 		if (isLoading && !isAuthenticated) {
-			return (
-				<Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-					<CircularProgress />
-				</Box>
-			);
+			return <Spinner />;
 		}
 
 		return <WrappedComponent {...(props as P)} />;
