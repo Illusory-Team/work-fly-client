@@ -1,12 +1,10 @@
-'use client';
-
 import { FC } from 'react';
 import { Controller } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
 import { FormTemplate } from '@/entities/User';
 
-import { Button, FormControl, InputLabel, TextField } from '@/shared/ui';
+import { Button, FormControl, InputLabel, Spinner, TextField } from '@/shared/ui';
 
 import { useLoginForm } from '../../lib';
 
@@ -17,7 +15,11 @@ interface LoginFormProps {
 }
 
 export const LoginForm: FC<LoginFormProps> = ({ className }) => {
-	const { submitHandler, control } = useLoginForm();
+	const { submitHandler, control, isLoading, error } = useLoginForm();
+
+	if (isLoading) {
+		return <Spinner />;
+	}
 
 	return (
 		<FormTemplate
@@ -36,27 +38,30 @@ export const LoginForm: FC<LoginFormProps> = ({ className }) => {
 				</>
 			}
 		>
-			<form className={styles.form} onSubmit={submitHandler}>
-				<FormControl className={styles.control}>
-					<InputLabel>E-mail or phone number</InputLabel>
-					<Controller
-						control={control}
-						name="email"
-						render={({ field }) => <TextField {...field} className={styles.input} />}
-					/>
-				</FormControl>
-				<FormControl className={styles.control}>
-					<InputLabel>Password</InputLabel>
-					<Controller
-						control={control}
-						name="password"
-						render={({ field }) => <TextField {...field} className={styles.input} />}
-					/>
-				</FormControl>
-				<Button className={styles.button} type="submit">
-					Sign in
-				</Button>
-			</form>
+			<>
+				<form className={styles.form} onSubmit={submitHandler}>
+					<FormControl className={styles.control}>
+						<InputLabel>E-mail or phone number</InputLabel>
+						<Controller
+							control={control}
+							name="email"
+							render={({ field }) => <TextField {...field} className={styles.input} />}
+						/>
+					</FormControl>
+					<FormControl className={styles.control}>
+						<InputLabel>Password</InputLabel>
+						<Controller
+							control={control}
+							name="password"
+							render={({ field }) => <TextField {...field} className={styles.input} />}
+						/>
+					</FormControl>
+					<Button className={styles.button} type="submit">
+						Sign in
+					</Button>
+				</form>
+				{error && <p>Не удалось войти в систему. Попробуйте позже</p>}
+			</>
 		</FormTemplate>
 	);
 };
