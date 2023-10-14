@@ -1,1 +1,0 @@
-export { RootStyleRegistry } from './RootStyleRegistry';
