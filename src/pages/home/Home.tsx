@@ -1,16 +1,13 @@
-'use client';
-
-import { useStore } from 'effector-react';
 import { FC } from 'react';
 
-import { $profile } from '@/entities/User';
+import { useUserStore } from '@/entities/User';
 
 import { withAuthCheck } from '@/features/Auth/lib';
 
 import { PageLayout } from '@/widgets/PageLayout';
 
 const HomePage: FC = () => {
-	const { user } = useStore($profile);
+	const user = useUserStore(state => state.user);
 
 	return (
 		<PageLayout>

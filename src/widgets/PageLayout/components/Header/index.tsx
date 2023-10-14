@@ -1,7 +1,6 @@
-import { useStore } from 'effector-react';
 import { FC, useState } from 'react';
 
-import { $profile } from '@/entities/User';
+import { useUserStore } from '@/entities/User/model/userStore';
 
 import { useOutsideClick } from '@/shared/package/react-hooks';
 import { Avatar, Button, Icon } from '@/shared/ui';
@@ -15,7 +14,7 @@ type HeaderProps = {
 };
 
 export const Header: FC<HeaderProps> = ({ notificationHandler }) => {
-	const { user } = useStore($profile);
+	const user = useUserStore(state => state.user);
 	const [isVisibleDropdown, setIsVisibleDropdown] = useState<boolean>(false);
 
 	const closeDropDown = () => {

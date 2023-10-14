@@ -1,15 +1,14 @@
-import { useStore } from 'effector-react';
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { $profile, IUserTabs, ProfileTemplate } from '@/entities/User';
+import { IUserTabs, ProfileTemplate, useUserStore } from '@/entities/User';
 
 import { ChangePassword, ChangePersonalDetail } from '@/features/UserActions';
 
 import { Drawer } from '@/shared/ui';
-import { useNavigate } from 'react-router-dom';
 
 export const UserProfile: FC = () => {
-	const { user } = useStore($profile);
+	const user = useUserStore(state => state.user);
 
 	const router = useNavigate();
 	const closeHandler = () => router(-1);
