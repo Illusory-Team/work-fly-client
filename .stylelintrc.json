@@ -10,5 +10,5 @@
 		"color-hex-length": "short",
     "declaration-empty-line-before": null
 	},
-	"ignoreFiles": ["build/*", "./src/application/styles/lib/*.scss"]
+	"ignoreFiles": ["build/*", "./src/app/styles/lib/*.scss"]
 }
