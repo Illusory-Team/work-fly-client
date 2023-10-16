@@ -1,4 +1,4 @@
-import { IAppConfig } from '~/shared/config/appConfig';
+import { IAppConfig } from '@/shared/config/appConfig';
 
 declare global {
 	export type Nullable<T> = T | null;
