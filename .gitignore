@@ -7,6 +7,12 @@
 .idea
 .vscode
 storybook-static
+.yarn
+.yarnrc.yml
+yarn.lock
+package-lock.json
+.pnp.cjs
+.pnp.loader.mjs
 
 # testing
 /coverage
