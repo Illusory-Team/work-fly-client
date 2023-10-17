@@ -2,8 +2,8 @@ import axios from 'axios';
 
 import { errorResponseInterceptor, responseInterceptor } from './interceptors/auth-interceptor';
 
-export const BASE_URL = process.env.API_URL;
-const FAKE_URL = process.env.FAKE_API_URL;
+export const BASE_URL = '/api';
+const FAKE_URL = '/fake';
 
 export const api = axios.create({
 	baseURL: BASE_URL,

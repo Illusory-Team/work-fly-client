@@ -1,30 +1,36 @@
-'use client';
-
 import { AxiosError } from 'axios';
-import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 
-import { $profileApi } from '@/entities/User';
+import { useUserStore } from '@/entities/User';
 
 import { AuthLoginRequest, ErrorResponse, authService } from '@/shared/api';
 
 export const useLoginForm = () => {
-	const { setError, control, handleSubmit } = useForm<AuthLoginRequest>({ mode: 'onBlur' });
-	const router = useRouter();
+	const { setError, control, handleSubmit } = useForm<AuthLoginRequest>({ mode: 'onBlur', reValidateMode: 'onSubmit' });
+	const navigate = useNavigate();
+	const setUser = useUserStore(state => state.setUser);
 
-	const { mutateAsync } = useMutation('login-user', (data: AuthLoginRequest) => authService.login(data), {
-		onSuccess(user) {
-			if (user) {
-				$profileApi.setProfile(user);
-			}
+	const { mutateAsync, isLoading, error } = useMutation(
+		'login-user',
+		(data: AuthLoginRequest) => authService.login(data),
+		{
+			onSuccess(user) {
+				if (user) {
+					setUser(user);
+				}
+			},
 		},
-	});
+	);
 
 	const submitHandler = handleSubmit(async (data: AuthLoginRequest) => {
 		try {
-			await mutateAsync(data);
-			await router.push('/');
+			const response = await mutateAsync(data);
+
+			if (response) {
+				await navigate('/');
+			}
 		} catch (error) {
 			const errorMessage = (error as AxiosError<ErrorResponse>).response?.data.message;
 			if (errorMessage) {
@@ -40,5 +46,7 @@ export const useLoginForm = () => {
 	return {
 		control,
 		submitHandler,
+		isLoading,
+		error,
 	};
 };

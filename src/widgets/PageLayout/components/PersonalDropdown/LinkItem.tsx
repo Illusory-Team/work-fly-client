@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { FC, MouseEvent } from 'react';
+import { Link } from 'react-router-dom';
 
 import { classname } from '@/shared/package/classname';
 
@@ -16,7 +16,7 @@ export const LinkItem: FC<LinkItemProps> = ({ title, href, className, onClick })
 	return (
 		<li className={classname(styles.linkItem, className)} onClick={onClick}>
 			{href ? (
-				<Link className="block" href={href}>
+				<Link className="block" to={href}>
 					{title}
 				</Link>
 			) : (

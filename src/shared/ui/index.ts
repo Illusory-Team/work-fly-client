@@ -9,7 +9,7 @@ export type { DrawerProps } from './navigation';
 export { TextArea } from './inputs';
 export type { TextAreaProps } from './inputs';
 
-export { DialogContent } from './feedback';
+export { DialogContent, Spinner } from './feedback';
 
 export { Portal } from './utility';
 

@@ -1,4 +1,5 @@
 import { fireEvent, render, renderHook, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 
 import { useInput } from './index';
 

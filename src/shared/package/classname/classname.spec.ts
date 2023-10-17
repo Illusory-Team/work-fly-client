@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest';
+
 import { classname } from './index';
 
 describe('test classname package', () => {

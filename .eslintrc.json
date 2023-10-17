@@ -1,8 +1,6 @@
 {
 	"extends": [
 		"plugin:@typescript-eslint/recommended",
-		"next",
-		"next/core-web-vitals",
 		"plugin:react-hooks/recommended",
 		"plugin:import/errors",
 		"plugin:import/warnings",

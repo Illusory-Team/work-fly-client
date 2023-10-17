@@ -1,4 +1,5 @@
 import { act, renderHook } from '@testing-library/react';
+import { describe, expect, it, vi } from 'vitest';
 
 import { useToggle } from './index';
 
@@ -37,8 +38,8 @@ describe('useToggle hook testing', () => {
 	});
 
 	it('Should throttle time working and fnToTrue callback activate', () => {
-		const fnToTrue = jest.fn();
-		const fnToFalse = jest.fn();
+		const fnToTrue = vi.fn();
+		const fnToFalse = vi.fn();
 		const { result } = renderHook(() => useToggle(false, 1000, fnToTrue, fnToFalse));
 		const { toggle } = result.current;
 		act(() => {
@@ -52,8 +53,8 @@ describe('useToggle hook testing', () => {
 	});
 
 	it('Should throttle time working and fnToFalse callback activate', () => {
-		const fnToTrue = jest.fn();
-		const fnToFalse = jest.fn();
+		const fnToTrue = vi.fn();
+		const fnToFalse = vi.fn();
 		const { result } = renderHook(() => useToggle(true, 1000, fnToTrue, fnToFalse));
 		const { toggle } = result.current;
 		act(() => {

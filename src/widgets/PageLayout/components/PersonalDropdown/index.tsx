@@ -1,7 +1,9 @@
-import { useRouter } from 'next/navigation';
 import { forwardRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { User, authService } from '@/shared/api';
+import { useAuthStore } from '@/entities/Auth';
+
+import { User } from '@/shared/api';
 import { LOGIN_PATH } from '@/shared/config/paths';
 import { classname } from '@/shared/package/classname';
 import { EntityHead, Switch } from '@/shared/ui';
@@ -16,8 +18,9 @@ type PersonalDropdownProps = {
 
 export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps>(({ isVisible, user }, ref) => {
 	const [isVacation, setIsVacation] = useState<'on' | 'off'>('off');
+	const logout = useAuthStore(state => state.logout);
 
-	const router = useRouter();
+	const navigate = useNavigate();
 
 	const toggleSwitch = () => {
 		setIsVacation(prevState => (prevState === 'off' ? 'on' : 'off'));
@@ -25,9 +28,9 @@ export const PersonalDropdown = forwardRef<HTMLDivElement, PersonalDropdownProps
 
 	// FIX ME - вынести в фичу юзера logout кнопку как ui
 	const onLogout = async () => {
-		await authService.logout();
+		await logout();
 
-		await router.push(LOGIN_PATH);
+		await navigate(LOGIN_PATH);
 	};
 
 	return (

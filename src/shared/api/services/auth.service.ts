@@ -40,7 +40,7 @@ class AuthService {
 				if (error?.response?.data.message === 'jwt expired') {
 				}
 
-				throw new Error(error.message);
+				return undefined;
 			}
 		}
 	}

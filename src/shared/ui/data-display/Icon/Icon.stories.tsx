@@ -1,16 +1,19 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Icon } from './Icon';
 
-export default {
+const meta: Meta<typeof Icon> = {
 	title: 'UI/Icon',
 	component: Icon,
-} as ComponentMeta<typeof Icon>;
+	tags: ['autodocs'],
+};
 
-const Template: ComponentStory<typeof Icon> = args => <Icon {...args} />;
+export default meta;
 
-export const Primary = Template.bind({});
-Primary.args = {
-	name: 'folder_save',
-	fill: 'red',
+type Story = StoryObj<typeof Icon>;
+
+export const Primary: Story = {
+	args: {
+		name: 'folder_save',
+	},
 };
