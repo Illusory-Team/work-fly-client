@@ -1,4 +1,5 @@
 import { act, renderHook } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { useCopyToClipboard } from './index';
 
@@ -10,12 +11,12 @@ describe('useCopyToClickboard hook testing', () => {
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore mock clipboard
 		global.navigator.clipboard = {
-			writeText: jest.fn(),
+			writeText: vi.fn(),
 		};
 	});
 
 	afterEach(() => {
-		jest.resetAllMocks();
+		vi.resetAllMocks();
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore mock clipboard
 		global.navigator.clipboard = originalClipboard;

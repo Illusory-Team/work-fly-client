@@ -1,4 +1,5 @@
 import { fireEvent, renderHook } from '@testing-library/react';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import useEventListener from './index';
 
@@ -16,25 +17,25 @@ declare global {
 	}
 }
 
-const windowAddEventListenerSpy = jest.spyOn(window, 'addEventListener');
-const windowRemoveEventListenerSpy = jest.spyOn(window, 'removeEventListener');
+const windowAddEventListenerSpy = vi.spyOn(window, 'addEventListener');
+const windowRemoveEventListenerSpy = vi.spyOn(window, 'removeEventListener');
 
 const ref = { current: document.createElement('div') };
-const refAddEventListenerSpy = jest.spyOn(ref.current, 'addEventListener');
-const refRemoveEventListenerSpy = jest.spyOn(ref.current, 'removeEventListener');
+const refAddEventListenerSpy = vi.spyOn(ref.current, 'addEventListener');
+const refRemoveEventListenerSpy = vi.spyOn(ref.current, 'removeEventListener');
 
 const docRef = { current: window.document };
-const docAddEventListenerSpy = jest.spyOn(docRef.current, 'addEventListener');
-const docRemoveEventListenerSpy = jest.spyOn(docRef.current, 'removeEventListener');
+const docAddEventListenerSpy = vi.spyOn(docRef.current, 'addEventListener');
+const docRemoveEventListenerSpy = vi.spyOn(docRef.current, 'removeEventListener');
 
 describe('useEventListener hook testing', () => {
 	afterEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 
 	it('Should bind/unbind the event listener to the window when element is not provided', () => {
 		const eventName = 'test-event';
-		const handler = jest.fn();
+		const handler = vi.fn();
 		const options = undefined;
 
 		const { unmount } = renderHook(() => useEventListener(eventName, handler));
@@ -48,7 +49,7 @@ describe('useEventListener hook testing', () => {
 
 	it('Should bind/unbind the event listener to the element when element is provided', () => {
 		const eventName = 'test-event';
-		const handler = jest.fn();
+		const handler = vi.fn();
 		const options = undefined;
 
 		const { unmount } = renderHook(() => useEventListener(eventName, handler, ref, options));
@@ -63,7 +64,7 @@ describe('useEventListener hook testing', () => {
 
 	it('Should bind/unbind the event listener to the document when document is provided', () => {
 		const eventName = 'test-event';
-		const handler = jest.fn();
+		const handler = vi.fn();
 		const options = undefined;
 
 		const { unmount } = renderHook(() => useEventListener(eventName, handler, docRef, options));
@@ -78,7 +79,7 @@ describe('useEventListener hook testing', () => {
 
 	it('Should pass the options to the event listener', () => {
 		const eventName = 'test-event';
-		const handler = jest.fn();
+		const handler = vi.fn();
 		const options = {
 			passive: true,
 			once: true,
@@ -92,7 +93,7 @@ describe('useEventListener hook testing', () => {
 
 	it('Should call the event listener handler when the event is triggered', () => {
 		const eventName = 'click';
-		const handler = jest.fn();
+		const handler = vi.fn();
 
 		renderHook(() => useEventListener(eventName, handler, ref));
 
@@ -102,8 +103,8 @@ describe('useEventListener hook testing', () => {
 	});
 
 	it('Should have the correct event type', () => {
-		const clickHandler = jest.fn();
-		const keydownHandler = jest.fn();
+		const clickHandler = vi.fn();
+		const keydownHandler = vi.fn();
 
 		renderHook(() => useEventListener('click', clickHandler, ref));
 		renderHook(() => useEventListener('keydown', keydownHandler, ref));
