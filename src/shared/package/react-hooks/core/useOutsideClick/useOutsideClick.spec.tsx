@@ -1,17 +1,18 @@
 import { render, renderHook, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { describe, expect, it, vi } from 'vitest';
 
 import { useOutsideClick } from './index';
 
 describe('useOutsideClick hook testing', () => {
 	it('Should return ref object', () => {
-		const fn = jest.fn();
+		const fn = vi.fn();
 		const { result } = renderHook(() => useOutsideClick(fn));
 		expect(typeof result.current).toBe('object');
 	});
 
 	it('Should activate callback with click outside', async () => {
-		const fn = jest.fn();
+		const fn = vi.fn();
 		const { result } = renderHook(() => useOutsideClick<HTMLParagraphElement>(fn));
 		render(
 			<>
@@ -28,7 +29,7 @@ describe('useOutsideClick hook testing', () => {
 	});
 
 	it('Should clear listener with unmount', async () => {
-		const fn = jest.fn();
+		const fn = vi.fn();
 		const { result, unmount } = renderHook(() => useOutsideClick<HTMLParagraphElement>(fn));
 		const { unmount: unmountComp } = render(
 			<>
