@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material';
+import { ThemeConfig } from 'antd';
 
 import { components } from './components';
 import { darkPalette } from './palette/dark';
@@ -24,3 +25,7 @@ export const lightTheme = createTheme({
 export const darkTheme = createTheme({
 	palette: darkPalette,
 });
+
+export const themeConfig: ThemeConfig = {
+	token: {},
+};

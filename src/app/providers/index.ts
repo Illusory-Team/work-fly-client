@@ -1,7 +1,6 @@
 import { combineProviders } from '@/shared/lib/helpers/combineProviders';
 
-import { GlobalCssPriority } from './GlobalCssPriority';
 import { QueryProvider } from './QueryProvider';
-import { ThemeProvider } from './theme.provider';
+import { ThemeProvider } from './ThemeProvider';
 
-export const AppProvider = combineProviders(ThemeProvider, QueryProvider, GlobalCssPriority);
+export const AppProvider = combineProviders(ThemeProvider, QueryProvider);
